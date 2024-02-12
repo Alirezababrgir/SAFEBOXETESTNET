@@ -27,20 +27,20 @@ const ModalComponent = ({ open, handleClose }) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Divider><h3>Select Wallet</h3></Divider>
+                <Divider className="mb-4"><h3>Select Wallet</h3></Divider>
                 <div className="containe">
-                    <div className="row justify-content-center text-center">
-                        <div className="col-12 col-sm-4">
-                            <img className="walletphoto" src={meta} alt="trust" />
+                    <div className="row justify-content-center text-center py-4">
+                        <div className="col-12 col-sm-4 mt-2">
+                            <img className="wallets" src={meta} alt="trust" />
                         </div>
-                        <div className="col-12 col-sm-4">
-                            <img className="walletphoto" src={trust} alt="trust" />
+                        <div className="col-12 col-sm-4 my-4">
+                            <img className="wallets" src={trust} alt="trust" />
                         </div>
-                        <div className="col-12 col-sm-4">
-                            <img className="walletphoto" src={bitkeep} alt="trust" />
+                        <div className="col-12 col-sm-4 mt-2 mb-4">
+                            <img className="wallets" src={bitkeep} alt="trust" />
                         </div>
-                        <div className="col-12 mt-2">
-                            <Divider><IoMdCloseCircle onClick={handleClose} style={{fontSize:"3rem"}} className="text-danger"/></Divider>
+                        <div className="col-12 mt-4">
+                            <Divider><IoMdCloseCircle onClick={handleClose} style={{ fontSize: "3.5rem" }} className="text-danger" /></Divider>
                         </div>
                     </div>
                 </div>

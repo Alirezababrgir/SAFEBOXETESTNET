@@ -11,7 +11,7 @@ export default function Connectwallet() {
     const handleClose = () => setOpen(false);
 
     return (
-        <div className='d-flex justify-content-center align-item-center' style={{height:"100vh"}}>
+        <div className='d-flex justify-content-center align-item-center' style={{height:"100dvh"}}>
                     <div style={{ margin: "auto" }}>
                         <button style={{borderRadius:"1rem"}} className='btn btn-primary text-center' onClick={handleOpen}><img className='mb-2' height={50} src={connectwallet} /><h4>ConnectWallet</h4></button>
                     </div>
