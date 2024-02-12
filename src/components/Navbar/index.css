@@ -1,0 +1,173 @@
+/*drawer styles*/
+.mobile-nav-container {
+  background-image: radial-gradient(circle at 20% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%),
+    linear-gradient(40deg, #040a22, #0033ff, #00000000, #0e1a86);
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.mobile-nav-elements {
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 20% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%),
+    linear-gradient(40deg, #040a22, #020924, #040d2e, #000a30);
+}
+
+
+.appbar {
+  background-image: radial-gradient(circle at 20% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%),
+    linear-gradient(40deg, #040a22, #020924, #040d2e, #000a30);
+}
+
+.mobile-nav-elements ul {
+  height: 60%;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.mobile-nav-elements ul a {
+  font-family: "Comfortaa", sans-serif !important;
+  font-weight: 400;
+  font-size: 1.4rem;
+  height: 50px;
+  letter-spacing: 0.5px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  color: #ffffff;
+  text-decoration: none;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  height: 2px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.mobile-nav-elements ul :hover {
+  color: rgb(255, 255, 255);
+  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}
+
+
+
+
+/*styicky navbar*/
+
+.navcontainer {
+  margin: 0 auto;
+  padding: 0 0px;
+  height: 100%;
+}
+
+.navbar {
+  height: 90px;
+  position: fixed;
+  width: 100%;
+  background-image: radial-gradient(0% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%),
+    linear-gradient(40deg, #040a22, #3b425f, #000a30, #040a22);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 9px 5px 0px rgba(0, 0, 0, 0.66);
+  -webkit-box-shadow: 2px 9px 5px 0px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 2px 9px 5px 0px rgba(0, 0, 0, 0.66);
+}
+
+.menu-icon {
+  display: none;
+}
+
+.logo {
+  position: relative;
+  bottom: 85px;
+  right: 100px;
+  height: 250px;
+  width: 300px;
+}
+
+.nav-elements {
+  margin-bottom: 45px;
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.nav-elements ul a {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  height: 50px;
+  letter-spacing: 0.4px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 0px 0px;
+  position: relative;
+  bottom: 50px;
+  font-variant: small-caps;
+  text-transform: capitalize;
+}
+
+
+
+.nav-elements ul a:hover {
+  color: rgb(255, 255, 255);
+  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}
+
+@media (max-width: 500px) {
+
+  .mobile-nav-elements ul {
+    height: 60%;
+  }
+
+  .drawerlogo {
+    position: absolute;
+    height: 180px;
+    width: 200px;
+    left: 100px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    display: none !important;
+  }
+}

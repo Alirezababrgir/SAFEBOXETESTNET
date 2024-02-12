@@ -1,0 +1,151 @@
+import { Divider } from "@mui/material";
+import { FaRegArrowAltCircleDown } from "react-icons/fa";
+const Champion=()=>{
+    return(
+        <div className="col-md-6 col-lg-4">
+        <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
+            <div className="card-header-tab card-header-tab-animation card-header">
+                <div className="card-header-title">
+                    <i className="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
+                    <h1 className="fs-2">Champion</h1>
+                </div>
+                <ul className="nav">
+                    <li className="nav-item"><h3 className="text-danger">35%</h3></li>
+                </ul>
+            </div>
+            <div className="card-body">
+                <div className="tab-content">
+                    <div className="tab-pane fade show active" id="tabs-eg-77">
+                        <div>
+                            <div className="scrollbar-container px-4">
+                                <ul className="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                                    <li className="list-group-item">
+                                        <div className="widget-content">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="widget-heading">Havyness</h4>
+                                                </div>
+                                                <div className="widget-content-right">
+                                                    <h4 className="widget-heading">Lightness</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="text-muted"><FaRegArrowAltCircleDown style={{ marginLeft: "3rem" }} className="fs-2" /></h4>
+                                                </div>
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-right">
+                                                        <h4 className="text-muted"><FaRegArrowAltCircleDown style={{ marginRight: "3rem" }} className="fs-2" /></h4>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content">
+                                                    <h4 className="widget-heading text-success">17000$</h4>
+                                                </div>
+                                                <div className="widget-content-right">
+                                                    <div className="font-size-xlg">
+                                                        <h4 className="widget-heading text-danger">12000$</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <Divider textAlign="center">Replace</Divider>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content">
+                                                    <h4 className="widget-heading text-success">7000$</h4>
+                                                </div>
+                                                <div className="widget-content-right">
+                                                    <div className="font-size-xlg">
+                                                        <h4 className="widget-heading text-danger">3000$</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <Divider textAlign="center" variant="fullWidth" sx={{bgcolor:"black"}}></Divider>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0 text-center">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="text-muted fs-4">Total Sales 10 Lvl:</h4>
+                                                </div>
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-right">
+                                                        <h5 className="text-muted">10000 $</h5>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0 text-center">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="text-muted">Lot Price</h4>
+                                                </div>
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-right">
+                                                        <h4 className="text-muted">N $</h4>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0 text-center">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="text-muted">Lot Amount</h4>
+                                                </div>
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-right">
+                                                        <h4 className="text-muted">N $</h4>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                        </div>
+                                    </li>
+                                    <li className="list-group-item">
+                                        <div className="widget-content p-0 text-center">
+                                            <div className="widget-content-wrapper">
+                                                <div className="widget-content-left">
+                                                    <h4 className="text-muted">Daily Income</h4>
+                                                </div>
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-right">
+                                                        <h4 className="text-muted">N $</h4>
+                                                    </div>
+                                                </div>
+                                            </div >
+                                        </div>
+                                        <div className="widget-content-wrapper text-center mt-4">
+                                            <h5 className="widget-heading">Income</h5>
+                                            <h5 className="widget-subheading">Expected totals</h5>
+                                            <div className="widget-content-right">
+                                                <h5 className="widget-numbers text-focus">$147</h5>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+}
+export default Champion;

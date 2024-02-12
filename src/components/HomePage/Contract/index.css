@@ -1,0 +1,93 @@
+#contract {
+  padding: 5rem 0;
+  margin-top: 10px;
+  width: 100% !important;
+}
+
+.boxes {
+  margin-top: 20px;
+}
+
+.testimonial-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #555;
+  font-family: "Bebas Neue", cursive;
+}
+
+.testimonial-container {
+  font-size: 1.2rem;
+  padding: 1rem;
+  font-weight: 400;
+}
+
+/*#addrwallets {
+  background-attachment: fixed;
+  background-position-y: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(https://ethereum.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffind-wallet-hero.c9025bb3.png&w=640&q=75);
+}*/
+
+.testimonial-box .testimonial-text {
+  margin: 1rem 0;
+  color: #444;
+}
+
+.testimonial-box {
+  text-align: center;
+  padding: 1rem;
+}
+
+.customer-photo img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+  cursor: pointer;
+}
+
+.addr-text {
+  margin-top: 12%;
+}
+
+.walletphoto {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  cursor: pointer;
+  margin: auto;
+  object-position: center;
+}
+
+.img_contract {
+  width: 350px;
+  height: 350px;
+}
+
+
+@media (max-width: 500px) {
+  .walletphoto {
+    display: block;
+    width: 150px;
+    height: 70px;
+  }
+
+  .img_contract {
+    width: 250px;
+    height: 250px;
+  }
+
+  .img_addr {
+    margin: auto;
+    max-width: 300px;
+    height: 200px;
+  }
+
+  .addr-text {
+    margin-top: 10px;
+  }
+}
