@@ -8,6 +8,7 @@ import { GoPackage } from "react-icons/go";
 import { GrHome } from "react-icons/gr";
 import { RiDashboard2Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { MapOutlined } from "@mui/icons-material";
 
 
 const Navbar = () => {
@@ -24,6 +25,7 @@ const Navbar = () => {
             <li><a href="#forex"><TbChartCandle /> Forex</a></li>
             <li><a href="#packages"><FaBoxOpen /> Packages</a></li>
             <li><a href="#contract"><LiaFileContractSolid /> Contract</a></li>
+            <li><a href="#roadmap"><MapOutlined/> Roadmap</a></li>
             <li><a href="#about"><CgDanger /> About</a></li>
           </ul>
         </div>

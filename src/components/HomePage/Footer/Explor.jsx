@@ -3,7 +3,6 @@ const Explor = () => {
 
     return (
         <div className="container-fluid test2container p-4">
-            <div id="tsparticles"></div>
             <section className="test2">
                 <div class="content">
                     <h1>Let's Trading History!</h1>

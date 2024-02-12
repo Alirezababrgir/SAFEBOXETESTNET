@@ -16,6 +16,7 @@ import Office from './components/Dashboard/Content/Oficecontent/Office';
 import Topup from './components/Dashboard/Content/Topupcontent/Topup';
 import Broker from './components/Dashboard/Content/Brokercontent/Broker';
 import Plan from './components/Dashboard/Content/Plancontent/Plan';
+import ConnectWallet from './components/ConnectWallet/ConnectWallet';
 const Router = createBrowserRouter([{
   path: "/",
   element: <App />,
@@ -23,6 +24,7 @@ const Router = createBrowserRouter([{
   children: [
     { path: "/", element: <Home /> },
     { path: "/signup", element: <Singup /> },
+    { path: "/connectwallet", element: <ConnectWallet /> },
     { path: "/forex", element: <Forex /> },
     { path: "/forexbroker", element: <ForexBroker /> },
     { path: "/copytrade", element: <CopyTrade /> },

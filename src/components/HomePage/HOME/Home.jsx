@@ -31,7 +31,7 @@ const Home = () => {
                         <h1 className="mb-4 fs-2 text-white">
                             <h2 className="scale-in-center">Safe Transaction At Safeboxes</h2>
                         </h1>
-                        <button onClick={() => { navigate("/signup") }} class='glowing-btn mt-4 mb-2'><span class='glowing-txt'>S<span class='faulty-letter'>T</span>ART</span ></button>
+                        <button onClick={() => { navigate("/connectwallet") }} class='glowing-btn mt-4 mb-2'><span class='glowing-txt'>S<span class='faulty-letter'>T</span>ART</span ></button>
                     </div>
                 </section>
                 <section id="safebox">

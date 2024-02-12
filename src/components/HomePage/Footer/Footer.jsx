@@ -9,23 +9,23 @@ const Footer = () => {
         <footer className="text-center" id="footer">
             <div class="footer-middle p-4">
                 <Explor />
-                <div class="container mt-4">
-                        <div class="row text-center">
-                            <ul class="list-unstyled d-flex justify-content-evenly">
-                                <li><a href="#">Parks and Recreation</a></li>
-                                <li><a href="#">Public Works</a></li>
-                                <li><a href="#">Police Department</a></li>
-                                <li><a href="#">Fire</a></li>
-                                <li><a href="#">Mayor and City Council</a></li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-evenly">
-                                <li><a href="#">Parks and Recreation</a></li>
-                                <li><a href="#">Public Works</a></li>
-                                <li><a href="#">Police Department</a></li>
-                                <li><a href="#">Fire</a></li>
-                                <li><a href="#">Mayor and City Council</a></li>
-                            </ul>
-                        </div>
+                <div class="container ">
+                    <div class="row text-center">
+                        <ul class="list-unstyled d-flex justify-content-evenly">
+                            <li><a href="#">Parks and Recreation</a></li>
+                            <li><a href="#">Public Works</a></li>
+                            <li><a href="#">Police Department</a></li>
+                            <li><a href="#">Fire</a></li>
+                            <li><a href="#">Mayor and City Council</a></li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-evenly">
+                            <li><a href="#">Parks and Recreation</a></li>
+                            <li><a href="#">Public Works</a></li>
+                            <li><a href="#">Police Department</a></li>
+                            <li><a href="#">Fire</a></li>
+                            <li><a href="#">Mayor and City Council</a></li>
+                        </ul>
+                    </div>
                     <div class="col p-4">
                         <h3 className=" mb-4">Follow Us</h3>
                         <i class="hover-fx hover-instagram"><LuInstagram /></i>
