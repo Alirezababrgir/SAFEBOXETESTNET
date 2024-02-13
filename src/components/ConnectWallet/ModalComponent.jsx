@@ -1,3 +1,8 @@
+
+/*modal*/
+
+/*
+
 import { Divider, Modal } from "@mui/material";
 import Box from '@mui/material/Box';
 import bitkeep from "../../assets/banners/bitkip.png"
@@ -19,6 +24,7 @@ const style = {
 };
 const ModalComponent = ({ open, handleClose }) => {
 
+
     return (
         <Modal
             open={open}
@@ -31,7 +37,7 @@ const ModalComponent = ({ open, handleClose }) => {
                 <div className="containe">
                     <div className="row justify-content-center text-center py-4">
                         <div className="col-12 col-sm-4 mt-2">
-                            <img className="wallets" src={meta} alt="trust" />
+                            <img onClick={connectWallet} className="wallets" src={meta} alt="trust" />
                         </div>
                         <div className="col-12 col-sm-4 my-4">
                             <img className="wallets" src={trust} alt="trust" />
@@ -44,9 +50,9 @@ const ModalComponent = ({ open, handleClose }) => {
                         </div>
                     </div>
                 </div>
-
             </Box>
         </Modal>
     )
 }
 export default ModalComponent;
+*/

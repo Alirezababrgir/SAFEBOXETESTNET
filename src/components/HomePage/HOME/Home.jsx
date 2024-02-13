@@ -29,7 +29,7 @@ const Home = () => {
                     <div className="showcase-container text-center">
                         <img className="d-none" height={300} width={400} id="safe" src={logo} alt="logo" />
                         <h1 className="mb-4 fs-2 text-white">
-                            <h2 className="scale-in-center">Safe Transaction At Safeboxes</h2>
+                            <h2 className="scale-in-center">Experience profitability and security with us</h2>
                         </h1>
                         <button onClick={() => { navigate("/connectwallet") }} class='glowing-btn mt-4 mb-2'><span class='glowing-txt'>S<span class='faulty-letter'>T</span>ART</span ></button>
                     </div>
