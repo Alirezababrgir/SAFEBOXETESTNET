@@ -4,7 +4,6 @@ import { Divider } from "@mui/material";
 
 const Singup = () => {
 
-
   return (
     <div className="containe-fluid logcontainer parent">
       <div className="container">
@@ -14,66 +13,65 @@ const Singup = () => {
           <div className="row plans" >
             <Divider className="text-white mb-4"><h3>Register</h3></Divider>
             <form className="text-center">
-                <div className="pkges col-12 col-lg-12 align-self-center">
+              <div className="pkges col-12 col-lg-12 align-self-center">
                 <Divider className="text-white" textAlign="left"><h5>Inject UID</h5></Divider>
-                  <label className="input-box plan">
-                    <input type="text" required placeholder="reflink" />
-                  </label>
-                  <Divider className="text-white"><h5>Select Package</h5></Divider>
+                <label className="input-box plan">
+                  <input type="text" required placeholder="reflink" />
+                </label>
+                <Divider className="text-white"><h5>Select Package</h5></Divider>
 
-                  <label className="plan basic-plan" htmlFor="basic">
-                    <input defaultChecked type="radio" name="plan" id="basic" />
-                    <div className="plan-content">
-                      <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
-                      <div className="plan-details">
-                        <h4>25 $</h4>
-                        <p>For smaller business</p>
-                      </div>
+                <label className="plan basic-plan" htmlFor="basic">
+                  <input defaultChecked type="radio" name="plan" id="basic" />
+                  <div className="plan-content">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <div className="plan-details">
+                      <h4>25 $</h4>
+                      <p>For smaller business</p>
                     </div>
-                  </label>
-                  <label className="plan basic-plan" htmlFor="basicc">
-                    <input defaultChecked type="radio" name="plan" id="basicc" />
-                    <div className="plan-content">
-                      <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
-                      <div className="plan-details">
-                        <h4>50 $</h4>
-                        <p>For smaller business,</p>
-                      </div>
+                  </div>
+                </label>
+                <label className="plan basic-plan" htmlFor="basicc">
+                  <input defaultChecked type="radio" name="plan" id="basicc" />
+                  <div className="plan-content">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <div className="plan-details">
+                      <h4>50 $</h4>
+                      <p>For smaller business,</p>
                     </div>
-                  </label>
-                  <label className="plan basic-plan" htmlFor="GOLD">
-                    <input defaultChecked type="radio" name="plan" id="GOLD" />
-                    <div className="plan-content">
-                      <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
-                      <div className="plan-details">
-                        <h4>100 $</h4>
-                        <p>For smaller business,</p>
-                      </div>
+                  </div>
+                </label>
+                <label className="plan basic-plan" htmlFor="GOLD">
+                  <input defaultChecked type="radio" name="plan" id="GOLD" />
+                  <div className="plan-content">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <div className="plan-details">
+                      <h4>100 $</h4>
+                      <p>For smaller business,</p>
                     </div>
-                  </label>
-                  <label className="plan basic-plan" htmlFor="DIAMOND">
-                    <input defaultChecked type="radio" name="plan" id="DIAMOND" />
-                    <div className="plan-content">
-                      <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
-                      <div className="plan-details">
-                        <h4>200 $</h4>
-                        <p>For smaller business, </p>
-                      </div>
+                  </div>
+                </label>
+                <label className="plan basic-plan" htmlFor="DIAMOND">
+                  <input defaultChecked type="radio" name="plan" id="DIAMOND" />
+                  <div className="plan-content">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <div className="plan-details">
+                      <h4>200 $</h4>
+                      <p>For smaller business, </p>
                     </div>
-                  </label>
-                  <label className="plan basic-plan" htmlFor="DIAMONDblack">
-                    <input defaultChecked type="radio" name="plan" id="DIAMONDblack" />
-                    <div className="plan-content">
-                      <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
-                      <div className="plan-details">
-                        <h4>500 $</h4>
-                        <p>For smaller business,</p>
-                      </div>
+                  </div>
+                </label>
+                <label className="plan basic-plan" htmlFor="DIAMONDblack">
+                  <input defaultChecked type="radio" name="plan" id="DIAMONDblack" />
+                  <div className="plan-content">
+                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <div className="plan-details">
+                      <h4>500 $</h4>
+                      <p>For smaller business,</p>
                     </div>
-                  </label>
-                </div>
+                  </div>
+                </label>
+              </div>
               <label className="mt-4">
-                <button className="btn btn-danger text-white mx-4">cancel</button>
                 <button className="btn btn-success text-white">send</button>
               </label>
             </form>
