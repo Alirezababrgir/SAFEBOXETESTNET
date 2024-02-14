@@ -1,6 +1,10 @@
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import { Divider } from "@mui/material";
+import { IoDiamondOutline } from "react-icons/io5";
+import { IoDiamond } from "react-icons/io5";
+import { GiGoldBar } from "react-icons/gi";
+import { GiConfirmed } from "react-icons/gi";
 
 const Singup = () => {
 
@@ -19,60 +23,59 @@ const Singup = () => {
                   <input type="text" required placeholder="reflink" />
                 </label>
                 <Divider className="text-white"><h5>Select Package</h5></Divider>
-
-                <label className="plan basic-plan" htmlFor="basic">
+                <label className="plan basic-plan gr-bronz" htmlFor="basic">
                   <input defaultChecked type="radio" name="plan" id="basic" />
                   <div className="plan-content">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                  <GiGoldBar className="ml-2" style={{fontSize:"5rem",opacity:"20%"}}/>
                     <div className="plan-details">
                       <h4>25 $</h4>
-                      <p>For smaller business</p>
+                      <p className="text-white">Bronz Package</p>
                     </div>
                   </div>
                 </label>
-                <label className="plan basic-plan" htmlFor="basicc">
+                <label className="plan basic-plan gr-silver" htmlFor="basicc">
                   <input defaultChecked type="radio" name="plan" id="basicc" />
                   <div className="plan-content">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                  <GiGoldBar className="ml-2" style={{fontSize:"5rem",opacity:"40%"}}/>
                     <div className="plan-details">
                       <h4>50 $</h4>
-                      <p>For smaller business,</p>
+                      <p>Silver Package</p>
                     </div>
                   </div>
                 </label>
-                <label className="plan basic-plan" htmlFor="GOLD">
+                <label className="plan basic-plan gr-gold" htmlFor="GOLD">
                   <input defaultChecked type="radio" name="plan" id="GOLD" />
                   <div className="plan-content">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                  <GiGoldBar className="ml-2" style={{fontSize:"5rem",opacity:"60%"}}/>
                     <div className="plan-details">
                       <h4>100 $</h4>
-                      <p>For smaller business,</p>
+                      <p>Golden Package</p>
                     </div>
                   </div>
                 </label>
-                <label className="plan basic-plan" htmlFor="DIAMOND">
+                <label className="plan basic-plan gr-diamond" htmlFor="DIAMOND">
                   <input defaultChecked type="radio" name="plan" id="DIAMOND" />
                   <div className="plan-content">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                  <IoDiamondOutline className="ml-2" style={{fontSize:"5rem",opacity:"30%"}}/>
                     <div className="plan-details">
                       <h4>200 $</h4>
-                      <p>For smaller business, </p>
+                      <p>Diamond Package</p>
                     </div>
                   </div>
                 </label>
-                <label className="plan basic-plan" htmlFor="DIAMONDblack">
+                <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
                   <input defaultChecked type="radio" name="plan" id="DIAMONDblack" />
                   <div className="plan-content">
-                    <img loading="lazy" src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/life-saver-img.svg" alt="" />
+                    <IoDiamond className="ml-2" style={{fontSize:"5rem"}}/>
                     <div className="plan-details">
                       <h4>500 $</h4>
-                      <p>For smaller business,</p>
+                      <p>Black Diamond Package</p>
                     </div>
                   </div>
                 </label>
               </div>
-              <label className="mt-4">
-                <button className="btn btn-success text-white">send</button>
+              <label className="mt-4 text-center">
+                <button className="glowing-btn text-center p-2">Confirm<GiConfirmed/></button>
               </label>
             </form>
           </div>
