@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Web3 from 'web3';
 import { useNavigate } from 'react-router-dom';
-
 export const useMetamask = () => {
 
   const [isConnected, setIsConnected] = useState(false);
