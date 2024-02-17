@@ -6,11 +6,87 @@ import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
-
+import React, { useState } from 'react';
+import Web3 from 'web3';
+const abi="ll"
 const Singup = () => {
 
+  const [selectedPackage, setSelectedPackage] = useState('');
+  const [referralCode, setReferralCode] = useState('');
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+    const accounts = await web3.eth.getAccounts();
+
+    const contractAddress = '0x123456789...'; // آدرس کانترکت در شبکه پالیگان
+    const contract = new web3.eth.Contract(abi, contractAddress);
+
+    // ارسال اطلاعات به کانترکت
+    contract.methods.register(selectedPackage, referralCode)
+      .send({ from: accounts[0] })
+      .on('receipt', function (receipt) {
+        console.log(receipt);
+      });
+  };
   return (
-    <div className="containe-fluid parent">
+    <form onSubmit={handleFormSubmit}>
+      <label>
+        <input
+          type="radio"
+          value="package1"
+          checked={selectedPackage === "package1"}
+          onChange={() => setSelectedPackage("package1")}
+        />
+        Package 1
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="package2"
+          checked={selectedPackage === "package2"}
+          onChange={() => setSelectedPackage("package2")}
+        />
+        Package 2
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="package3"
+          checked={selectedPackage === "package3"}
+          onChange={() => setSelectedPackage("package3")}
+        />
+        Package 3
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="package4"
+          checked={selectedPackage === "package4"}
+          onChange={() => setSelectedPackage("package4")}
+        />
+        Package 4
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="package5"
+          checked={selectedPackage === "package5"}
+          onChange={() => setSelectedPackage("package5")}
+        />
+        Package 5
+      </label>
+      <input type="text" value={referralCode} onChange={(e) => setReferralCode(e.target.value)} placeholder="Referral Code" />
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
+export default Singup;
+
+/*
+
+<div className="containe-fluid parent">
       <div className="container">
         <HelmetProvider>
           <Helmet><title >SAFEBOXES | REGESTER</title></Helmet>
@@ -70,7 +146,7 @@ const Singup = () => {
                   <label className="input-box plan basic-plan plan">
                   <Divider textAlign="left" className="text-white mb-4"><h5>Register</h5></Divider>
                   <input type="text" required placeholder="reflink" />
-                  <Fab variant="extended" color="primary"><GrSend className='fs-2 mr-2' /><h4 className='mt-2'>APPROVE</h4></Fab> 
+                  <Fab className="mt-4" variant="extended" color="primary"><GrSend className='fs-2 mr-2' /><h5 className='mt-2'>APPROVE</h5></Fab> 
                 </label>
                 </div>
               </div>
@@ -78,102 +154,5 @@ const Singup = () => {
         </HelmetProvider >
       </div>
     </div>
-  )
-}
-export default Singup;
-
-/*
-<article class="bg-secondary">
-<div class="card-body text-center">
-    <h3 class="text-white mt-3">Bootstrap 4 UI KIT</h3>
-    <p class="h5 text-white">Components and templates  <br /> for Ecommerce, marketplace, booking websites
-        and product landing pages</p>   <br />
-    <p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com
-        <i class="fa fa-window-restore "></i></a></p>
-</div>
-<br /><br />
-</article>
-
-
-
-
- <span style={{ "--i": "0" }} />
-          <span style={{ "--i": "1" }} />
-          <span style={{ "--i": "2" }} />
-          <span style={{ "--i": "3" }} />
-          <span style={{ "--i": "4" }} />
-          <span style={{ "--i": "5" }} />
-          <span style={{ "--i": "6" }} />
-          <span style={{ "--i": "7" }} />
-          <span style={{ "--i": "8" }} />
-          <span style={{ "--i": "9" }} />
-          <span style={{ "--i": "10" }} />
-          <span style={{ "--i": "11" }} />
-          <span style={{ "--i": "12" }} />
-          <span style={{ "--i": "13" }} />
-          <span style={{ "--i": "14" }} />
-          <span style={{ "--i": "15" }} />
-          <span style={{ "--i": "16" }} />
-          <span style={{ "--i": "17" }} />
-          <span style={{ "--i": "18" }} />
-          <span style={{ "--i": "19" }} />
-          <span style={{ "--i": "20" }} />
-          <span style={{ "--i": "21" }} />
-          <span style={{ "--i": "22" }} />
-          <span style={{ "--i": "23" }} />
-          <span style={{ "--i": "24" }} />
-          <span style={{ "--i": "25" }} />
-          <span style={{ "--i": "26" }} />
-          <span style={{ "--i": "27" }} />
-          <span style={{ "--i": "28" }} />
-          <span style={{ "--i": "29" }} />
-          <span style={{ "--i": "30" }} />
-          <span style={{ "--i": "31" }} />
-          <span style={{ "--i": "32" }} />
-          <span style={{ "--i": "33" }} />
-          <span style={{ "--i": "34" }} />
-          <span style={{ "--i": "35" }} />
-          <span style={{ "--i": "36" }} />
-          <span style={{ "--i": "37" }} />
-          <span style={{ "--i": "38" }} />
-          <span style={{ "--i": "39" }} />
-          <span style={{ "--i": "40" }} />
-          <span style={{ "--i": "41" }} />
-          <span style={{ "--i": "42" }} />
-          <span style={{ "--i": "43" }} />
-          <span style={{ "--i": "44" }} />
-          <span style={{ "--i": "45" }} />
-          <span style={{ "--i": "46" }} />
-          <span style={{ "--i": "47" }} />
-          <span style={{ "--i": "48" }} />
-          <span style={{ "--i": "49" }} />
-
-
-
-
-          <div className="login-box">
-                <h4 className="logh2">Regester</h4>
-                <form action="#">
-                  <div className="input-box">
-                    <input className=" glowing-btn" type="text" required />
-                    <label>User Name</label>
-                  </div>
-                  <div >
-                    <label>Reflink</label>
-                  </div>
-                  <div class="radio-buttons-container mb-4">
-                  </div>
-                  <button type="submit" className="regester" disabled>Regester</button>
-                  <div className="signup-link">
-                    <button className="cancel" onClick={() => { navigate("/") }} href="#">cancel</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-
-
-
 
 */
