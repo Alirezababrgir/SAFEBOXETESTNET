@@ -1,3 +1,44 @@
+import React, { useState, useEffect } from 'react';
+import Web3 from 'web3';
+
+const Signup = () => {
+  const [tetherBalance, setTetherBalance] = useState(null);
+  const web3 = new Web3(Web3.givenProvider || "https://polygon-rpc.com");
+  const accountAddress = "0x25007F00A12f32B9eF3158875FcC03a094DD29DD"
+
+  useEffect(() => {
+    const fetchTetherBalance = async () => {
+      const accounts = await web3.eth.getAccounts();
+
+      const tetherContractAddress ="0xc2132D05D31c914a87C6611C10748AEb04B58e8F"; // آدرس کانترکت تتر در شبکه پالیگان
+      const tetherContractABI = [{"inputs":[{"internalType":"address","name":"_proxyTo","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"_new","type":"address"},{"indexed":false,"internalType":"address","name":"_old","type":"address"}],"name":"ProxyOwnerUpdate","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"_new","type":"address"},{"indexed":true,"internalType":"address","name":"_old","type":"address"}],"name":"ProxyUpdated","type":"event"},{"stateMutability":"payable","type":"fallback"},{"inputs":[],"name":"implementation","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"proxyOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"proxyType","outputs":[{"internalType":"uint256","name":"proxyTypeId","type":"uint256"}],"stateMutability":"pure","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferProxyOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_newProxyTo","type":"address"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"updateAndCall","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"_newProxyTo","type":"address"}],"name":"updateImplementation","outputs":[],"stateMutability":"nonpayable","type":"function"},{"stateMutability":"payable","type":"receive"}]
+      const tetherContract = new web3.eth.Contract(tetherContractABI, tetherContractAddress);
+
+      // فراخوانی تابع کانترکت برای دریافت موجودی تتر حساب
+      const result = await tetherContract.methods.balanceOf(accountAddress).call({ from: accounts[0] });
+
+      setTetherBalance(result);
+    };
+
+    fetchTetherBalance();
+  }, [accountAddress]);
+
+  if (!tetherBalance) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h2>Tether Balance for {accountAddress}</h2>
+      <p>Balance: {web3.utils.fromWei(tetherBalance, 'ether')} USDT</p>
+    </div>
+  );
+};
+
+export default Signup;
+
+
+/*
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import { Divider } from "@mui/material";
@@ -6,85 +47,6 @@ import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
-import React, { useState } from 'react';
-import Web3 from 'web3';
-const abi="ll"
-const Singup = () => {
-
-  const [selectedPackage, setSelectedPackage] = useState('');
-  const [referralCode, setReferralCode] = useState('');
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-    const accounts = await web3.eth.getAccounts();
-
-    const contractAddress = '0x123456789...'; // آدرس کانترکت در شبکه پالیگان
-    const contract = new web3.eth.Contract(abi, contractAddress);
-
-    // ارسال اطلاعات به کانترکت
-    contract.methods.register(selectedPackage, referralCode)
-      .send({ from: accounts[0] })
-      .on('receipt', function (receipt) {
-        console.log(receipt);
-      });
-  };
-  return (
-    <form onSubmit={handleFormSubmit}>
-      <label>
-        <input
-          type="radio"
-          value="package1"
-          checked={selectedPackage === "package1"}
-          onChange={() => setSelectedPackage("package1")}
-        />
-        Package 1
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="package2"
-          checked={selectedPackage === "package2"}
-          onChange={() => setSelectedPackage("package2")}
-        />
-        Package 2
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="package3"
-          checked={selectedPackage === "package3"}
-          onChange={() => setSelectedPackage("package3")}
-        />
-        Package 3
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="package4"
-          checked={selectedPackage === "package4"}
-          onChange={() => setSelectedPackage("package4")}
-        />
-        Package 4
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="package5"
-          checked={selectedPackage === "package5"}
-          onChange={() => setSelectedPackage("package5")}
-        />
-        Package 5
-      </label>
-      <input type="text" value={referralCode} onChange={(e) => setReferralCode(e.target.value)} placeholder="Referral Code" />
-      <button type="submit">Submit</button>
-    </form>
-  )
-}
-export default Singup;
-
-/*
 
 <div className="containe-fluid parent">
       <div className="container">
