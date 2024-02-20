@@ -2,13 +2,12 @@ import { LuInstagram } from "react-icons/lu";
 import { FaTelegram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 
-import Explor from "./Explor";
 import "./index.css"
+import { ArrowUpward } from "@mui/icons-material";
 const Footer = () => {
     return (
         <footer className="text-center" id="footer">
             <div class="footer-middle p-4">
-                <Explor />
                 <div class="container ">
                     <div class="row text-center">
                         <ul class="list-unstyled d-flex justify-content-evenly">
@@ -37,6 +36,7 @@ const Footer = () => {
                             <h1 class="fs-6 text-center mt-3">Enter Fire &copy;</h1>
                         </div>
                     </div>
+                    <i class="hover-fx hover-gmail"><a href="#"><ArrowUpward /></a></i>
                 </div>
             </div>
         </footer>

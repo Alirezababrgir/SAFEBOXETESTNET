@@ -19,6 +19,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import logo from "../../assets/banners/navlogo.png"
 import { Divider } from '@mui/material';
 import { ClickAwayListener } from '@mui/base';
+import { MapOutlined } from "@mui/icons-material";
 
 
 const drawerWidth = 135;
@@ -94,11 +95,13 @@ const Sidebar = () => {
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><NavLink to={"/dashboard"}><RiDashboard2Line /> Dashboard</NavLink></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
-              <li><a onClick={handleDrawerClose} href="#forex"><TbChartCandle /> Forex Faq</a></li>
+              <li><a onClick={handleDrawerClose} href="#forex"><TbChartCandle /> ForexFaq</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#packages"><FaBoxOpen /> Packages</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#contract"><LiaFileContractSolid /> Contract</a></li>
+              <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
+              <li><a onClick={handleDrawerClose} href="#roadmap"><MapOutlined /> RoadMap</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#about"><CgDanger /> About Us</a></li>
             </ul>
