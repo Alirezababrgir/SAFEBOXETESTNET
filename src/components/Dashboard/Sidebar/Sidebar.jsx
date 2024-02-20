@@ -95,7 +95,7 @@ const Sidebar = () => {
                             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                         </IconButton>
                         <ul className="mt-4">
-                            <li><NavLink onClick={handleDrawerClose} to={"/#home"}><GrHome className="mb-1" /> Home Page</NavLink></li>
+                            <li><NavLink onClick={handleDrawerClose} to={"/"}><GrHome className="mb-1" /> Home Page</NavLink></li>
                             <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
                             <li><NavLink onClick={handleDrawerClose} to={"/dashboard"}><RiDashboard2Line /> Dashboard</NavLink></li>
                             <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />

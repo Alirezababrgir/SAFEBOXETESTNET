@@ -19,7 +19,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import logo from "../../assets/banners/navlogo.png"
 import { Divider } from '@mui/material';
 import { ClickAwayListener } from '@mui/base';
-import { MapOutlined } from "@mui/icons-material";
+import { MapOutlined, Transgender } from "@mui/icons-material";
 
 
 const drawerWidth = 135;
@@ -101,7 +101,9 @@ const Sidebar = () => {
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#contract"><LiaFileContractSolid /> Contract</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
-              <li><a onClick={handleDrawerClose} href="#roadmap"><MapOutlined /> RoadMap</a></li>
+              <li><NavLink to={"/roadmap"} onClick={handleDrawerClose} href="#roadmap"><MapOutlined /> RoadMap</NavLink></li>
+              <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
+              <li><a onClick={handleDrawerClose} href="#Fxbook"><Transgender /> My Fxbook</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#about"><CgDanger /> About Us</a></li>
             </ul>

@@ -10,7 +10,6 @@ import "./index.css"
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Sidebar from "../../Navbar/Sidebar";
 import videosafebo from "../../../assets/banners/city.mp4"
-import { Roadmap } from "../Explor/Roadmap";
 import Explor from "../Explor/Explor";
 
 
@@ -48,8 +47,7 @@ const Home = () => {
                 <section id="contract">
                     <Contract />
                 </section>
-                <section id="roadmap">
-                    <Roadmap />
+                <section id="Fxbook">
                     <Explor />
                 </section>
                 <section id="about">

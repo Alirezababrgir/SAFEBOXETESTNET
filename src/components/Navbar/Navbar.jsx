@@ -8,14 +8,14 @@ import { GoPackage } from "react-icons/go";
 import { GrHome } from "react-icons/gr";
 import { RiDashboard2Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
-import { MapOutlined } from "@mui/icons-material";
+import { MapOutlined, TransformRounded } from "@mui/icons-material";
 
 
 const Navbar = () => {
 
   return (
     <nav className="navbar sticky-top">
-      <div className="navcontainer container sticky-top">
+      <div className="navcontainer container-fluid sticky-top">
         <img className="logo" width={"480px"} height={"430px"} src={logo} alt="logo" />
         <div className={`nav-elements`}>
           <ul className="mt-2">
@@ -25,7 +25,8 @@ const Navbar = () => {
             <li><a href="#forex"><TbChartCandle /> Forex</a></li>
             <li><a href="#packages"><FaBoxOpen /> Packages</a></li>
             <li><a href="#contract"><LiaFileContractSolid /> Contract</a></li>
-            <li><a href="#roadmap"><MapOutlined/> Roadmap</a></li>
+            <li><NavLink to={"/roadmap"} href="#"><MapOutlined /> Roadmap</NavLink></li>
+            <li><a href="#Fxbook"><TransformRounded /> My Fxbook</a></li>
             <li><a href="#about"><CgDanger /> About</a></li>
           </ul>
         </div>

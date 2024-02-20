@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './components/HomePage/HOME/Home';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Singup from './components/Login/Signup';
 import Notfound from './components/Notfound/notfound';
 import CopyTrade from './components/HomePage/Forex/Copytradepage';
@@ -17,15 +16,22 @@ import Topup from './components/Dashboard/Content/Topupcontent/Topup';
 import Broker from './components/Dashboard/Content/Brokercontent/Broker';
 import Plan from './components/Dashboard/Content/Plancontent/Plan';
 import ConnectMetamaskButton from './components/ConnectWallet/ConnectWallet';
+import Loading from './Loading/Loading';
+import { Roadmap } from './components/HomePage/Roadmap/Roadmap';
+
+/********Lazy Import App********/
+const Home = lazy(() => import("./components/HomePage/HOME/Home"))
+
 
 const Router = createBrowserRouter([{
   path: "/",
   element: <App />,
   errorElement: <Notfound />,
   children: [
-    { path: "/", element: <Home /> },
+    { path: "/", element: <Suspense fallback={<Loading/>}><Home /></Suspense> },
     { path: "/signup", element: <Singup /> },
     { path: "/connectwallet", element: <ConnectMetamaskButton /> },
+    { path: "/roadmap", element: <Roadmap /> },
     { path: "/forex", element: <Forex /> },
     { path: "/forexbroker", element: <ForexBroker /> },
     { path: "/copytrade", element: <CopyTrade /> },

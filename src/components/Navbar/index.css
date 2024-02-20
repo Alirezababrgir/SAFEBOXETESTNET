@@ -106,29 +106,24 @@
 .logo {
   position: relative;
   bottom: 85px;
-  right: 100px;
   height: 250px;
   width: 300px;
 }
 
 .nav-elements {
   margin-bottom: 45px;
+  width: 70%;
 }
 
 .nav-elements ul {
   display: flex;
-  justify-content: space-around;
+  justify-content:space-evenly;
   list-style-type: none;
-}
-
-.nav-elements ul li:not(:last-child) {
-  margin-right: 1.5rem;
 }
 
 .nav-elements ul a {
   font-family: "Comfortaa", sans-serif;
-  font-size: 19px;
-  font-weight: 400;
+  font-size: 1.2rem;
   height: 50px;
   letter-spacing: 0.4px;
   transition: all 0.5s ease;

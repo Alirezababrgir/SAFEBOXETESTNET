@@ -15,7 +15,7 @@ const Explor = () => {
                 <div class="swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="https://forexroboot.com/wp-content/uploads/2022/08/myfxbook-1.png" />
+                            <img src="https://forexroboot.com/wp-content/uploads/2022/08/myfxbook-1.png" alt="robot"/>
                             <div class="cost"><h1 className="fs-6">Social Trading Platform</h1></div>
                             <div class="overlay">
                                 <h1>Let's Trading History!</h1>

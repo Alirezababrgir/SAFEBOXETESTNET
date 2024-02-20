@@ -14,7 +14,7 @@ const Forbox = () => {
                         <h3>Join To The Broker  <br />
                         </h3>
                     </div>
-                    <Fab className="mt-4" variant="circular" color="primary"><h5 className='mt-2'>Join</h5></Fab>
+                    <Fab className="mt-4"  variant="extended"  color="primary"><h5 className='mt-2'>Join</h5></Fab>
                     <div class="ico-card">
                         <i><TbChartCandleFilled /></i>
                     </div>
@@ -33,7 +33,7 @@ const Forbox = () => {
                             variant="standard"
                         />
                     </div>
-                    <Fab className="mt-4" variant="circular" color="primary"><h5 className='mt-2'>Send</h5></Fab>
+                    <Fab className="mt-4" variant="extended"  color="primary"><h5 className='mt-2'>Send</h5></Fab>
                     <div class="ico-card">
                         <i><FiLink /></i>
                     </div>
@@ -52,7 +52,7 @@ const Forbox = () => {
                             variant="standard"
                         />
                     </div>
-                    <Fab className="mt-4" variant="circular" color="primary"><h5 className='mt-2'>Send</h5></Fab>
+                    <Fab className="mt-4"   variant="extended" color="primary"><h5 className='mt-2'>Send</h5></Fab>
                     <div class="ico-card">
                         <i><FiLink /></i>
                     </div>
@@ -70,7 +70,7 @@ const Forbox = () => {
                             label="Your leader Code"
                         />
                     </div>
-                    <Fab className="mt-2" variant="circular" color="primary"><h6 className="mt-2 fs-5">ok</h6></Fab>
+                    <Fab className="mt-2"  variant="extended"  color="primary"><h6 className="mt-2 fs-5">ok</h6></Fab>
                     <div class="ico-card">
                         <i><LuCopyCheck /></i>
                     </div>

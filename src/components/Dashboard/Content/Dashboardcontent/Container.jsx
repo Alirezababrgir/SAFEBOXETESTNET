@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { DrawerHeader } from "../../Sidebar/Drawerheader";
-import BOX_40 from './Boxes/40%box';
-import BOX_30 from './Boxes/30%box';
-import BOX_10 from './Boxes/10%box';
-import BOX_10_SHN from './Boxes/shn10%box';
 import TITTLE from './tittle/tittle';
 import TITTLE3LINKS from './tittle/tittle3links';
 import FOOTERE3LINKS from './footer/footer3link';
 import Charts from './footer/charts';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { lazy } from 'react';
 import Footer from '../Footer';
-
+/********Lazy Import Boxes********/
+const BOX_40 = lazy(() => import('./Boxes/40%box'))
+const BOX_30 = lazy(() => import('./Boxes/30%box'))
+const BOX_10 = lazy(() => import('./Boxes/10%box'))
+const BOX_10_SHN = lazy(() => import('./Boxes/shn10%box'))
 
 const Homecontent = () => {
 
@@ -28,12 +29,12 @@ const Homecontent = () => {
                                     <TITTLE3LINKS />
                                 </div>
                                 <div className="row mt-4 m-auto">
-                                    <BOX_40 />
-                                    <BOX_30 />
+                                    <React.Suspense><BOX_40 /></React.Suspense>
+                                    <React.Suspense><BOX_30 /></React.Suspense>
                                 </div>
                                 <div className="row m-auto">
-                                    <BOX_10 />
-                                    <BOX_10_SHN />
+                                    <React.Suspense><BOX_10 /></React.Suspense>
+                                    <React.Suspense><BOX_10_SHN /></React.Suspense>
                                 </div>
                                 <div className="row">
                                     <Charts />

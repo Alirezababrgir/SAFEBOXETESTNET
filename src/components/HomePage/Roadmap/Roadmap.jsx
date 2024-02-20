@@ -1,4 +1,4 @@
-import { School, Star, Work } from '@mui/icons-material';
+import { School, Work } from '@mui/icons-material';
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
