@@ -16,8 +16,6 @@ import Office from './components/Dashboard/Content/Oficecontent/Office';
 import Topup from './components/Dashboard/Content/Topupcontent/Topup';
 import Broker from './components/Dashboard/Content/Brokercontent/Broker';
 import Plan from './components/Dashboard/Content/Plancontent/Plan';
-import { Provider } from 'react-redux';
-import { Store } from './Store/Store';
 import ConnectMetamaskButton from './components/ConnectWallet/ConnectWallet';
 
 const Router = createBrowserRouter([{
@@ -49,9 +47,7 @@ const Router = createBrowserRouter([{
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={Store}>
     <RouterProvider router={Router} />
-    </Provider>
   </React.StrictMode>
 );
 
