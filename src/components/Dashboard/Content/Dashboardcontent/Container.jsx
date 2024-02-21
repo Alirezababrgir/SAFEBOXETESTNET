@@ -12,7 +12,22 @@ const BOX_40 = lazy(() => import('./Boxes/40%box'))
 const BOX_30 = lazy(() => import('./Boxes/30%box'))
 const BOX_10 = lazy(() => import('./Boxes/10%box'))
 const BOX_10_SHN = lazy(() => import('./Boxes/shn10%box'))
+/*
+    //redirect to connect wallet
 
+    import { useEffect } from 'react';
+import { useMetamask } from '../../../ConnectWallet/Usemetamask';
+import { useNavigate } from 'react-router-dom';
+
+    const { isConnected } = useMetamask();
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!isConnected) {
+            navigate("/Connectwallet")
+        }
+    }, [isConnected])
+*/
 const Homecontent = () => {
 
     return (
