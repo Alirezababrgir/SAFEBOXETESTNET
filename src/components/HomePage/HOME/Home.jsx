@@ -47,12 +47,14 @@ const Home = () => {
                 <section id="contract">
                     <Contract />
                 </section>
+                <div className="bg-blue">
                 <section id="Fxbook">
                     <Explor />
                 </section>
                 <section id="about">
                     <Footer />
                 </section>
+                </div>
             </HelmetProvider>
         </div>
     )

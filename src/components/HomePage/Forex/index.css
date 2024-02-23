@@ -237,7 +237,7 @@
   background-size: cover;
 }
 .readcard{
-  margin-top: 100px;
+ margin: auto !important;
 }
 
 /*Forex cards styles*/
