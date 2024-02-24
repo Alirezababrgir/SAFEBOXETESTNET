@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Web3 from 'web3';
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import { Divider } from "@mui/material";
@@ -9,14 +10,13 @@ import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
 import USDTContractABI from "./ABI/USDTContractABI.json"; // ABI Tether
 import SAFEContratABI from "./ABI/SAFEBOXES.json" //ABI SAFEBOXES 
-import { useMetamask } from '../ConnectWallet/Usemetamask';
+
 
 const Signup = () => {
 
   const [web3, setWeb3] = useState(null);
   const [packageNo, setSelectedPackage] = useState(0);
   const [referralUid, setReferralId] = useState('');
-  const { web3Instance } = useMetamask();
 
   const handlePackageSelection = (value) => {
     setSelectedPackage(value);
@@ -27,10 +27,8 @@ const Signup = () => {
 
   const handleBuy = async () => {
     if (window.ethereum) {
-      /*
       const provider = new Web3(window.ethereum);
-      */
-      setWeb3(web3Instance);
+      setWeb3(provider);
       try {
         //  USER ADDRESS
         var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -43,16 +41,20 @@ const Signup = () => {
         const usdtContract = new web3.eth.Contract(USDTContractABI, usdtAddress);
 
         //  CALL APPROVE 
-        await usdtContract.methods.approve(usdtAddress, 2500000000).send({ from: accounts[0] });
+        await usdtContract.methods.approve(usdtAddress, packageNo).send({ from: accounts[0] });
         console.log('approve function called successfully');
         /*
-                const web3contract = new Web3(new Web3.providers.HttpProvider('https://go.getblock.io/2cb70d69519b424880d3a7cf5fa1332b')); // Update with your Infura endpoint
+        const web3contract = new Web3(new Web3.providers.HttpProvider('https://go.getblock.io/2cb70d69519b424880d3a7cf5fa1332b')); // Update with your Infura endpoint
         */
-        //  CALL SAFEBOXES FOR BUY if (packageNo === 0 || !referralUid) {alert('Please select a package and enter a referral ID!');return; }
-        const contract = new web3.eth.Contract(SAFEContratABI, "0xFC761a499a7A1400a3999B6A7b9CaE9C73e43935");
-        const tx = await contract.methods.registerUser(referralUid, packageNo).send({ from: accounts[0], gas: 3000000 });
-        alert('Purchase with referral registered! Transaction hash: ' + tx.transactionHash);
+        //  CALL SAFEBOXES FOR BUY
 
+        const contract = new web3.eth.Contract(SAFEContratABI, "0xFC761a499a7A1400a3999B6A7b9CaE9C73e43935");
+        const tx = await contract.methods.registerUser(referralUid, packageNo).send({ from: accounts[0] });
+        if (packageNo === 0 || !referralUid) {
+          alert('Please select a package and enter a referral ID!');
+          return;
+        }
+        alert('Purchase with referral registered! Transaction hash: ' + tx.transactionHash);
       } catch (error) {
         console.error("oops", error);
       }
@@ -74,7 +76,7 @@ const Signup = () => {
               <Divider textAlign="left" className="text-white"><h5>Select Package</h5></Divider>
               <div className="pkges">
                 <label className="plan basic-plan gr-bronz" htmlFor="basic">
-                  <input defaultChecked type="radio" name="plan" id="basic" value={0} onChange={() => handlePackageSelection(0)} />
+                  <input defaultChecked type="radio" name="plan" id="basic" value={0} onChange={() => handlePackageSelection(5000000000)} />
                   <div className="plan-content">
                     <div className="plan-details">
                       <h4>25 $</h4>
@@ -82,7 +84,7 @@ const Signup = () => {
                   </div>
                 </label>
                 <label className="plan basic-plan gr-silver" htmlFor="basicc">
-                  <input type="radio" name="plan" id="basicc" value={1} onChange={() => handlePackageSelection(1)} />
+                  <input defaultChecked type="radio" name="plan" id="basicc" value={1} onChange={() => handlePackageSelection(1)} />
                   <div className="plan-content">
                     <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "40%" }} />
                     <div className="plan-details">
@@ -92,7 +94,7 @@ const Signup = () => {
                   </div>
                 </label>
                 <label className="plan basic-plan gr-gold" htmlFor="GOLD">
-                  <input type="radio" name="plan" id="GOLD" value={2} onChange={() => handlePackageSelection(2)} />
+                  <input defaultChecked type="radio" name="plan" id="GOLD" value={2} onChange={() => handlePackageSelection(2)} />
                   <div className="plan-content">
                     <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "60%" }} />
                     <div className="plan-details">
@@ -102,7 +104,7 @@ const Signup = () => {
                   </div>
                 </label>
                 <label className="plan basic-plan gr-diamond" htmlFor="DIAMOND">
-                  <input type="radio" name="plan" id="DIAMOND" value={3} onChange={() => handlePackageSelection(3)} />
+                  <input defaultChecked type="radio" name="plan" id="DIAMOND" value={3} onChange={() => handlePackageSelection(3)} />
                   <div className="plan-content">
                     <IoDiamondOutline className="ml-2" style={{ fontSize: "5rem", opacity: "30%" }} />
                     <div className="plan-details">
@@ -112,7 +114,7 @@ const Signup = () => {
                   </div>
                 </label>
                 <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
-                  <input type="radio" name="plan" id="DIAMONDblack" value={4} onChange={() => handlePackageSelection(4)} />
+                  <input defaultChecked type="radio" name="plan" id="DIAMONDblack" value={4} onChange={() => handlePackageSelection(4)} />
                   <div className="plan-content">
                     <IoDiamond className="ml-2" style={{ fontSize: "5rem" }} />
                     <div className="plan-details">
