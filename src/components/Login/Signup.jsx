@@ -17,8 +17,8 @@ const Signup = () => {
     const [referralUid, setReferralId] = useState('');
     const { web3Instance } = useMetamask();
 
-    const handlePackageSelection = (value) => {
-        setSelectedPackage(value);
+    const handlePackageSelection = (event) => {
+        setSelectedPackage(parseInt(event.target.value));
     };
     const handleReferralInput = (event) => {
         setReferralId(event.target.value);
@@ -43,7 +43,7 @@ const Signup = () => {
                 console.log('approve function called successfully');
 
                 //  CALL SAFEBOXES FOR BUY
-                safebox.methods['registerUser(uint48,uint8)'](1111, 0).send({ from: accounts[0] }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
+                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
                     console.log(error);
                     console.log(receipt);
                 });
@@ -78,13 +78,13 @@ const Signup = () => {
             <div className="container">
                 <HelmetProvider>
                     <Helmet><title >SAFEBOXES | REGESTER</title></Helmet>
-                    <form className="row plans" >
+                    <div className="row plans" >
                         <Divider className="text-white fs-5 mb-4"><h3>Registe Form</h3></Divider>
                         <div className="col-12">
                             <Divider textAlign="left" className="text-white"><h5>Select Package</h5></Divider>
                             <div className="pkges">
                                 <label className="plan basic-plan gr-bronz" htmlFor="basic">
-                                    <input defaultChecked type="radio" name="plan" id="basic" value={0} onChange={() => handlePackageSelection(5000000000)} />
+                                    <input checked={packageNo === 0} type="radio" name="plan" id="basic" value={"0"} onClick={handlePackageSelection} />
                                     <div className="plan-content">
                                         <div className="plan-details">
                                             <h4>25 $</h4>
@@ -92,7 +92,7 @@ const Signup = () => {
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-silver" htmlFor="basicc">
-                                    <input defaultChecked type="radio" name="plan" id="basicc" value={1} onChange={() => handlePackageSelection(1)} />
+                                    <input checked={packageNo === 1} type="radio" name="plan" id="basicc" value={"1"} onClick={handlePackageSelection} />
                                     <div className="plan-content">
                                         <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "40%" }} />
                                         <div className="plan-details">
@@ -102,7 +102,7 @@ const Signup = () => {
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-gold" htmlFor="GOLD">
-                                    <input defaultChecked type="radio" name="plan" id="GOLD" value={2} onChange={() => handlePackageSelection(2)} />
+                                    <input checked={packageNo === 2} type="radio" name="plan" id="GOLD" value={"2"} onClick={handlePackageSelection} />
                                     <div className="plan-content">
                                         <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "60%" }} />
                                         <div className="plan-details">
@@ -112,7 +112,7 @@ const Signup = () => {
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-diamond" htmlFor="DIAMOND">
-                                    <input defaultChecked type="radio" name="plan" id="DIAMOND" value={3} onChange={() => handlePackageSelection(3)} />
+                                    <input checked={packageNo === 3} type="radio" name="plan" id="DIAMOND" value={"3"} onClick={handlePackageSelection} />
                                     <div className="plan-content">
                                         <IoDiamondOutline className="ml-2" style={{ fontSize: "5rem", opacity: "30%" }} />
                                         <div className="plan-details">
@@ -122,7 +122,7 @@ const Signup = () => {
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
-                                    <input defaultChecked type="radio" name="plan" id="DIAMONDblack" value={4} onChange={() => handlePackageSelection(4)} />
+                                    <input checked={packageNo === 4} type="radio" name="plan" id="DIAMONDblack" value={"4"} onClick={handlePackageSelection} />
                                     <div className="plan-content">
                                         <IoDiamond className="ml-2" style={{ fontSize: "5rem" }} />
                                         <div className="plan-details">
@@ -138,7 +138,7 @@ const Signup = () => {
                                 </label>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </HelmetProvider >
             </div>
         </div>
