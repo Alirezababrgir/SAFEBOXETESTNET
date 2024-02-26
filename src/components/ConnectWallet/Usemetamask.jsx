@@ -13,6 +13,10 @@ export const useMetamask = () => {
     if (window.ethereum) {
 
       try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0x13881' }], // chainId must be in hexadecimal numbers
+        });
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setWeb3(web3Instance);
         setIsConnected(true);

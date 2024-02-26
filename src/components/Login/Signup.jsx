@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import { Divider } from "@mui/material";
-import { IoDiamondOutline } from "react-icons/io5";
+import { IoDiamondOutline, IoReloadOutline } from "react-icons/io5";
 import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
 import { useMetamask } from '../ConnectWallet/Usemetamask';
-import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "./abis"
+import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "./abis";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Circles } from 'react-loading-icons'
 
 const Signup = () => {
-
+    const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
+    const [buttonColor, setButtonColor] = useState('primary');
     const [web3, setWeb3] = useState(null);
     const [packageNo, setSelectedPackage] = useState(0);
     const [referralUid, setReferralId] = useState('');
@@ -28,46 +32,42 @@ const Signup = () => {
         if (window.ethereum) {
             setWeb3(web3Instance);
             try {
-
-                //  USER ADDRESS
-                var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-
-                // Request account access if needed
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                // loading button
+                seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
+                setButtonColor('success');
+                // change network
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x13881' }], // chainId must be in hexadecimal numbers
+                });
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
                 const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
                 const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
 
                 //  CALL APPROVE 
-                await tether.methods.approve(Contract_address, 300 * (10 ** 8)).send({ from: accounts[0] }).then(console.log);
-                console.log('approve function called successfully');
+                await tether.methods.approve(Contract_address, 300 * (10 ** 8)).send({ from: accounts[0] }).then(console.log)
+                toast.success('approve function called successfully');
 
                 //  CALL SAFEBOXES FOR BUY
-                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] }).on('error', function (error, receipt) { // If the transaction was rejected by the network with a receipt, the second parameter will be the receipt.
-                    console.log(error);
-                    console.log(receipt);
-                });
-
-                // event listener for account change
-                window.ethereum.on("accountsChanged", function () {
-                    console.log("test2");
-                });
-
-                // event listener for chain change
-                window.ethereum.on("chainChanged", function () {
-                    console.log("test3");
-                });
-
-                // event listener for wallet connect
-                window.ethereum.on("connect", function () {
-                    console.log("test4");
-                });
+                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] })
+                    .on('receipt', function (receipt) {
+                        toast.success(`wellcome ! transactionhash :${receipt.transactionHash}`);
+                        console.log('Receipt:', receipt);
+                    })
+                    .on('error', function (error, receipt) {
+                        if (receipt.status === true) {
+                            toast.error("oooffff transaction unsuccessful!");
+                        }
+                    })
 
             } catch (error) {
-                console.error("oops", error);
+                toast.error('Your purchase was unsuccessful!');
+                setButtonColor('error')
+                seticon(<IoReloadOutline className='fs-2 mr-2' />)
             }
         } else {
-            console.log('install metamask');
+            console.log('install Wallet');
         }
 
     }
@@ -75,6 +75,19 @@ const Signup = () => {
     return (
 
         <div className="containe-fluid parent">
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+
             <div className="container">
                 <HelmetProvider>
                     <Helmet><title >SAFEBOXES | REGESTER</title></Helmet>
@@ -134,7 +147,7 @@ const Signup = () => {
                                 <label className="input-box plan basic-plan plan">
                                     <Divider textAlign="left" className="text-white mb-4"><h5>Register</h5></Divider>
                                     <input type="text" required placeholder="Enter Refral Id" onChange={handleReferralInput} />
-                                    <Fab onClick={handleBuy} className="mt-4 mb-2" variant="extended" color="primary"><GrSend className='fs-2 mr-2' /><h5 className='mt-2'>REGISTER</h5></Fab>
+                                    <Fab onClick={handleBuy} className="mt-4 mb-2" variant="extended" color={buttonColor}>{icon}<h5 className='mt-2'>REGISTER</h5></Fab>
                                 </label>
                             </div>
                         </div>
