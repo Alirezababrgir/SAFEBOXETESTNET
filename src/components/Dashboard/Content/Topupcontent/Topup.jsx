@@ -2,19 +2,97 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import FIVEPACKAGES from "./packages/5package";
 import { DrawerHeader } from '../../Sidebar/Drawerheader';
 import Footer from "../Footer";
+import { useMetamask } from '../../../ConnectWallet/Usemetamask';
+import { USDT_abi, USDT_address, Contract_abi, Contract_address } from "../../../../services/abis";
+import { useState } from 'react';
+import { IoReloadOutline } from "react-icons/io5";
+import { GrSend } from "react-icons/gr";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Circles } from 'react-loading-icons'
 
 const Topup = () => {
+
+    const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
+    const [buttonColor, setButtonColor] = useState('primary');
+    const [web3, setWeb3] = useState(null);
+    const [packageNo, setSelectedPackage] = useState(0);
+    const { web3Instance } = useMetamask();
+
+    const handlePackageSelection = (event) => {
+        setSelectedPackage(parseInt(event.target.value));
+    };
+
+
+    const handleTopup = async () => {
+        if (window.ethereum) {
+            setWeb3(web3Instance);
+            try {
+                // loading button
+                seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
+                setButtonColor('success');
+                // change network
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x13881' }], // chainId must be in hexadecimal numbers
+                });
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+                const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
+
+                //  CALL APPROVE 
+                await tether.methods.approve(Contract_address, 300 * (10 ** 8)).send({ from: accounts[0] }).then(console.log)
+                toast.success('approve function called successfully');
+
+                //CALL BUYPACKAGE 
+                await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }, function (error, result) {
+                    if (error !== "undefined") {
+                        console.log("error found");
+                    }if(!error){
+                        toast.success('topup successfully');
+                    }
+                    else {
+                        console.log("ok");
+                    }
+                }
+                );
+
+
+
+            } catch (error) {
+                toast.error('Your purchase was unsuccessful!');
+                setButtonColor('error')
+                seticon(<IoReloadOutline className='fs-2 mr-2' />)
+            }
+        } else {
+            console.log('install Wallet');
+        }
+
+    }
+
+
     return (
         <>
             <HelmetProvider>
                 <Helmet><title>DASHBOARD | TOPUP</title></Helmet>
                 <DrawerHeader />
-                <div  className="app-main">
+                <div className="app-main">
                     <div className="container">
                         <div className="app-main__outer">
                             <div className="app-main__inner">
                                 <div className="row">
-                                    <FIVEPACKAGES />
+                                    <FIVEPACKAGES packageNo={packageNo} handlePackageSelection={handlePackageSelection} handleTopup={handleTopup} icon={icon} buttonColor={buttonColor} />
+                                    <ToastContainer position="bottom-center"
+                                        autoClose={5000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="light" />
                                 </div>
                                 <div className="row">
                                     <Footer />

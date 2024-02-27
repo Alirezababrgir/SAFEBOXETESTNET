@@ -8,7 +8,7 @@ import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
 import { useMetamask } from '../ConnectWallet/Usemetamask';
-import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "./abis";
+import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "../../services/abis";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
@@ -52,12 +52,12 @@ const Signup = () => {
                 //  CALL SAFEBOXES FOR BUY
                 await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] })
                     .on('receipt', function (receipt) {
-                        toast.success(`wellcome ! transactionhash :${receipt.transactionHash}`);
+                        toast.info(`transactionhash :${receipt.transactionHash}`);
                         console.log('Receipt:', receipt);
                     })
                     .on('error', function (error, receipt) {
-                        if (receipt.status === true) {
-                            toast.error("oooffff transaction unsuccessful!");
+                        if (receipt) {
+                            toast.error("transaction unsuccessful!");
                         }
                     })
 
@@ -94,53 +94,74 @@ const Signup = () => {
                     <div className="row plans" >
                         <Divider className="text-white fs-5 mb-4"><h3>Registe Form</h3></Divider>
                         <div className="col-12">
-                            <Divider textAlign="left" className="text-white"><h5>Select Package</h5></Divider>
                             <div className="pkges">
                                 <label className="plan basic-plan gr-bronz" htmlFor="basic">
                                     <input checked={packageNo === 0} type="radio" name="plan" id="basic" value={"0"} onClick={handlePackageSelection} />
-                                    <div className="plan-content">
-                                        <div className="plan-details">
-                                            <h4>25 $</h4>
+                                    <div class="card gr-bronz text-center plan-content packagecards">
+                                        <div>
+                                            <h2 className='slide-left mt-2'>25$</h2>
+                                            <h5> Income limit: 150$<br />
+                                                Trade Profit :%10
+                                            </h5>
+                                        </div>
+                                        <div class="ico-cards  scale-in-center ">
+                                            <i class="bi bi-speedometer"></i>
                                         </div>
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-silver" htmlFor="basicc">
                                     <input checked={packageNo === 1} type="radio" name="plan" id="basicc" value={"1"} onClick={handlePackageSelection} />
-                                    <div className="plan-content">
-                                        <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "40%" }} />
-                                        <div className="plan-details">
-                                            <h4>50 $</h4>
-                                            <p>Silver Package</p>
+                                    <div class="card gr-silver text-center plan-content packagecards">
+                                        <div>
+                                            <h2 className='slide-left mt-2'>50$</h2>
+                                            <h5> Income limit: 300$<br />
+                                                Trade Profit :%50
+                                            </h5>
+                                        </div>
+                                        <div class="ico-cards  scale-in-center ">
+                                            <i class="bi bi-speedometer"></i>
                                         </div>
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-gold" htmlFor="GOLD">
                                     <input checked={packageNo === 2} type="radio" name="plan" id="GOLD" value={"2"} onClick={handlePackageSelection} />
-                                    <div className="plan-content">
-                                        <GiGoldBar className="ml-2" style={{ fontSize: "5rem", opacity: "60%" }} />
-                                        <div className="plan-details">
-                                            <h4>100 $</h4>
-                                            <p>Golden Package</p>
+                                    <div class="card gr-gold text-center plan-content packagecards">
+                                        <div>
+                                            <h2 className='slide-left mt-2'>100$</h2>
+                                            <h5> Income limit: 150$<br />
+                                                Trade Profit :%10
+                                            </h5>
+                                        </div>
+                                        <div class="ico-cards  scale-in-center ">
+                                            <i><GiGoldBar/></i>
                                         </div>
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-diamond" htmlFor="DIAMOND">
                                     <input checked={packageNo === 3} type="radio" name="plan" id="DIAMOND" value={"3"} onClick={handlePackageSelection} />
-                                    <div className="plan-content">
-                                        <IoDiamondOutline className="ml-2" style={{ fontSize: "5rem", opacity: "30%" }} />
-                                        <div className="plan-details">
-                                            <h4>200 $</h4>
-                                            <p>Diamond Package</p>
+                                    <div class="card gr-diamond text-center plan-content packagecards">
+                                        <div>
+                                            <h2 className='slide-left mt-2'>200$</h2>
+                                            <h5> Income limit: 150$<br />
+                                                Trade Profit :%10
+                                            </h5>
+                                        </div>
+                                        <div class="ico-cards  scale-in-center ">
+                                            <i><IoDiamondOutline/></i>
                                         </div>
                                     </div>
                                 </label>
                                 <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
                                     <input checked={packageNo === 4} type="radio" name="plan" id="DIAMONDblack" value={"4"} onClick={handlePackageSelection} />
-                                    <div className="plan-content">
-                                        <IoDiamond className="ml-2" style={{ fontSize: "5rem" }} />
-                                        <div className="plan-details">
-                                            <h4>500 $</h4>
-                                            <p>Black Diamond Package</p>
+                                    <div class="card gr-D-black text-center plan-content packagecards">
+                                        <div>
+                                            <h2 className='slide-left mt-2'>500$</h2>
+                                            <h5> Income limit: 150$<br />
+                                                Trade Profit :%10
+                                            </h5>
+                                        </div>
+                                        <div class="ico-cards  scale-in-center ">
+                                            <i><IoDiamond/></i>
                                         </div>
                                     </div>
                                 </label>
@@ -153,8 +174,8 @@ const Signup = () => {
                         </div>
                     </div>
                 </HelmetProvider >
-            </div>
-        </div>
+            </div >
+        </div >
     )
 };
 export default Signup;
