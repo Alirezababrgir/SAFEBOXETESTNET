@@ -29,6 +29,7 @@ const Topup = () => {
                 seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
                 setButtonColor('success');
 
+                //CONNECT WALLET
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const web3 = new Web3(window.ethereum);
 

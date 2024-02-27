@@ -7,19 +7,17 @@ import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
-import { useMetamask } from '../ConnectWallet/Usemetamask';
 import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "../../services/abis";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
+import Web3 from 'web3';
 
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
     const [buttonColor, setButtonColor] = useState('primary');
-    const [web3, setWeb3] = useState(null);
     const [packageNo, setSelectedPackage] = useState(0);
     const [referralUid, setReferralId] = useState('');
-    const { web3Instance } = useMetamask();
 
     const handlePackageSelection = (event) => {
         setSelectedPackage(parseInt(event.target.value));
@@ -30,13 +28,14 @@ const Signup = () => {
 
     const handleBuy = async () => {
         if (window.ethereum) {
-            setWeb3(web3Instance);
             try {
                 // loading button
                 seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
                 setButtonColor('success');
                 
+                //CONNECT WALLET
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
 
                 const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
                 const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
@@ -72,7 +71,7 @@ const Signup = () => {
 
         <div className="containe-fluid parent">
             <ToastContainer
-                position="top-center"
+                position="bottom-center"
                 autoClose={5000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -162,7 +161,6 @@ const Signup = () => {
                                     </div>
                                 </label>
                                 <label className="input-box plan basic-plan plan">
-                                    <Divider textAlign="left" className="text-white mb-4"><h5>Register</h5></Divider>
                                     <input type="text" required placeholder="Enter Refral Id" onChange={handleReferralInput} />
                                     <Fab onClick={handleBuy} className="mt-4 mb-2" variant="extended" color={buttonColor}>{icon}<h5 className='mt-2'>REGISTER</h5></Fab>
                                 </label>

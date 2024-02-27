@@ -9,7 +9,7 @@
       rgba(7, 7, 7, 0.1) 66%,
       rgba(7, 7, 7, 0.1) 99%),
     linear-gradient(40deg, #040a22, #0c1435, #030b29, #0e2686);
-  padding: 15px;
+  padding: 2rem;
   margin: auto;
   height: 100dvh;
 }
@@ -252,7 +252,7 @@
   }
 
   .plans .plan .plan-content {
-    padding: 0.2rem;
+    padding: 0.1rem;
   }
 }
 
