@@ -2,7 +2,6 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import FIVEPACKAGES from "./packages/5package";
 import { DrawerHeader } from '../../Sidebar/Drawerheader';
 import Footer from "../Footer";
-import { useMetamask } from '../../../ConnectWallet/Usemetamask';
 import { USDT_abi, USDT_address, Contract_abi, Contract_address } from "../../../../services/abis";
 import { useState } from 'react';
 import { IoReloadOutline } from "react-icons/io5";
@@ -10,14 +9,13 @@ import { GrSend } from "react-icons/gr";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
+import Web3 from 'web3';
 
 const Topup = () => {
 
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
     const [buttonColor, setButtonColor] = useState('primary');
-    const [web3, setWeb3] = useState(null);
     const [packageNo, setSelectedPackage] = useState(0);
-    const { web3Instance } = useMetamask();
 
     const handlePackageSelection = (event) => {
         setSelectedPackage(parseInt(event.target.value));
@@ -26,13 +24,13 @@ const Topup = () => {
 
     const handleTopup = async () => {
         if (window.ethereum) {
-            setWeb3(web3Instance);
             try {
                 // loading button
                 seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
                 setButtonColor('success');
 
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
 
                 const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
                 const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
@@ -45,7 +43,7 @@ const Topup = () => {
                 await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }, function (error, result) {
                     if (error !== "undefined") {
                         console.log("error found");
-                    }if(!error){
+                    } if (!error) {
                         toast.success('topup successfully');
                     }
                     else {
