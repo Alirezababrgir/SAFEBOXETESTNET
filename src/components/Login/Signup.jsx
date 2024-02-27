@@ -12,6 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
 import Web3 from 'web3';
+import Footer from '../HomePage/Footer/Footer';
 
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
@@ -169,6 +170,7 @@ const Signup = () => {
                     </div>
                 </HelmetProvider >
             </div >
+            <Footer/>
         </div >
     )
 };

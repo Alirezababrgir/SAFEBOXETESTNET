@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import Forex from "../Forex/ForexContainer";
-import Packages from "../Packages/Packages";
 import Safebox from "../Safebox/Safebox";
 import Contract from "../Contract/Contract";
 import logo from "../../../assets/banners/navlogo.png"
@@ -11,6 +9,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Sidebar from "../../Navbar/Sidebar";
 import videosafebo from "../../../assets/banners/city.mp4"
 import Explor from "../Explor/Explor";
+import { lazy } from "react";
+const Packages = lazy(() => import("../Packages/Packages"))
+const Forex = lazy(() => import("../Forex/ForexContainer"))
 
 
 const Home = () => {
