@@ -35,11 +35,7 @@ const Signup = () => {
                 // loading button
                 seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
                 setButtonColor('success');
-                // change network
-                await window.ethereum.request({
-                    method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: '0x13881' }], // chainId must be in hexadecimal numbers
-                });
+                
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
                 const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
