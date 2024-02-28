@@ -4,8 +4,8 @@ import ForexBroker from "../../../assets/banners/FOREXBROKER.jpg"
 import CopyTrading from "../../../assets/banners/COPYTRADE.jpg"
 import Robotimg from "../../../assets/banners/ROBOTTRADE.jpg"
 import ScrollAnimation from 'react-animate-on-scroll';
-
 import { NavLink } from "react-router-dom"
+
 const Forex = () => {
     return (
         <section class="articles">
@@ -13,7 +13,7 @@ const Forex = () => {
                 <article>
                     <div class="article-wrapper">
                         <figure>
-                            <img src={ForexBanner} alt="" />
+                            <img src={ForexBanner} alt="forex" />
                         </figure>
                         <div class="article-body">
                             <h4 className="text-focus-in">What Is Forex ?</h4>

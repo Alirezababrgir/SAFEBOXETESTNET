@@ -52,8 +52,8 @@ const Topup = () => {
                     }
                 }
                 );
-
-
+                setButtonColor('primary');
+                seticon(<GrSend className='fs-2 mr-2' />);
 
             } catch (error) {
                 toast.error('Your purchase was unsuccessful!');

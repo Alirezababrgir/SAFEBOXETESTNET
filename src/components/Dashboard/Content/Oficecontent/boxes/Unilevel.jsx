@@ -30,7 +30,7 @@ const ResponsiveTable = () => {
         <div className="card-body row">
           <Table style={{ borderRadius: "1rem" }} borderless striped bordered hover responsive>
             <thead>
-              <tr  scope="col">
+              <tr  scope={"col"}>
                 <th style={{borderRight:"2px solid black"}} className='col-1'>LEVEL</th>
                 <th className='col-2'>PACKAGE<br />UID</th>
                 <th className='col-8'>25$<br/>uid</th>

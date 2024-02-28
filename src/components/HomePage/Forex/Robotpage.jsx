@@ -9,7 +9,7 @@ const Robot = () => {
                 <Helmet><title>SAFEBOXES | ROBOT</title></Helmet>
                 <div class="container py-4b readcard">
                     <article class="postcard dark red mt-4">
-                        <a class="postcard__img_link" href="#">
+                        <a class="postcard__img_link">
                             <img class="postcard__img" src={Robotimg} alt="Image Title" />
                         </a>
                         <div class="postcard__text" >
