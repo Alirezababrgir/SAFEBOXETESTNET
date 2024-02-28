@@ -7,35 +7,55 @@ import Charts from './footer/charts';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { lazy } from 'react';
 import Footer from '../Footer';
+import { useEffect } from 'react';
+import { Contract_abi, Contract_address } from "../../../../services/abis"
+import Web3 from 'web3';
+import { ToastContainer, toast } from 'react-toastify';
+import { useState } from 'react';
+
 /********Lazy Import Boxes********/
 const BOX_40 = lazy(() => import('./Boxes/40%box'))
 const BOX_30 = lazy(() => import('./Boxes/30%box'))
 const BOX_10 = lazy(() => import('./Boxes/10%box'))
 const BOX_10_SHN = lazy(() => import('./Boxes/shn10%box'))
-/*
-    //redirect to connect wallet
 
-    import { useEffect } from 'react';
-import { useMetamask } from '../../../ConnectWallet/Usemetamask';
-import { useNavigate } from 'react-router-dom';
-
-    const { isConnected } = useMetamask();
-    const navigate = useNavigate()
+const Homecontent = () => {
+    const [info, setInfo] = useState({});
 
     useEffect(() => {
-        if (!isConnected) {
-            navigate("/Connectwallet")
-        }
-    }, [isConnected])
-*/
-const Homecontent = () => {
+        const getMyInfo = async () => {
+            if (window.ethereum) {
+                const web3 = new Web3(window.ethereum);
+                const contract = new web3.eth.Contract(Contract_abi, Contract_address);
+
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const result = await contract.methods.getMyInfo().call({ from: accounts[0] });
+
+                    setInfo({
+                        userAddress: result[0],
+                        referralAddress: result[1],
+                        userUid: result[2].toNumber(),
+                        referralUid: result[3].toNumber(),
+                        childrenCount: result[4].toNumber()
+                    });
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+        };
+
+        getMyInfo();
+    }, []);
 
     return (
         <>
             <HelmetProvider>
                 <Helmet><title>HOME | DASHBOARD</title></Helmet>
+                <ToastContainer />
                 <DrawerHeader />
                 <div className="app-main">
+                    {info}
                     <div className="container">
                         <div className="app-main__outer">
                             <div className="app-main__inner">
