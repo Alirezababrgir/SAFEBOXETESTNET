@@ -16,7 +16,7 @@ export const useMetamask = () => {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         setWeb3(web3Instance);
         setIsConnected(true);
-        setInterval(() => {
+        setTimeout(() => {
           navigate("/signup")
         }, 2000);
       } catch (error) {

@@ -13,12 +13,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
 import Web3 from 'web3';
 import Footer from '../HomePage/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
     const [buttonColor, setButtonColor] = useState('primary');
     const [packageNo, setSelectedPackage] = useState(0);
     const [referralUid, setReferralId] = useState('');
+    const navigate = useNavigate();
 
     const handlePackageSelection = (event) => {
         setSelectedPackage(parseInt(event.target.value));
@@ -33,7 +35,7 @@ const Signup = () => {
                 // loading button
                 seticon(<Circles style={{ height: "25px", width: "25px", marginRight: "5px" }} />);
                 setButtonColor('success');
-                
+
                 //CONNECT WALLET
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const web3 = new Web3(window.ethereum);
@@ -48,15 +50,13 @@ const Signup = () => {
                 //  CALL SAFEBOXES FOR BUY
                 await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] })
                     .on('receipt', function (receipt) {
-                        toast.info(`transactionhash :${receipt.transactionHash}`);
+                        toast.info(`Transaction Hash: ${receipt.transactionHash}`);
                         console.log('Receipt:', receipt);
                     })
                     .on('error', function (error, receipt) {
-                        if (receipt) {
-                            toast.error("transaction unsuccessful!");
-                        }
+                      toast.error('You have already registered !')
                     })
-
+                   await navigate("/dashboard")
             } catch (error) {
                 toast.error('Your purchase was unsuccessful!');
                 setButtonColor('error')
@@ -129,7 +129,7 @@ const Signup = () => {
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
-                                            <i><GiGoldBar/></i>
+                                            <i><GiGoldBar /></i>
                                         </div>
                                     </div>
                                 </label>
@@ -143,7 +143,7 @@ const Signup = () => {
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
-                                            <i><IoDiamondOutline/></i>
+                                            <i><IoDiamondOutline /></i>
                                         </div>
                                     </div>
                                 </label>
@@ -157,7 +157,7 @@ const Signup = () => {
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
-                                            <i><IoDiamond/></i>
+                                            <i><IoDiamond /></i>
                                         </div>
                                     </div>
                                 </label>
@@ -170,7 +170,7 @@ const Signup = () => {
                     </div>
                 </HelmetProvider >
             </div >
-            <Footer/>
+            <Footer />
         </div >
     )
 };
