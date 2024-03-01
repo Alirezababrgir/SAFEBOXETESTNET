@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Web3 from 'web3';
 import { useNavigate } from 'react-router-dom';
+import { Contract_abi, Contract_address } from "../../services/abis"
+
 export const useMetamask = () => {
 
   const [isConnected, setIsConnected] = useState(false);
@@ -13,12 +15,21 @@ export const useMetamask = () => {
     if (window.ethereum) {
 
       try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         setWeb3(web3Instance);
         setIsConnected(true);
-        setTimeout(() => {
+        const safebox = new web3Instance.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+
+        //CHECKING MY !IMPORTANT
+        const amIMember = await safebox.methods.amIMember().call({ "from": accounts[0] });
+        console.log(amIMember)
+        if (amIMember) {
+          console.log('wellcome to Syber Office! :)')
+          navigate("/dashboard")
+        }else{
           navigate("/signup")
-        }, 2000);
+        }
+
       } catch (error) {
         console.error(error);
       }

@@ -14,7 +14,6 @@ import { Circles } from 'react-loading-icons'
 import Web3 from 'web3';
 import Footer from '../HomePage/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
@@ -29,27 +28,6 @@ const Signup = () => {
     const handleReferralInput = (event) => {
         setReferralId(event.target.value);
     };
-
-    useEffect(() => {
-        const checkUser = async () => {
-            //CONNECT WALLET
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const web3 = new Web3(window.ethereum);
-
-            const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
-
-            //CHECKING MY !IMPORTANT
-            const amIMember = await safebox.methods.amIMember().call({ "from": accounts[0] });
-            console.log(amIMember)
-            if (amIMember) {
-                console.log('wellcome to Syber Office! :)')
-                navigate("/dashboard")
-            }
-
-        }
-        checkUser()
-
-    }, [navigate])
 
     const handleBuy = async () => {
         if (window.ethereum) {
@@ -70,14 +48,8 @@ const Signup = () => {
                 toast.success('approve function called successfully');
 
                 //  CALL SAFEBOXES FOR BUY
-                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] })
-                    .on('receipt', function (receipt) {
-                        toast.info(`Transaction Hash: ${receipt.transactionHash}`);
-                        console.log('Receipt:', receipt);
-                    })
-                    .on('error', function (error, receipt) {
-                        toast.error('You have already registered !', error.message)
-                    })
+                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] },function(error,transactionHash){toast.error(error,transactionHash)})
+              
                 await navigate("/dashboard")
             } catch (error) {
                 toast.error('Your purchase was unsuccessful!');

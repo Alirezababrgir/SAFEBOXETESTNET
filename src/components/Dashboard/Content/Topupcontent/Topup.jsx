@@ -41,12 +41,30 @@ const Topup = () => {
                 toast.success('approve function called successfully');
 
                 //CALL BUYPACKAGE 
-                await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }).on('error',(error,receipt)=>{console.log(error)})
+                const TopUp = await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }, function(error, result)
+                   {
+                
+                       if ( error !== "undefined")
+                       {
+                
+                         console.log("error found");
+                         alert(error)
+                
+                       }
+                       else
+                       {
+                
+                         console.log("ok - result");
+                       }
+                
+                   }
+                 );
                 setButtonColor('primary');
                 seticon(<GrSend className='fs-2 mr-2' />);
 
             } catch (error) {
                 toast.error('Your purchase was unsuccessful!');
+                console.log(error)
                 setButtonColor('error')
                 seticon(<IoReloadOutline className='fs-2 mr-2' />)
             }
@@ -91,3 +109,22 @@ const Topup = () => {
     )
 }
 export default Topup;
+
+
+/*zojaj
+
+
+     // Get transaction receipt
+               await web3.eth.getTransactionReceipt(TopUp.transactionHash)
+                    .then(receipt => {
+                        if (receipt.status === false) {
+                            // Transaction failed, retrieve the revert reason from logs
+                            const revertReason = web3.eth.abi.decodeParameter('string', receipt.logs[0].data);
+                            console.log('Transaction failed. Revert reason:', revertReason);
+                        } else {
+                            console.log('Transaction successful');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });*/
