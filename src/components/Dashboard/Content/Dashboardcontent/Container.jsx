@@ -54,7 +54,7 @@ const Homecontent = () => {
                     console.log('wellcome to Syber Office! :)')
                 } else {
                     toast.error("You must register first !")
-                    navigate("/")
+                    navigate("/connectwallet")
                 }
 
                 //GET MY DATA
@@ -83,13 +83,13 @@ const Homecontent = () => {
 
             } catch (error) {
                 console.error(error);
-                console.log("error getMyChilrden");
+                toast.error(error.message)
             }
 
         };
 
         show();
-    }, []);
+    }, [navigate]);
 
     return (
         <>
