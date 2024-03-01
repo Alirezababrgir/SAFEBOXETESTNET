@@ -1,5 +1,6 @@
 import Timer from "./Timer";
-const BOX_30 = () => {
+const BOX_30 = ({balance,lotprice,lotpamount}) => {
+
     return (
         <div className="col-md-6 col-lg-6 pb-3">
         {/* Copy the content below until next comment */}
@@ -22,7 +23,7 @@ const BOX_30 = () => {
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>54 $</h4>
+                                                <h4>{balance} $</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -32,11 +33,11 @@ const BOX_30 = () => {
                                 <div className="widget-content p-0">
                                     <div className="widget-content-wrapper">
                                         <div className="widget-content-left">
-                                            <h4 className="widget-heading">Total Lot </h4>
+                                            <h4 className="widget-heading">Lot Amount </h4>
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>429 $</h4>
+                                                <h4>{lotpamount} $</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +51,7 @@ const BOX_30 = () => {
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>129 $</h4>
+                                                <h4>{lotprice} $</h4>
                                             </div>
                                         </div>
                                     </div>

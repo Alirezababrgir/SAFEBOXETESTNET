@@ -61,5 +61,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1"
   }
 }

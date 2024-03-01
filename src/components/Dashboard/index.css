@@ -366,7 +366,7 @@
   background-image: url("../../assets/banners/uni.jpg");
 }
 
-.card-img-binary {
+.card-img-top {
   height: 200px;
   min-height: 200px;
   background-repeat: no-repeat;
@@ -376,7 +376,7 @@
   background-image: url("../../assets/banners/binary.jpg");
 }
 
-.card-img-top {
+.card-img-binary {
   height: 200px;
   min-height: 200px;
   background-repeat: no-repeat;
