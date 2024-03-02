@@ -26,7 +26,7 @@ const StyledText = styled('text')(({ theme }) => ({
 function PieCenterLabel({ children }) {
     const { width, height, left, top } = useDrawingArea();
     return (
-        <StyledText x={left + width / 2} y={top + height / 2}>
+        <StyledText x={left + width / 2} y={top + height / 2}> 
             {children}
         </StyledText>
     );
@@ -39,7 +39,7 @@ export default function TOTALVOLUMEDETAIL() {
 
 
     return (
-        <div className="col-md-12 col-lg-12">
+        <div className="col-md-12 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card">
                 <div className="card-header-tab card-header-tab-animation card-header">
                     <div className="card-header-title">
@@ -52,14 +52,14 @@ export default function TOTALVOLUMEDETAIL() {
                 </div>
                 <div className="card-body row">
                     <div className='col-10 col-md-6'>
-                        <Stack direction="column" spacing={2} alignItems="normal" sx={{ width: '100%' }}>
+                        <Stack direction="column" spacing={2} alignItems='normal' sx={{ width: '100%' }}>
                             <PieChart series={[{
                                 data,
                                 innerRadius: 30,
                                 outerRadius: 100,
                                 paddingAngle: 5,
                                 cornerRadius: 5,
-                                startAngle: -80,
+                                startAngle: -180,
                                 endAngle: 360,
 
                             }]} {...size}>
@@ -72,8 +72,3 @@ export default function TOTALVOLUMEDETAIL() {
         </div>
     );
 }
-
-/* pie chart
-
- 
-*/

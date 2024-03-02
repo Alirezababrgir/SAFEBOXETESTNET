@@ -48,11 +48,11 @@ const Signup = () => {
                 toast.success('approve function called successfully');
 
                 //  CALL SAFEBOXES FOR BUY
-                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] },function(error,transactionHash){toast.error(error,transactionHash)})
-              
+                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] }, function (error, transactionHash) { toast.error(error, transactionHash) })
+
                 await navigate("/dashboard")
             } catch (error) {
-                toast.error('Your purchase was unsuccessful!');
+                toast.error('Your purchase was unsuccessful!', error);
                 setButtonColor('error')
                 seticon(<IoReloadOutline className='fs-2 mr-2' />)
             }

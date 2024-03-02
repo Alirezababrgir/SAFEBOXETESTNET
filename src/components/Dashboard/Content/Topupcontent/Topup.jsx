@@ -41,24 +41,23 @@ const Topup = () => {
                 toast.success('approve function called successfully');
 
                 //CALL BUYPACKAGE 
-                const TopUp = await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }, function(error, result)
-                   {
-                
-                       if ( error !== "undefined")
-                       {
-                
-                         console.log("error found");
-                         alert(error)
-                
-                       }
-                       else
-                       {
-                
-                         console.log("ok - result");
-                       }
-                
-                   }
-                 );
+                await safebox.methods.buyPckage(packageNo).send({ "from": accounts[0] }, function (error, result) {
+
+                    if (error !== "undefined") {
+
+                        console.log("error found");
+                        alert(error)
+
+                    }
+                    else {
+
+                        toast.success('successfull!', result)
+                    }
+
+                }
+                );
+                toast.success('successfull!')
+
                 setButtonColor('primary');
                 seticon(<GrSend className='fs-2 mr-2' />);
 
