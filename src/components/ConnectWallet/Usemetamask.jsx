@@ -6,16 +6,21 @@ import { Contract_abi, Contract_address } from "../../services/abis"
 export const useMetamask = () => {
 
   const [isConnected, setIsConnected] = useState(false);
+  const [accounts, setaccounts] = useState();
   const [web3, setWeb3] = useState(null);
   const navigate = useNavigate()
+  //const web3Instance = new Web3(new Web3.providers.HttpProvider('https://rpc.ankr.com/polygon_amoy'));
   const web3Instance = new Web3(window.ethereum);
+
 
   const connectMetamask = async () => {
 
     if (window.ethereum) {
 
       try {
+        //const accounts = await web3Instance.eth.getAccounts();
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        setaccounts(accounts)
         setWeb3(web3Instance);
         setIsConnected(true);
         const safebox = new web3Instance.eth.Contract(JSON.parse(Contract_abi), Contract_address);
@@ -26,7 +31,7 @@ export const useMetamask = () => {
         if (amIMember) {
           console.log('wellcome to Syber Office! :)')
           navigate("/dashboard")
-        }else{
+        } else {
           navigate("/signup")
         }
 
@@ -38,5 +43,5 @@ export const useMetamask = () => {
       alert('Please install MetaMask to use this feature');
     }
   };
-  return { isConnected, web3, connectMetamask, setIsConnected, web3Instance, setWeb3 };
+  return { isConnected, web3, connectMetamask, setIsConnected, web3Instance, setWeb3, accounts };
 };

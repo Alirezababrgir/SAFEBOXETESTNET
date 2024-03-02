@@ -3,7 +3,7 @@ import { DrawerHeader } from "../../Sidebar/Drawerheader";
 import TITTLE from './tittle/tittle';
 import TITTLE3LINKS from './tittle/tittle3links';
 import FOOTERE3LINKS from './footer/footer3link';
-import Charts from './footer/charts';
+import Barchart from './footer/barchart';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { lazy } from 'react';
 import Footer from '../Footer';
@@ -12,6 +12,7 @@ import Web3 from 'web3';
 import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import Linechart from "./footer/linechart"
 /********Lazy Import Boxes********/
 const BOX_40 = lazy(() => import('./Boxes/40%box'))
 const BOX_30 = lazy(() => import('./Boxes/30%box'))
@@ -31,6 +32,15 @@ const Homecontent = () => {
     const [ChampionAmount, setChampionAmount] = useState('');
     const [ChampionPrice, setChampionPrice] = useState('');
 
+    //TOPMARKETER box
+    const [topmarketerBalance, settopmarketerBalance] = useState('');
+    const [topmarketerAmount, settopmarketerAmount] = useState('');
+    const [topmarketerPrice, settopmarketerPrice] = useState('');
+
+    //UNILEVEL box
+    const [myUnilevelbalance, setmyUnilevelbalance] = useState('');
+    const [myUnilevelamount, setmyUnilevelamount] = useState('');
+    const [myUnilevelprice, setmyUnilevelprice] = useState('');
 
     const navigate = useNavigate()
 
@@ -72,14 +82,26 @@ const Homecontent = () => {
                 setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
 
 
-                //MY BEST (CHAMPION) STATE
-                const getMyBestState = await safebox.methods.getMyBestState().call({ "from": accounts[0] });
-
+                //MY CHAMPION STATE
+                const getMyBestState = await safebox.methods.getMyChampionState().call({ "from": accounts[0] });
                 //SET DATA CHAMPION BOX
                 setChampionBalance(String(getMyBestState._poolBalance).slice(0, -8))
                 setChampionAmount(String(getMyBestState._lotsAmount).slice(0, -8))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
 
+                //MY TOPMARKETER STATE
+                const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
+                //SET DATA TOPMARKETER BOX
+                settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
+                settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
+                settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
+
+                //MY UNILEVEL STATE
+                const getMyUniLevelState = await safebox.methods.getMyUniLevelState().call({ "from": accounts[0] });
+                //SET DATA UNILEVEL BOX
+                setmyUnilevelbalance(String(getMyUniLevelState._poolBalance).slice(0, -8))
+                setmyUnilevelamount(String(getMyUniLevelState._lotsAmount).slice(0, -8))
+                setmyUnilevelprice(String(getMyUniLevelState._lotPrice).slice(0, -8))
 
             } catch (error) {
                 console.error(error.message);
@@ -106,16 +128,16 @@ const Homecontent = () => {
                                     <TITTLE3LINKS />
                                 </div>
                                 <div className="row mt-4 m-auto">
-                                    <React.Suspense><BOX_40 /></React.Suspense>
+                                    <React.Suspense><BOX_40 myUnilevelbalance={myUnilevelbalance} myUnilevelamount={myUnilevelamount} myUnilevelprice={myUnilevelprice} /></React.Suspense>
                                     <React.Suspense><BOX_30 balance={balance} lotprice={lotprice} lotpamount={lotpamount} /></React.Suspense>
                                 </div>
                                 <div className="row m-auto">
-                                    <React.Suspense><BOX_10 /></React.Suspense>
+                                    <React.Suspense><BOX_10 topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} /></React.Suspense>
                                     <React.Suspense><BOX_10_SHN ChampionBalance={ChampionBalance} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} /></React.Suspense>
                                 </div>
                                 <div className="row">
-                                    <Charts />
-                                    <Charts />
+                                    <Barchart />
+                                    <Linechart />
                                 </div>
                                 <div className="row">
                                     <FOOTERE3LINKS />

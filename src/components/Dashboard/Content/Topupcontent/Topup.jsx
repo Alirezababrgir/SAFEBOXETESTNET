@@ -126,4 +126,31 @@ export default Topup;
                     })
                     .catch(error => {
                         console.error('Error:', error);
+
+
+
+
+                                  
+            const rpcProvider = 'https://rpc.ankr.com/polygon_amoy';
+            const web3Provider = new Web3.providers.HttpProvider(rpcProvider);
+            const web = new Web3(web3Provider);
+                web.eth.handleRevert = true;
+
+            web.eth.getTransaction(txHash).then(async (tx) => {
+                try {
+
+                    let result = await web.eth.call(tx, tx.blockNumber);
+                }
+                catch (err) {
+                    let errFlat = JSON.stringify(err);
+                    let message = JSON.parse(errFlat);
+                    let reason = message['reason'];
+                    console.log(reason);
+                    toast.error(reason,err)
+                }
+            });
+
+
+
+
                     });*/

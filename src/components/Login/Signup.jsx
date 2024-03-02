@@ -11,9 +11,9 @@ import { Contract_abi, Contract_address, USDT_abi, USDT_address } from "../../se
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
-import Web3 from 'web3';
 import Footer from '../HomePage/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import { useMetamask } from '../ConnectWallet/Usemetamask';
 
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
@@ -21,6 +21,7 @@ const Signup = () => {
     const [packageNo, setSelectedPackage] = useState(0);
     const [referralUid, setReferralId] = useState('');
     const navigate = useNavigate();
+    const { web3Instance, accounts } = useMetamask()
 
     const handlePackageSelection = (event) => {
         setSelectedPackage(parseInt(event.target.value));
@@ -37,22 +38,23 @@ const Signup = () => {
                 setButtonColor('success');
 
                 //CONNECT WALLET
-                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const web3 = new Web3(window.ethereum);
+                //const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                //const web3 = new Web3(window.ethereum);
 
-                const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
-                const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
+                const safebox = new web3Instance.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+                const tether = new web3Instance.eth.Contract(JSON.parse(USDT_abi), USDT_address);
 
                 //  CALL APPROVE 
                 await tether.methods.approve(Contract_address, 300 * (10 ** 8)).send({ from: accounts[0] }).then(console.log)
                 toast.success('approve function called successfully');
 
                 //  CALL SAFEBOXES FOR BUY
-                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] }, function (error, transactionHash) { toast.error(error, transactionHash) })
+                await safebox.methods['registerUser(uint48,uint8)'](referralUid, packageNo).send({ from: accounts[0] }, function (error) { console.error(error) })
 
                 await navigate("/dashboard")
             } catch (error) {
                 toast.error('Your purchase was unsuccessful!', error);
+                console.log(error.message)
                 setButtonColor('error')
                 seticon(<IoReloadOutline className='fs-2 mr-2' />)
             }

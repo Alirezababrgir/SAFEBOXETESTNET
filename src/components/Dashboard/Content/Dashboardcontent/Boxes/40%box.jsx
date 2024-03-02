@@ -1,5 +1,5 @@
 import Timer from "./Timer";
-const BOX_40 = () => {
+const BOX_40 = ({myUnilevelbalance,myUnilevelamount,myUnilevelprice}) => {
     return (
         <div className="col-md-6 col-lg-6 pb-3">
         {/* Copy the content below until next comment */}
@@ -22,7 +22,7 @@ const BOX_40 = () => {
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>54 $</h4>
+                                                <h4>{myUnilevelbalance} $</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -32,11 +32,11 @@ const BOX_40 = () => {
                                 <div className="widget-content p-0">
                                     <div className="widget-content-wrapper">
                                         <div className="widget-content-left">
-                                            <h4 className="widget-heading">Total Lot </h4>
+                                            <h4 className="widget-heading">Lot Amount</h4>
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>429 $</h4>
+                                                <h4>{myUnilevelamount} $</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@ const BOX_40 = () => {
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>129 $</h4>
+                                                <h4>{myUnilevelprice} $</h4>
                                             </div>
                                         </div>
                                     </div>
