@@ -113,32 +113,21 @@ export default Topup;
 /*zojaj
 
 
-     // Get transaction receipt
-               await web3.eth.getTransactionReceipt(TopUp.transactionHash)
-                    .then(receipt => {
-                        if (receipt.status === false) {
-                            // Transaction failed, retrieve the revert reason from logs
-                            const revertReason = web3.eth.abi.decodeParameter('string', receipt.logs[0].data);
-                            console.log('Transaction failed. Revert reason:', revertReason);
-                        } else {
-                            console.log('Transaction successful');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-
-
-
-
-                                  
-            const rpcProvider = 'https://rpc.ankr.com/polygon_amoy';
+               const rpcProvider = 'https://rpc.ankr.com/polygon_mumbai'; // 'https://polygon-testnet.public.blastapi.io';
             const web3Provider = new Web3.providers.HttpProvider(rpcProvider);
             const web = new Web3(web3Provider);
-                web.eth.handleRevert = true;
 
-            web.eth.getTransaction(txHash).then(async (tx) => {
+            web.eth.getBlockNumber().then((result, error) => {
+                console.log("Latest Ethereum Block is: ", result, error); // confirm that the HTTP RPC provider has been instantiated properly
+            });
+            alert(txHah)
+            web.eth.handleRevert = true;
+            web.eth.getTransaction(txHah).then(async (tx) => {
+                if (tx.gasPrice) {
+                    delete tx.maxPriorityFeePerGas;
+                    delete tx.maxFeePerGas;
+                }
                 try {
-
                     let result = await web.eth.call(tx, tx.blockNumber);
                 }
                 catch (err) {
@@ -146,10 +135,11 @@ export default Topup;
                     let message = JSON.parse(errFlat);
                     let reason = message['reason'];
                     console.log(reason);
-                    toast.error(reason,err)
+                    console.log(message);
+                    console.log(errFlat)
                 }
-            });
 
+            });
 
 
 

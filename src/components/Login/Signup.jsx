@@ -13,15 +13,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Circles } from 'react-loading-icons'
 import Footer from '../HomePage/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
-import { useMetamask } from '../ConnectWallet/Usemetamask';
-
+import Web3 from 'web3';
 const Signup = () => {
     const [icon, seticon] = useState(<GrSend className='fs-2 mr-2' />);
     const [buttonColor, setButtonColor] = useState('primary');
     const [packageNo, setSelectedPackage] = useState(0);
     const [referralUid, setReferralId] = useState('');
     const navigate = useNavigate();
-    const { web3Instance, accounts } = useMetamask()
 
     const handlePackageSelection = (event) => {
         setSelectedPackage(parseInt(event.target.value));
@@ -38,11 +36,11 @@ const Signup = () => {
                 setButtonColor('success');
 
                 //CONNECT WALLET
-                //const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                //const web3 = new Web3(window.ethereum);
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
 
-                const safebox = new web3Instance.eth.Contract(JSON.parse(Contract_abi), Contract_address);
-                const tether = new web3Instance.eth.Contract(JSON.parse(USDT_abi), USDT_address);
+                const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+                const tether = new web3.eth.Contract(JSON.parse(USDT_abi), USDT_address);
 
                 //  CALL APPROVE 
                 await tether.methods.approve(Contract_address, 300 * (10 ** 8)).send({ from: accounts[0] }).then(console.log)
