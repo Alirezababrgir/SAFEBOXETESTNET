@@ -5,6 +5,7 @@
         "titleBar.activeForeground": "#F3FDF7"
     },
     "javascript": {
-        "editor.memoryLimit": 4096
+        "editor.memoryLimit": 8192
     },
+    "liveServer.settings.CustomBrowser": "firefox",
 }
