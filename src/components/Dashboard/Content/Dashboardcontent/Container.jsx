@@ -48,10 +48,6 @@ const Homecontent = () => {
 
         const show = async () => {
             try {
-                await window.ethereum.request({
-                    method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: '0x13881' }], // chainId must be in hexadecimal numbers
-                });
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const web3 = new Web3(window.ethereum);
 
