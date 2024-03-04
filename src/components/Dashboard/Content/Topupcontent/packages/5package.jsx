@@ -1,6 +1,5 @@
 import { Fab, Divider } from "@mui/material";
 import { IoDiamondOutline} from "react-icons/io5";
-import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 const FIVEPACKAGES = ({ handlePackageSelection, icon, buttonColor, handleTopup, packageNo }) => {
     return (
@@ -62,20 +61,6 @@ const FIVEPACKAGES = ({ handlePackageSelection, icon, buttonColor, handleTopup, 
                                 </div>
                                 <div class="ico-cards  scale-in-center ">
                                 <i><IoDiamondOutline/></i>
-                                </div>
-                            </div>
-                        </label>
-                        <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
-                            <input checked={packageNo === 4} type="radio" name="plan" id="DIAMONDblack" value={"4"} onClick={handlePackageSelection} />
-                            <div className="card plan-content gr-D-black text-center packagecards">
-                                <div>
-                                    <h2 className='slide-left mt-1'>500$</h2>
-                                    <h5> Income limit: 3000$<br />
-                                        Trade Profit : unlimited
-                                    </h5>
-                                </div>
-                                <div class="ico-cards  scale-in-center ">
-                                <i><IoDiamond/></i>
                                 </div>
                             </div>
                         </label>

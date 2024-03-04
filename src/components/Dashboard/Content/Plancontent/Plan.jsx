@@ -32,7 +32,7 @@ const Plan = () => {
                 if (index !== images.length - 1) {
                     pdf.addPage();
                 } else {
-                    pdf.save('images_gallery.pdf');
+                    pdf.save('safeboxes_plan.pdf');
                 }
             });
         });

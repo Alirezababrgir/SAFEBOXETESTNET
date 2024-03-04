@@ -4,39 +4,39 @@ const TITTLE3LINKS_OFFICE = () => {
         <>
             <div class="container">
                 <div class="row">
-                    <div class="col-6 col-md-4 col-lg-4 column">
-                        <div class="card treecard gr-1">
+                    <div class="col-6 col-md-4 col-lg-4 column mb-2">
+                        <div class="card packagecards gr-1">
                             <div class="glowing-txt">
-                                <h1>Total Volume  <br />
-                                </h1>
+                                <h2>Total Volume  <br />
+                                </h2>
                             </div>
                             <a href="#">more</a>
-                            <div class="ico-card">
+                            <div class="ico-cards">
                                 <i class="bi bi-speedometer"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-4 column">
-                        <div class="card treecard  gr-2">
+                    <div class="col-6 col-md-4 col-lg-4 column mb-2">
+                        <div class="card packagecards gr-3">
                             <div class="glowing-txt">
-                                <h1>Income Limit <br />
-                                </h1>
+                                <h2>Total 10 Level<br />
+                                </h2>
                             </div>
                             <a href="#">more</a>
-                            <div class="ico-card">
-                                <i class="bi bi-pie-chart-fill"></i>
+                            <div class="ico-cards">
+                                <i class="bi bi-list-ol"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-4 column">
-                        <div class="card treecard  gr-3">
+                        <div class="card packagecards  gr-2">
                             <div class="glowing-txt">
-                                <h1>Total 10 Level<br />
-                                </h1>
+                                <h2>Income Limit <br />
+                                </h2>
                             </div>
                             <a href="#">more</a>
-                            <div class="ico-card">
-                                <i class="bi bi-list-ol"></i>
+                            <div class="ico-cards">
+                                <i class="bi bi-pie-chart-fill"></i>
                             </div>
                         </div>
                     </div>
