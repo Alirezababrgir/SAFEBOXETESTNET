@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Topmarketer=()=>{
+const Topmarketer=({topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerDaily,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
     return(
         <div className="col-md-6 col-lg-4">
         <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -10,7 +10,7 @@ const Topmarketer=()=>{
                     <h1 className="fs-2">Topmarketer</h1>
                 </div>
                 <ul className="nav">
-                    <li className="nav-item"><h3 className="text-danger">35%</h3></li>
+                    <li className="nav-item"><h3 className="text-danger">{topmarketerBalance}%</h3></li>
                 </ul>
             </div>
             <div className="card-body">
@@ -49,11 +49,11 @@ const Topmarketer=()=>{
                                         <div className="widget-content p-0">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content">
-                                                    <h4 className="widget-heading text-success">17000$</h4>
+                                                    <h4 className="widget-heading text-success">{havytopmarketer} $</h4>
                                                 </div>
                                                 <div className="widget-content-right">
                                                     <div className="font-size-xlg">
-                                                        <h4 className="widget-heading text-danger">12000$</h4>
+                                                        <h4 className="widget-heading text-danger">{lighttopmrketer} $</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,12 +64,7 @@ const Topmarketer=()=>{
                                         <div className="widget-content p-0">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content">
-                                                    <h4 className="widget-heading text-success">500$</h4>
-                                                </div>
-                                                <div className="widget-content-right">
-                                                    <div className="font-size-xlg">
-                                                        <h4 className="widget-heading text-danger">500$</h4>
-                                                    </div>
+                                                    <h4 className="widget-heading text-success">{gaptopmarketer}$</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +78,7 @@ const Topmarketer=()=>{
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">
-                                                        <h4 className="text-muted">N $</h4>
+                                                        <h4 className="text-muted">{topmarketerPrice} $</h4>
                                                     </div>
                                                 </div>
                                             </div >
@@ -97,7 +92,7 @@ const Topmarketer=()=>{
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">
-                                                        <h4 className="text-muted">N $</h4>
+                                                        <h4 className="text-muted">{topmarketerAmount} $</h4>
                                                     </div>
                                                 </div>
                                             </div >
@@ -107,11 +102,11 @@ const Topmarketer=()=>{
                                         <div className="widget-content p-0 text-center">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content-left">
-                                                    <h4 className="text-muted">Daily Income</h4>
+                                                    <h4 className="text-muted">Mountly Income</h4>
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">
-                                                        <h4 className="text-muted">N $</h4>
+                                                        <h4 className="text-muted">{topmarketerDaily} $</h4>
                                                     </div>
                                                 </div>
                                             </div >

@@ -37,10 +37,16 @@ const Homecontent = () => {
     const [topmarketerAmount, settopmarketerAmount] = useState('');
     const [topmarketerPrice, settopmarketerPrice] = useState('');
 
+    //MY BENEFIT
+    const [payment, setpayment] = useState('');
+
+      //USERS COUNT
+      const [allusers, setallusers] = useState('');
+
     //UNILEVEL box
-    const [myUnilevelbalance, setmyUnilevelbalance] = useState('');
-    const [myUnilevelamount, setmyUnilevelamount] = useState('');
-    const [myUnilevelprice, setmyUnilevelprice] = useState('');
+    // const [myUnilevelbalance, setmyUnilevelbalance] = useState('');
+    // const [myUnilevelamount, setmyUnilevelamount] = useState('');
+    // const [myUnilevelprice, setmyUnilevelprice] = useState('');
 
     const navigate = useNavigate()
 
@@ -65,8 +71,16 @@ const Homecontent = () => {
 
                 //GET MY DATA
                 const getmyData = await safebox.methods.getMyData().call({ "from": accounts[0] });
-                console.log(getmyData)
                 setwWellcome(getmyData[0]);
+
+                //GET MY BENEFIT
+                const getmybenefit = await safebox.methods.getMyBenefit().call({ "from": accounts[0] });
+                setpayment(String(getmybenefit._payment).slice(0, -8))
+
+                 //GET USECOUNT
+                 const getusecount = await safebox.methods.getUsersCount().call({ "from": accounts[0] });
+                 console.log(getusecount)
+                 setallusers(String(getusecount))
 
 
                 //MY BINAY STATE
@@ -87,17 +101,18 @@ const Homecontent = () => {
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
+                console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
 
                 //MY UNILEVEL STATE
-                const getMyUniLevelState = await safebox.methods.getMyUniLevelState().call({ "from": accounts[0] });
+                // const getMyUniLevelState = await safebox.methods.getMyUniLevelState().call({ "from": accounts[0] });
                 //SET DATA UNILEVEL BOX
-                setmyUnilevelbalance(String(getMyUniLevelState._poolBalance).slice(0, -8))
-                setmyUnilevelamount(String(getMyUniLevelState._lotsAmount).slice(0, -8))
-                setmyUnilevelprice(String(getMyUniLevelState._lotPrice).slice(0, -8))
+                // setmyUnilevelbalance(String(getMyUniLevelState._poolBalance).slice(0, -8))
+                // setmyUnilevelamount(String(getMyUniLevelState._lotsAmount).slice(0, -8))
+                // setmyUnilevelprice(String(getMyUniLevelState._lotPrice).slice(0, -8))
 
             } catch (error) {
                 console.error(error.message);
@@ -121,10 +136,10 @@ const Homecontent = () => {
                             <div className="app-main__inner">
                                 <TITTLE Wellcome={Wellcome} />
                                 <div className="row mb-4" id='dashboard'>
-                                    <TITTLE3LINKS />
+                                    <TITTLE3LINKS payment={payment}/>
                                 </div>
                                 <div className="row mt-4 m-auto">
-                                    <React.Suspense><BOX_40 myUnilevelbalance={myUnilevelbalance} myUnilevelamount={myUnilevelamount} myUnilevelprice={myUnilevelprice} /></React.Suspense>
+                                    <React.Suspense><BOX_40 /></React.Suspense>
                                     <React.Suspense><BOX_30 balance={balance} lotprice={lotprice} lotpamount={lotpamount} /></React.Suspense>
                                 </div>
                                 <div className="row m-auto">
@@ -136,7 +151,7 @@ const Homecontent = () => {
                                     <Linechart />
                                 </div>
                                 <div className="row">
-                                    <FOOTERE3LINKS />
+                                    <FOOTERE3LINKS allusers={allusers}/>
                                 </div>
                             </div>
                             <div className="app-wrapper-footer">

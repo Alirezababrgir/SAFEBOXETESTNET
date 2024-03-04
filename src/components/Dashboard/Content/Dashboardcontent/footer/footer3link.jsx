@@ -1,7 +1,7 @@
 import { GrMoney } from "react-icons/gr";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import logo from "../../../../../assets/banners/navlogo.png"
-const FOOTERE3LINKS = () => {
+const FOOTERE3LINKS = ({allusers}) => {
     return (
         <>
             <div style={{display:"flex",justifyContent:"center"}}  className="col-12 text-center h-1">
@@ -13,7 +13,7 @@ const FOOTERE3LINKS = () => {
             </div>
             <div className="col-12 text-center p-4">
                 <h3 className="text-white">Number Of Users <MdPersonAddAlt1 className="text-success" /></h3>
-                <h3 className="text-danger mt-4">1000,000</h3>
+                <h3 className="text-danger mt-4">{allusers}</h3>
             </div>
             <div className="copy"></div>
         </>

@@ -1,6 +1,6 @@
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Divider } from "@mui/material";
-const Binary = () => {
+const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -10,7 +10,7 @@ const Binary = () => {
                         <h1 className="fs-2">Binary</h1>
                     </div>
                     <ul className="nav">
-                        <li className="nav-item"><h3 className="text-danger">35%</h3></li>
+                        <li className="nav-item"><h3 className="text-danger">{balance}%</h3></li>
                     </ul>
                 </div>
                 <div className="card-body">
@@ -50,12 +50,12 @@ const Binary = () => {
                                             <div className="widget-content p-0">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content">
-                                                        <h4 className="widget-heading text-success">17000$</h4>
+                                                        <h4 className="widget-heading text-success">{havy}$</h4>
                                                     </div>
 
                                                     <div className="widget-content-right">
                                                         <div className="font-size-xlg">
-                                                            <h4 className="widget-heading text-danger">12000$</h4>
+                                                            <h4 className="widget-heading text-danger">{light}$</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -70,7 +70,7 @@ const Binary = () => {
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">N $</h4>
+                                                            <h4 className="text-muted">{lotprice} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -84,7 +84,7 @@ const Binary = () => {
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">N $</h4>
+                                                            <h4 className="text-muted">{lotpamount} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -98,7 +98,7 @@ const Binary = () => {
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">N $</h4>
+                                                            <h4 className="text-muted">{daily} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
