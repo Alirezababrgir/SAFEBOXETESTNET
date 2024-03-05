@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 
-const ResponsiveTable = ({lvl,userscount,paysum}) => {
+const ResponsiveTable = () => {
 
 
   const data = [
@@ -18,7 +18,6 @@ const ResponsiveTable = ({lvl,userscount,paysum}) => {
     { id: "LVL 10", name: 'Alice', age: 28 },
   ];
   
-
 
   return (
     <div className="col-md-12 col-lg-12">
@@ -62,7 +61,22 @@ export default ResponsiveTable;
 
 
 
+/*
+ //MY CHILDREN SALES
+                const mychildrensales = await safebox.methods.getMyChildrenSalesPerLevel().call({ "from": accounts[0] });
+                //SET MY CHILDREN SALES
+                console.log(mychildrensales)
+                setlvl(String(mychildrensales._leve))
+                setuserscount(String(mychildrensales._usersCount))
+                setpaysum(String(mychildrensales._paymentSum))
 
+
+
+    //MY SALES PER LVL
+    const [lvl, setlvl] = useState();
+    const [userscount, setuserscount] = useState();
+    const [paysum, setpaysum] = useState();
+                */
 
 
 

@@ -45,10 +45,6 @@ const Office = () => {
     //MY CHILDREN SALES
     // const [uid, setuid] = useState();
 
-    //MY SALES PER LVL
-    const [lvl, setlvl] = useState();
-    const [userscount, setuserscount] = useState();
-    const [paysum, setpaysum] = useState();
 
     //GETNYBENEFIT
     const [remindRecipt, setremindRecipt] = useState()
@@ -97,6 +93,7 @@ const Office = () => {
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
+                console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
@@ -106,21 +103,12 @@ const Office = () => {
                 setlighttopmarketer(String(getMyTopMarketerState._smallHandBalance).slice(0, -8))
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
 
-
-                //MY CHILDREN SALES
-                const mychildrensales = await safebox.methods.getMyChildrenSalesPerLevel().call({ "from": accounts[0] });
-                //SET MY CHILDREN SALES
-                console.log(mychildrensales)
-                setlvl(String(mychildrensales._leve))
-                setuserscount(String(mychildrensales._usersCount))
-                setpaysum(String(mychildrensales._paymentSum))
-
                 //GET MY BENEFIT
                 const mybenefit = await safebox.methods.getMyBenefit().call({ "from": accounts[0] });
                 setremindRecipt(String(mybenefit._remainedReceipt).slice(0, -8))
 
                 //GET MY DATA
-                const mydata= await safebox.methods.getMyData().call({ "from": accounts[0] });
+                const mydata = await safebox.methods.getMyData().call({ "from": accounts[0] });
 
                 //GET USESRS SALES
                 const mysales = await safebox.methods.getMySales(mydata._userAddress).call({ "from": accounts[0] });
@@ -154,7 +142,7 @@ const Office = () => {
                                     <TOTALVOLUMEDETAIL />
                                 </div>
                                 <div className="row">
-                                    <ResponsiveTable lvl={lvl} userscount={userscount} paysum={paysum} />
+                                    <ResponsiveTable />
                                 </div>
                                 <div className="row">
                                     <Binary balance={balance} lotprice={lotprice} lotpamount={lotpamount} daily={daily} havy={havy} light={light} />
