@@ -7,7 +7,7 @@ const BOX_30 = ({balance,lotprice,lotpamount}) => {
         <div className="card  card-custom bg-white border-white border-0">
             <div className="card-img-top" />
             <div className="card-custom-avatar">
-                <img className="img-fluid" src="https://img.icons8.com/?size=80&id=77BTTeDzZoWZ&format=png" alt="Avatar" />
+                <img className="img-fluid" src="https://img.icons8.com/plasticine/100/35-circle.png" alt="Avatar" />
             </div>
             <div className="card-body">
                 <Timer/>

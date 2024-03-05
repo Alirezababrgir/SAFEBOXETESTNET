@@ -3,7 +3,6 @@ import { Helmet, HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import { Divider } from "@mui/material";
 import { IoDiamondOutline, IoReloadOutline } from "react-icons/io5";
-import { IoDiamond } from "react-icons/io5";
 import { GiGoldBar } from "react-icons/gi";
 import Fab from '@mui/material/Fab';
 import { GrSend } from "react-icons/gr";
@@ -105,7 +104,7 @@ const Signup = () => {
                                         <div>
                                             <h2 className='slide-left mt-2'>50$</h2>
                                             <h5> Income limit: 300$<br />
-                                                Trade Profit :%50
+                                                Trade Profit :%25
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
@@ -118,8 +117,8 @@ const Signup = () => {
                                     <div class="card gr-gold text-center plan-content packagecards">
                                         <div>
                                             <h2 className='slide-left mt-2'>100$</h2>
-                                            <h5> Income limit: 150$<br />
-                                                Trade Profit :%10
+                                            <h5> Income limit: 600$<br />
+                                                Trade Profit :%60
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
@@ -132,26 +131,12 @@ const Signup = () => {
                                     <div class="card gr-diamond text-center plan-content packagecards">
                                         <div>
                                             <h2 className='slide-left mt-2'>200$</h2>
-                                            <h5> Income limit: 150$<br />
-                                                Trade Profit :%10
+                                            <h5> Income limit: 1200$<br />
+                                                Trade Profit :%150
                                             </h5>
                                         </div>
                                         <div class="ico-cards  scale-in-center ">
                                             <i><IoDiamondOutline /></i>
-                                        </div>
-                                    </div>
-                                </label>
-                                <label className="plan basic-plan gr-D-black" htmlFor="DIAMONDblack">
-                                    <input checked={packageNo === 4} type="radio" name="plan" id="DIAMONDblack" value={"4"} onClick={handlePackageSelection} />
-                                    <div class="card gr-D-black text-center plan-content packagecards">
-                                        <div>
-                                            <h2 className='slide-left mt-2'>500$</h2>
-                                            <h5> Income limit: 150$<br />
-                                                Trade Profit :%10
-                                            </h5>
-                                        </div>
-                                        <div class="ico-cards  scale-in-center ">
-                                            <i><IoDiamond /></i>
                                         </div>
                                     </div>
                                 </label>

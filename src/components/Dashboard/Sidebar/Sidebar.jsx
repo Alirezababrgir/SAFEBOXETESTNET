@@ -20,7 +20,9 @@ import { RiHomeOfficeLine } from "react-icons/ri";
 import { FaArrowUpWideShort } from "react-icons/fa6";
 import { RxTextAlignMiddle } from "react-icons/rx";
 import { TbBusinessplan } from "react-icons/tb";
-
+import { useEffect } from 'react';
+import Web3 from 'web3';
+import { Contract_address, Contract_abi } from '../../../services/abis';
 
 const drawerWidth = 135;
 export const AppBar = styled(MuiAppBar, {
@@ -44,6 +46,30 @@ export const AppBar = styled(MuiAppBar, {
 
 
 const Sidebar = () => {
+
+    const [Relink, setReflink] = React.useState();
+
+
+    useEffect(() => {
+        const showReflink = async () => {
+            try {
+
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
+
+                const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+
+                //GET MY DATA
+                const getmyData = await safebox.methods.getMyData().call({ "from": accounts[0] });
+                setReflink(String(getmyData._userUid));
+
+            } catch (error) {
+
+            }
+        }
+        showReflink()
+    }, [Relink])
+
 
 
     const theme = useTheme();
@@ -110,8 +136,7 @@ const Sidebar = () => {
                                 <Divider sx={{ backgroundColor: "white", marginRight: "30px" }} />
                                 <Divider sx={{ backgroundColor: "white", marginRight: "30px", marginBottom: "10px", marginTop: "2px" }} />
                             </li>
-                            <li><a href="#contract">Your Ref Link:<span className='glowing-txt mt-2'>09xdcwjguy...</span></a></li>
-                            <li><button className='mt-2 btn btn-outline-primary ml-4'>Copy</button></li>
+                            <li className='glowing-txt'><a href="#contract ">Uid:<span className=' mt-2 text-center'>{Relink}</span></a></li>
                         </ul>
                     </Box>
                 </ClickAwayListener>
@@ -120,3 +145,5 @@ const Sidebar = () => {
     )
 }
 export default Sidebar;
+
+//                            <li><button className='mt-2 btn btn-outline-primary ml-4'>Copy</button></li>
