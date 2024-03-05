@@ -1,5 +1,5 @@
 
-const TITTLE3LINKS_OFFICE = () => {
+const TITTLE3LINKS_OFFICE = ({remindRecipt,tenLvL,allLvL}) => {
     return (
         <>
             <div class="container">
@@ -8,6 +8,8 @@ const TITTLE3LINKS_OFFICE = () => {
                         <div class="card packagecards gr-1">
                             <div class="glowing-txt">
                                 <h2>Total Volume  <br />
+                                {allLvL}
+
                                 </h2>
                             </div>
                             <a href="#">more</a>
@@ -20,6 +22,7 @@ const TITTLE3LINKS_OFFICE = () => {
                         <div class="card packagecards gr-3">
                             <div class="glowing-txt">
                                 <h2>Total 10 Level<br />
+                                {tenLvL}
                                 </h2>
                             </div>
                             <a href="#">more</a>
@@ -32,6 +35,7 @@ const TITTLE3LINKS_OFFICE = () => {
                         <div class="card packagecards  gr-2">
                             <div class="glowing-txt">
                                 <h2>Income Limit <br />
+                                {remindRecipt}
                                 </h2>
                             </div>
                             <a href="#">more</a>

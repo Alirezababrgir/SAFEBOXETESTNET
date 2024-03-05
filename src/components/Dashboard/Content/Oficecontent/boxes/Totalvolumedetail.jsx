@@ -5,10 +5,15 @@ import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 
 const data = [
-    { value: 5, label: 'champion' },
+    { value: 5, label: 'UID:1352' },
     { value: 10, label: 'unilevel' },
     { value: 15, label: 'binary' },
     { value: 20, label: 'topmarketer' },
+    { value: 25, label: 'topmarketer' },
+    { value: 30, label: 'topmarketer' },
+    { value: 35, label: 'topmarketer' },
+    { value: 38, label: 'topmarketer' },
+
 ];
 
 

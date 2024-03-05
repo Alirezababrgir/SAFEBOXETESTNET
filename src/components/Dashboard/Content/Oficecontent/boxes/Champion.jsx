@@ -79,7 +79,7 @@ const Champion = ({ ChampionAmount, ChampionPrice, ChampionBalance, championDily
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted fs-4">Total Sales 10 Lvl:</h4>
+                                                        <h4 className="text-muted fs-4">Sales 10 LvL:</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">

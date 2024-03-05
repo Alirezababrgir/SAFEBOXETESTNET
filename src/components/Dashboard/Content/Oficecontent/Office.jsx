@@ -42,6 +42,23 @@ const Office = () => {
     const [lighttopmrketer, setlighttopmarketer] = useState();
     const [gaptopmarketer, setgaptopmarketer] = useState();
 
+    //MY CHILDREN SALES
+    // const [uid, setuid] = useState();
+
+    //MY SALES PER LVL
+    const [lvl, setlvl] = useState();
+    const [userscount, setuserscount] = useState();
+    const [paysum, setpaysum] = useState();
+
+    //GETNYBENEFIT
+    const [remindRecipt, setremindRecipt] = useState()
+
+    //GET USERS SALES
+    const [tenLvL, settenLvL] = useState();
+    const [allLvL, setallLvL] = useState();
+
+
+
     useEffect(() => {
 
         const show = async () => {
@@ -90,13 +107,26 @@ const Office = () => {
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
 
 
+                //MY CHILDREN SALES
+                const mychildrensales = await safebox.methods.getMyChildrenSalesPerLevel().call({ "from": accounts[0] });
+                //SET MY CHILDREN SALES
+                console.log(mychildrensales)
+                setlvl(String(mychildrensales._leve))
+                setuserscount(String(mychildrensales._usersCount))
+                setpaysum(String(mychildrensales._paymentSum))
 
-                //MY UNILEVEL STATE
-                // const getMyUniLevelState = await safebox.methods.getMyUniLevelState().call({ "from": accounts[0] });
-                //SET DATA UNILEVEL BOX
-                // setmyUnilevelbalance(String(getMyUniLevelState._poolBalance).slice(0, -8))
-                // setmyUnilevelamount(String(getMyUniLevelState._lotsAmount).slice(0, -8))
-                // setmyUnilevelprice(String(getMyUniLevelState._lotPrice).slice(0, -8))
+                //GET MY BENEFIT
+                const mybenefit = await safebox.methods.getMyBenefit().call({ "from": accounts[0] });
+                setremindRecipt(String(mybenefit._remainedReceipt).slice(0, -8))
+
+                //GET MY DATA
+                const mydata= await safebox.methods.getMyData().call({ "from": accounts[0] });
+
+                //GET USESRS SALES
+                const mysales = await safebox.methods.getMySales(mydata._userAddress).call({ "from": accounts[0] });
+                console.log(mysales._tenLevelSales)
+                settenLvL(String(mysales._tenLevelSales).slice(0, -8))
+                setallLvL(String(mysales._allLevelSales).slice(0, -8))
 
             } catch (error) {
                 console.error(error.message);
@@ -118,13 +148,13 @@ const Office = () => {
                         <div className="app-main__outer">
                             <div className="app-main__inner">
                                 <div style={{ marginBottom: "50px" }} className="row">
-                                    <TITTLE3LINKS_OFFICE />
+                                    <TITTLE3LINKS_OFFICE remindRecipt={remindRecipt} tenLvL={tenLvL} allLvL={allLvL} />
                                 </div>
                                 <div className="row">
                                     <TOTALVOLUMEDETAIL />
                                 </div>
                                 <div className="row">
-                                    <ResponsiveTable />
+                                    <ResponsiveTable lvl={lvl} userscount={userscount} paysum={paysum} />
                                 </div>
                                 <div className="row">
                                     <Binary balance={balance} lotprice={lotprice} lotpamount={lotpamount} daily={daily} havy={havy} light={light} />

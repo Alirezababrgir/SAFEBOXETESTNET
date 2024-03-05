@@ -1,20 +1,25 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-const data = [
-  { id: "LVL 1", name: 'John', age: 25 },
-  { id: "LVL 2", name: 'Jane', age: 30 },
-  { id: "LVL 3", name: 'Alice', age: 28 },
-  { id: "LVL 4", name: 'Alice', age: 28 },
-  { id: "LVL 5", name: 'Alice', age: 28 },
-  { id: "LVL 6", name: 'Alice', age: 28 },
-  { id: "LVL 7", name: 'Alice', age: 28 },
-  { id: "LVL 8", name: 'Alice', age: 28 },
-  { id: "LVL 9", name: 'Alice', age: 28 },
-  { id: "LVL 10", name: 'Alice', age: 28 },
-];
 
-const ResponsiveTable = () => {
+const ResponsiveTable = ({lvl,userscount,paysum}) => {
+
+
+  const data = [
+    { id: "LVL 1", name: 'John', age: 25 },
+    { id: "LVL 2", name: 'Jane', age: 30 },
+    { id: "LVL 3", name: 'Alice', age: 28 },
+    { id: "LVL 4", name: 'Alice', age: 28 },
+    { id: "LVL 5", name: 'Alice', age: 28 },
+    { id: "LVL 6", name: 'Alice', age: 28 },
+    { id: "LVL 7", name: 'Alice', age: 28 },
+    { id: "LVL 8", name: 'Alice', age: 28 },
+    { id: "LVL 9", name: 'Alice', age: 28 },
+    { id: "LVL 10", name: 'Alice', age: 28 },
+  ];
+  
+
+
   return (
     <div className="col-md-12 col-lg-12">
       <div style={{ borderRadius: "1rem" }} className="mb-3 card">
@@ -32,7 +37,7 @@ const ResponsiveTable = () => {
             <thead>
               <tr  scope={"col"}>
                 <th style={{borderRight:"2px solid black"}} className='col-1'>LEVEL</th>
-                <th className='col-2'>PACKAGE<br />UID</th>
+                <th className='col-2'>LINE<br />UID</th>
                 <th className='col-8'>25$<br/>uid</th>
               </tr>
             </thead>
