@@ -43,10 +43,6 @@ const Homecontent = () => {
       //USERS COUNT
       const [allusers, setallusers] = useState('');
 
-    //UNILEVEL box
-    // const [myUnilevelbalance, setmyUnilevelbalance] = useState('');
-    // const [myUnilevelamount, setmyUnilevelamount] = useState('');
-    // const [myUnilevelprice, setmyUnilevelprice] = useState('');
 
     const navigate = useNavigate()
 
@@ -108,12 +104,6 @@ const Homecontent = () => {
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
 
-                //MY UNILEVEL STATE
-                // const getMyUniLevelState = await safebox.methods.getMyUniLevelState().call({ "from": accounts[0] });
-                //SET DATA UNILEVEL BOX
-                // setmyUnilevelbalance(String(getMyUniLevelState._poolBalance).slice(0, -8))
-                // setmyUnilevelamount(String(getMyUniLevelState._lotsAmount).slice(0, -8))
-                // setmyUnilevelprice(String(getMyUniLevelState._lotPrice).slice(0, -8))
 
             } catch (error) {
                 console.error(error.message);
