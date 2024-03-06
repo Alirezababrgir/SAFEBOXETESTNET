@@ -68,7 +68,7 @@ const Office = () => {
                 //MY BINAY STATE
                 const getMyBinaryState = await safebox.methods.getMyBinaryState().call({ "from": accounts[0] });
                 //SET DATA BINARY BOX
-                setbalance(String(getMyBinaryState._poolBalance).slice(0, -8))
+                setbalance(String(getMyBinaryState._poolBalance)/100000000)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
                 setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
                 setdaily(String(getMyBinaryState._lotsEarned).slice(0, -8))
@@ -79,26 +79,29 @@ const Office = () => {
                 //MY CHAMPION STATE
                 const getMyBestState = await safebox.methods.getMyChampionState().call({ "from": accounts[0] });
                 //SET DATA CHAMPION BOX
-                setChampionBalance(String(getMyBestState._poolBalance).slice(0, -8))
+                setChampionBalance(String(getMyBestState._poolBalance)/100000000)
                 setChampionAmount(String(getMyBestState._lotsAmount).slice(0, -8))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
                 setchampionDaily(String(getMyBestState._lotsEarned).slice(0, -8))
                 setlightchampion(String(getMyBestState._smallHandSales).slice(0, -8))
                 setallhand(String(getMyBestState._allHandSales).slice(0, -8))
                 settenlevel(String(getMyBestState._tenLevelSales).slice(0, -8))
+                console.log(getMyBestState)
 
 
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
                 //SET DATA TOPMARKETER BOX
-                settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
+                settopmarketerBalance(String(getMyTopMarketerState._poolBalance)/100000000)
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
                 settopmarketerDaily(String(getMyTopMarketerState._lotsEarned).slice(0, -8))
                 sethavytopmarketer(String(getMyTopMarketerState._bigHandBalance).slice(0, -8))
                 setlighttopmarketer(String(getMyTopMarketerState._smallHandBalance).slice(0, -8))
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
+                console.log(getMyTopMarketerState)
+
 
                 //GET MY BENEFIT
                 const mybenefit = await safebox.methods.getMyBenefit().call({ "from": accounts[0] });

@@ -4,8 +4,11 @@ import Web3 from "web3";
 import { Contract_abi, Contract_address } from '../../../../../services/abis'
 
 const BOX_40 = () => {
+    
     //const [active, setactive] = ('')
+
     const [mlmpaymentsum, setmlmPaymentum] = useState();
+
     useEffect(() => {
         const MlmBlocking = async () => {
             try {
@@ -23,9 +26,8 @@ const BOX_40 = () => {
 
                 //GET PAYMENT SUM
                 const getpaymentsum = await safebox.methods.getMlmPaymentSum().call({ "from": accounts[0] });
-                console.log(getpaymentsum)
-                setmlmPaymentum(String(getpaymentsum._mlmPaymentSum).slice(0, -8))
-
+                console.log(String(getpaymentsum)/100000000)
+                setmlmPaymentum(String(getpaymentsum).slice(0, -8))
             } catch (error) {
 
                 console.log(error.message);

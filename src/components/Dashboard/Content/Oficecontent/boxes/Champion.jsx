@@ -10,7 +10,7 @@ const Champion = ({ ChampionAmount, ChampionPrice, ChampionBalance, championDily
                         <h1 className="fs-2">Champion</h1>
                     </div>
                     <ul className="nav">
-                        <li className="nav-item"><h3 className="text-danger">{ChampionBalance}%</h3></li>
+                        <li className="nav-item"><h3 className="text-danger">{ChampionBalance}$</h3></li>
                     </ul>
                 </div>
                 <div className="card-body">

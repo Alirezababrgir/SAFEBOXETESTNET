@@ -10,7 +10,7 @@ const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
                         <h1 className="fs-2">Binary</h1>
                     </div>
                     <ul className="nav">
-                        <li className="nav-item"><h3 className="text-danger">{balance}%</h3></li>
+                        <li className="nav-item"><h3 className="text-danger">{balance}$</h3></li>
                     </ul>
                 </div>
                 <div className="card-body">

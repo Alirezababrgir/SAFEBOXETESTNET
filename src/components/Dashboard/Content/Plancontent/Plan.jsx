@@ -1,4 +1,5 @@
 import { DrawerHeader } from "../../Sidebar/Drawerheader";
+import plan0 from "../../../../assets/Bplan/plan0.jpg"
 import plan1 from "../../../../assets/Bplan/plan1.jpg"
 import plan2 from "../../../../assets/Bplan/plan2.jpg"
 import plan3 from "../../../../assets/Bplan/plan3.jpg"
@@ -10,7 +11,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 const images = [
-
+    plan0,
     plan1,
     plan2,
     plan3,

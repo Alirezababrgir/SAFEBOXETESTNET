@@ -10,7 +10,7 @@ const Topmarketer=({topmarketerAmount,topmarketerBalance,topmarketerPrice,topmar
                     <h1 className="fs-2">Topmarketer</h1>
                 </div>
                 <ul className="nav">
-                    <li className="nav-item"><h3 className="text-danger">{topmarketerBalance}%</h3></li>
+                    <li className="nav-item"><h3 className="text-danger">{topmarketerBalance}$</h3></li>
                 </ul>
             </div>
             <div className="card-body">

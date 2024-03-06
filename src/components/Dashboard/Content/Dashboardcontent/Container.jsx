@@ -85,7 +85,7 @@ const Homecontent = () => {
                 //MY BINAY STATE
                 const getMyBinaryState = await safebox.methods.getMyBinaryState().call({ "from": accounts[0] });
                 //SET DATA BINARY BOX
-                setbalance(String(getMyBinaryState._poolBalance).slice(0, -8))
+                setbalance(String(getMyBinaryState._poolBalance)/100000000)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
                 setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
                 console.log(getMyBinaryState)
@@ -94,7 +94,7 @@ const Homecontent = () => {
                 //MY CHAMPION STATE
                 const getMyBestState = await safebox.methods.getMyChampionState().call({ "from": accounts[0] });
                 //SET DATA CHAMPION BOX
-                setChampionBalance(String(getMyBestState._poolBalance).slice(0, -8))
+                setChampionBalance(String(getMyBestState._poolBalance)/100000000)
                 setChampionAmount(String(getMyBestState._lotsAmount).slice(0, -8))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
                 console.log(getMyBestState)
@@ -103,7 +103,7 @@ const Homecontent = () => {
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
                 console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
-                settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
+                settopmarketerBalance(String(getMyTopMarketerState._poolBalance)/100000000)
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
 
