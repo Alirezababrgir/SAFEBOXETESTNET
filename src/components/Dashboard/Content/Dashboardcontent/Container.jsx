@@ -40,8 +40,11 @@ const Homecontent = () => {
     //MY BENEFIT
     const [payment, setpayment] = useState('');
 
-      //USERS COUNT
-      const [allusers, setallusers] = useState('');
+    //USERS COUNT
+    const [allusers, setallusers] = useState('');
+
+    //PAYMENT SUM
+    const [paymentsum,setPaymentum]=useState()
 
 
     const navigate = useNavigate()
@@ -73,10 +76,10 @@ const Homecontent = () => {
                 const getmybenefit = await safebox.methods.getMyBenefit().call({ "from": accounts[0] });
                 setpayment(String(getmybenefit._payment).slice(0, -8))
 
-                 //GET USECOUNT
-                 const getusecount = await safebox.methods.getUsersCount().call({ "from": accounts[0] });
-                 console.log(getusecount)
-                 setallusers(String(getusecount))
+                //GET USECOUNT
+                const getusecount = await safebox.methods.getUsersCount().call({ "from": accounts[0] });
+                console.log(getusecount)
+                setallusers(String(getusecount))
 
 
                 //MY BINAY STATE
@@ -105,6 +108,13 @@ const Homecontent = () => {
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
 
 
+
+                //GET PAYMENT SUM
+                const getpaymentsum = await safebox.methods.getPaymentSum().call({ "from": accounts[0] });
+                console.log(getpaymentsum)
+                setPaymentum(String(getpaymentsum._mlmPaymentSum).slice(0, -8))
+
+
             } catch (error) {
                 console.error(error.message);
                 toast.error(error.message)
@@ -127,7 +137,7 @@ const Homecontent = () => {
                             <div className="app-main__inner">
                                 <TITTLE Wellcome={Wellcome} />
                                 <div className="row mb-4" id='dashboard'>
-                                    <TITTLE3LINKS payment={payment}/>
+                                    <TITTLE3LINKS payment={payment} />
                                 </div>
                                 <div className="row mt-4 m-auto">
                                     <React.Suspense><BOX_40 /></React.Suspense>
@@ -142,7 +152,7 @@ const Homecontent = () => {
                                     <Linechart />
                                 </div>
                                 <div className="row">
-                                    <FOOTERE3LINKS allusers={allusers}/>
+                                    <FOOTERE3LINKS allusers={allusers} paymentsum={paymentsum}/>
                                 </div>
                             </div>
                             <div className="app-wrapper-footer">

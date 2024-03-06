@@ -1,4 +1,4 @@
-import Timer from "./Timer";
+import TimerTEN from "./Timers/Timer10";
 const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => {
     return (
         <div className="col-md-6 col-lg-6 pb-3">
@@ -9,7 +9,7 @@ const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => 
                     <img className="img-fluid" src="https://img.icons8.com/plasticine/100/10.png" alt="Avatar" />
                 </div>
                 <div className="card-body">
-                    <Timer />
+                    <TimerTEN />
                     <h4 className="fs-6 text-muted">Deatils</h4>
                     <div>
                         <div className="scrollbar-container px-4">

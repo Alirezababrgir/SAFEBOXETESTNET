@@ -1,4 +1,4 @@
-const Timer = () => {
+const TimerTEN = () => {
     return (
         <main style={{ padding:"0 4rem " }}>
             <div class="container center">
@@ -7,7 +7,7 @@ const Timer = () => {
                         <div class="timer-box">
                             <div id="flip-sheet-day" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="days" class="primary">00</p>
+                            <p id="days" class="primary">25</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">DAYS</p>
@@ -37,4 +37,4 @@ const Timer = () => {
         </main>
     )
 }
-export default Timer;
+export default TimerTEN;

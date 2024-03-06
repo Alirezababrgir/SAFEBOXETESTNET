@@ -1,4 +1,4 @@
-import Timer from "./Timer";
+import TimerBinary from "./Timers/TimerBinary";
 const BOX_30 = ({balance,lotprice,lotpamount}) => {
 
     return (
@@ -10,7 +10,7 @@ const BOX_30 = ({balance,lotprice,lotpamount}) => {
                 <img className="img-fluid" src="https://img.icons8.com/plasticine/100/35-circle.png" alt="Avatar" />
             </div>
             <div className="card-body">
-                <Timer/>
+                <TimerBinary/>
                 <h4 className="fs-6 text-muted">Deatils</h4>
                 <div>
                     <div className="scrollbar-container px-4">
