@@ -94,7 +94,7 @@ const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">LOT</h4>
+                                                        <h4 className="text-muted">Lot</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">

@@ -69,7 +69,6 @@ const Office = () => {
                 const getMyBinaryState = await safebox.methods.getMyBinaryState().call({ "from": accounts[0] });
                 //SET DATA BINARY BOX
                 setbalance(String(getMyBinaryState._poolBalance).slice(0, -8))
-                console.log(getMyBinaryState)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
                 setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
                 setdaily(String(getMyBinaryState._lotsEarned).slice(0, -8))
@@ -87,13 +86,11 @@ const Office = () => {
                 setlightchampion(String(getMyBestState._smallHandSales).slice(0, -8))
                 setallhand(String(getMyBestState._allHandSales).slice(0, -8))
                 settenlevel(String(getMyBestState._tenLevelSales).slice(0, -8))
-                console.log(getMyBestState)
 
 
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
-                console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance).slice(0, -8))
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
@@ -112,7 +109,6 @@ const Office = () => {
 
                 //GET USESRS SALES
                 const mysales = await safebox.methods.getMySales(mydata._userAddress).call({ "from": accounts[0] });
-                console.log(mysales._tenLevelSales)
                 settenLvL(String(mysales._tenLevelSales).slice(0, -8))
                 setallLvL(String(mysales._allLevelSales).slice(0, -8))
 

@@ -1,79 +1,141 @@
 import * as React from 'react';
-import { PieChart } from '@mui/x-charts/PieChart';
-import { useDrawingArea } from '@mui/x-charts/hooks';
-import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
-
-const data = [
-    { value: 5, label: 'UID:1352' },
-    { value: 10, label: 'unilevel' },
-    { value: 15, label: 'binary' },
-    { value: 20, label: 'topmarketer' },
-    { value: 25, label: 'topmarketer' },
-    { value: 30, label: 'topmarketer' },
-    { value: 35, label: 'topmarketer' },
-    { value: 38, label: 'topmarketer' },
-
-];
-
-
-const size = {
-    width: 300,
-    height: 200,
-};
-
-const StyledText = styled('text')(({ theme }) => ({
-    fill: theme.palette.text.primary,
-    textAnchor: 'middle',
-    dominantBaseline: 'central',
-    fontSize: 15,
-}));
-function PieCenterLabel({ children }) {
-    const { width, height, left, top } = useDrawingArea();
-    return (
-        <StyledText x={left + width / 2} y={top + height / 2}> 
-            {children}
-        </StyledText>
-    );
-}
-
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Slider from '@mui/material/Slider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import { BarChart } from '@mui/x-charts/BarChart';
+import { useEffect } from 'react';
+import Web3 from 'web3';
+import { Contract_abi, Contract_address } from "../../../../../services/abis";
 
 
 export default function TOTALVOLUMEDETAIL() {
 
 
+    const [seriesNb, setSeriesNb] = React.useState(2);
+    const [itemNb, setItemNb] = React.useState(5);
+    const [skipAnimation, setSkipAnimation] = React.useState(false);
+
+    const handleItemNbChange = (event, newValue) => {
+        if (typeof newValue !== 'number') {
+            return;
+        }
+        setItemNb(newValue);
+    };
+    const handleSeriesNbChange = (event, newValue) => {
+        if (typeof newValue !== 'number') {
+            return;
+        }
+        setSeriesNb(newValue);
+    };
+
+    const [uid, setuid] = React.useState();
+    const [alllevel, setalllevel] = React.useState();
+    const [tenlevel, settenlevel] = React.useState();
+
+
+    //barchart start data
+
+    const highlightScope = {
+        highlighted: 'series',
+        faded: 'global',
+    };
+   
+const series = [
+    {
+        label: 'All Level',
+        data: [
+           alllevel
+        ],
+    },
+    {
+        label: 'Ten Level',
+        data: [
+             tenlevel
+        ],
+    }
+   
+].map((s) => ({ ...s, highlightScope }));
+
+
+
+    useEffect(() => {
+        const RunPie = async () => {
+
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
+
+                const safebox = new web3.eth.Contract(JSON.parse(Contract_abi), Contract_address);
+
+                //CHECKING MY !IMPORTANT
+                const ChildrenSales = await safebox.methods.getMyChildrenSales().call({ "from": accounts[0] });
+                console.log(String(ChildrenSales[0]._tenLevelSales).slice(0, -8))
+                console.log(String(ChildrenSales[0]._allLevelSales).slice(0, -8))
+                console.log(ChildrenSales[0]._uid)
+                settenlevel(String(ChildrenSales[0]._tenLevelSales).slice(0, -8))
+                setuid(String(ChildrenSales[0]._uid))
+                setalllevel(String(ChildrenSales[0]._allLevelSales).slice(0, -8))
+
+            } catch {
+
+            }
+
+        }
+        RunPie()
+
+    }, [])
+
+
 
     return (
-        <div className="col-md-12 col-lg-4">
-            <div style={{ borderRadius: "1rem" }} className="mb-3 card">
-                <div className="card-header-tab card-header-tab-animation card-header">
-                    <div className="card-header-title">
-                        <i className="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
-                        <h1 className="fs-2">Total Volum Details</h1>
-                    </div>
-                    <ul className="nav">
-                        <li className="nav-item"><h3>%</h3></li>
-                    </ul>
-                </div>
-                <div className="card-body row">
-                    <div className='col-10 col-md-6'>
-                        <Stack direction="column" spacing={2} alignItems='normal' sx={{ width: '100%' }}>
-                            <PieChart series={[{
-                                data,
-                                innerRadius: 30,
-                                outerRadius: 100,
-                                paddingAngle: 5,
-                                cornerRadius: 5,
-                                startAngle: -180,
-                                endAngle: 360,
-
-                            }]} {...size}>
-                                <PieCenterLabel>Total</PieCenterLabel>
-                            </PieChart>
-                        </Stack>
-                    </div>
+        <div className="col-md-12 col-lg-12">
+            <div style={{ borderRadius: "0.4rem" }} className="mb-3 bg-white">
+                <div className="row mb-4 p-4">
+                    <Box sx={{ width: '100%' }}>
+                    <BarChart
+                            height={300}
+                            series={series
+                                .slice(0, seriesNb)
+                                .map((s) => ({ ...s, data: s.data.slice(0, itemNb) }))}
+                            skipAnimation={skipAnimation}
+                        />
+                        <FormControlLabel
+                            checked={skipAnimation}
+                            control={
+                                <Checkbox onChange={(event) => setSkipAnimation(event.target.checked)} />
+                            }
+                            label="skipAnimation"
+                            labelPlacement="end"
+                        />
+                        <Typography id="input-item-number" gutterBottom>
+                            Number of items
+                        </Typography>
+                        <Slider
+                            value={itemNb}
+                            onChange={handleItemNbChange}
+                            valueLabelDisplay="auto"
+                            min={1}
+                            max={50}
+                            aria-labelledby="input-item-number"
+                        />
+                        <Typography id="input-series-number" gutterBottom>
+                            Number of series
+                        </Typography>
+                        <Slider
+                            value={seriesNb}
+                            onChange={handleSeriesNbChange}
+                            valueLabelDisplay="auto"
+                            min={1}
+                            max={2}
+                            aria-labelledby="input-series-number"
+                        />
+                    </Box>
                 </div>
             </div>
         </div>
     );
+
+
 }

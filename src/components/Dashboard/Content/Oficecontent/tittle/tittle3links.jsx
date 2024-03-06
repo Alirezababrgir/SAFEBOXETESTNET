@@ -5,40 +5,37 @@ const TITTLE3LINKS_OFFICE = ({remindRecipt,tenLvL,allLvL}) => {
             <div class="container">
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-4 column mb-2">
-                        <div class="card packagecards gr-1">
+                        <div style={{height:"170px"}} class="card packagecards gr-1">
                             <div class="glowing-txt">
                                 <h2>Total Volume  <br />
                                 {allLvL}
 
                                 </h2>
                             </div>
-                            <a href="#">more</a>
                             <div class="ico-cards">
                                 <i class="bi bi-speedometer"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-4 col-lg-4 column mb-2">
-                        <div class="card packagecards gr-3">
+                        <div style={{height:"170px"}} class="card packagecards gr-3">
                             <div class="glowing-txt">
                                 <h2>Total 10 Level<br />
                                 {tenLvL}
                                 </h2>
                             </div>
-                            <a href="#">more</a>
                             <div class="ico-cards">
                                 <i class="bi bi-list-ol"></i>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-4 column">
-                        <div class="card packagecards  gr-2">
+                        <div style={{height:"170px"}} class="card packagecards  gr-2">
                             <div class="glowing-txt">
                                 <h2>Income Limit <br />
                                 {remindRecipt}
                                 </h2>
                             </div>
-                            <a href="#">more</a>
                             <div class="ico-cards">
                                 <i class="bi bi-pie-chart-fill"></i>
                             </div>
