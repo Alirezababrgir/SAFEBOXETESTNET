@@ -23,7 +23,7 @@ const Champion = ({ mountlyCampion, receiptchampion, ChampionAmount, ChampionPri
                                             <div className="widget-content">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="widget-heading">Total Sales</h4>
+                                                        <h4 className="widget-heading">Balance</h4>
                                                     </div>
                                                     <div className="widget-content-right">
                                                         <h4 className="widget-heading">Lightness</h4>

@@ -18,7 +18,7 @@ const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => 
                                     <div className="widget-content p-0">
                                         <div className="widget-content-wrapper">
                                             <div className="widget-content-left">
-                                                <h4 className="widget-heading">Sale Total</h4>
+                                                <h4 className="widget-heading">Balance</h4>
                                             </div>
                                             <div className="widget-content-right">
                                                 <div className="font-size-xlg text-muted">
