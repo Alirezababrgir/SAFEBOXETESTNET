@@ -36,7 +36,7 @@ const BOX_10_SHN = ({ ChampionBalance, ChampionAmount, ChampionPrice }) => {
                                             </div>
                                             <div className="widget-content-right">
                                                 <div className="font-size-xlg text-muted">
-                                                    <h4>{ChampionAmount} $</h4>
+                                                    <h4>{ChampionAmount}</h4>
                                                 </div>
                                             </div>
                                         </div>

@@ -7,7 +7,7 @@ const TimerTEN = () => {
                         <div class="timer-box">
                             <div id="flip-sheet-day" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="days" class="primary">25</p>
+                            <p id="days" class="primary">00</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">DAYS</p>

@@ -19,34 +19,34 @@ const Office = () => {
     const [balance, setbalance] = useState('');
     const [lotprice, setlotprice] = useState('');
     const [lotpamount, setlotamount] = useState('');
-    const [daily, setdaily] = useState('');
+    const [Earned, setEarned] = useState('');
     const [havy, sethavy] = useState();
     const [light, setlight] = useState()
-    const [sumbinary,setsumbinary]=useState();
     const [receiptbinary,setreceiptbinary]=useState();
+    const [dailyBinary,setdailyBinary]=useState();
 
     //champion box
     const [ChampionBalance, setChampionBalance] = useState('');
     const [ChampionAmount, setChampionAmount] = useState('');
     const [ChampionPrice, setChampionPrice] = useState('');
-    const [championDily, setchampionDaily] = useState('');
+    const [championEarned, setchampionEarned] = useState('');
     const [lightchampion, setlightchampion] = useState();
     const [allhand, setallhand] = useState();
     const [tenlevel, settenlevel] = useState();
-    const [lotsumchampion,setlotsumchampion]=useState();
     const [receiptchampion,setreceiptchampion]=useState();
+    const [mountlyCampion,setmountlyCampion]=useState();
 
 
     //TOPMARKETER box
     const [topmarketerBalance, settopmarketerBalance] = useState('');
     const [topmarketerAmount, settopmarketerAmount] = useState('');
     const [topmarketerPrice, settopmarketerPrice] = useState('');
-    const [topmarketerDaily, settopmarketerDaily] = useState('');
+    const [topmarketerEarned, settopmarketerEaned] = useState('');
     const [havytopmarketer, sethavytopmarketer] = useState();
     const [lighttopmrketer, setlighttopmarketer] = useState();
     const [gaptopmarketer, setgaptopmarketer] = useState();
-    const [lotsSumTopmarketer,setlotsSumTopmarketer]=useState();
     const [receiptTop,setreceiptTop]=useState();
+    const [mountlyTop,setmountlyTop]=useState();
 
     //MY CHILDREN SALES
     // const [uid, setuid] = useState();
@@ -78,12 +78,12 @@ const Office = () => {
                 //SET DATA BINARY BOX
                 setbalance(String(getMyBinaryState._poolBalance)/100000000)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
-                setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
-                setdaily(String(getMyBinaryState._lotsEarned).slice(0, -8))
+                setlotamount(String(getMyBinaryState._lotsAmount))
+                setEarned(String(getMyBinaryState._lotsEarned))
                 setlight(String(getMyBinaryState._smallHandBalance).slice(0, -8))
                 sethavy(String(getMyBinaryState._bigHandBalance).slice(0, -8))
-                setsumbinary(String(getMyBinaryState._lotsSum))
                 setreceiptbinary(String(getMyBinaryState._receipt).slice(0, -8))
+                setdailyBinary(String( getMyBinaryState._lotsEarned)*String(getMyBinaryState._lotPrice).slice(0, -8))
                 console.log(getMyBinaryState)
 
 
@@ -91,14 +91,14 @@ const Office = () => {
                 const getMyBestState = await safebox.methods.getMyChampionState().call({ "from": accounts[0] });
                 //SET DATA CHAMPION BOX
                 setChampionBalance(String(getMyBestState._poolBalance)/100000000)
-                setChampionAmount(String(getMyBestState._lotsAmount).slice(0, -8))
+                setChampionAmount(String(getMyBestState._lotsAmount))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
-                setchampionDaily(String(getMyBestState._lotsEarned).slice(0, -8))
+                setchampionEarned(String(getMyBestState._lotsEarned))
                 setlightchampion(String(getMyBestState._smallHandSales).slice(0, -8))
                 setallhand(String(getMyBestState._allHandSales).slice(0, -8))
                 settenlevel(String(getMyBestState._tenLevelSales).slice(0, -8))
-                setlotsumchampion(String(getMyBestState._lotsSum))
                 setreceiptchampion(String(getMyBestState._receipt).slice(0, -8))
+                setmountlyCampion(String(getMyBestState._lotsEarned)*String(getMyBestState._lotPrice).slice(0, -8))
                 console.log(getMyBestState)
 
 
@@ -107,14 +107,14 @@ const Office = () => {
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance)/100000000)
-                settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
+                settopmarketerAmount(String(getMyTopMarketerState._lotsAmount))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
-                settopmarketerDaily(String(getMyTopMarketerState._lotsEarned).slice(0, -8))
+                settopmarketerEaned(String(getMyTopMarketerState._lotsEarned))
                 sethavytopmarketer(String(getMyTopMarketerState._bigHandBalance).slice(0, -8))
                 setlighttopmarketer(String(getMyTopMarketerState._smallHandBalance).slice(0, -8))
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
-                setlotsSumTopmarketer(String(getMyTopMarketerState._lotsSum))
                 setreceiptTop(String(getMyTopMarketerState._receipt).slice(0, -8))
+                setmountlyTop(String(getMyTopMarketerState._lotsEarned)*String(getMyTopMarketerState._lotPrice).slice(0, -8))
                 console.log(getMyTopMarketerState)
 
 
@@ -159,9 +159,9 @@ const Office = () => {
                                     <ResponsiveTable />
                                 </div>
                                 <div className="row">
-                                    <Binary receiptbinary={receiptbinary} sumbinary={sumbinary} balance={balance} lotprice={lotprice} lotpamount={lotpamount} daily={daily} havy={havy} light={light} />
-                                    <Topmarketer receiptTop={receiptTop} lotsSumTopmarketer={lotsSumTopmarketer} gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerDaily={topmarketerDaily} top />
-                                    <Champion receiptchampion={receiptchampion} lotsumchampion={lotsumchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championDily={championDily} allhand={allhand} />
+                                    <Binary dailyBinary={dailyBinary} receiptbinary={receiptbinary}  balance={balance} lotprice={lotprice} lotpamount={lotpamount} Earned={Earned} havy={havy} light={light} />
+                                    <Topmarketer mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
+                                    <Champion mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
                                 </div>
                                 <div className="row">
                                     <Footer />

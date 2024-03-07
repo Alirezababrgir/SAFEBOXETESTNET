@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerDaily,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
+const Topmarketer=({mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerEarned,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
     return(
         <div className="col-md-6 col-lg-4">
         <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -92,7 +92,7 @@ const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerB
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">
-                                                        <h4 className="text-muted">{topmarketerAmount} $</h4>
+                                                        <h4 className="text-muted">{topmarketerAmount}</h4>
                                                     </div>
                                                 </div>
                                             </div >
@@ -102,11 +102,11 @@ const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerB
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot Sum</h4>
+                                                        <h4 className="text-muted">Lots Earned</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{lotsSumTopmarketer} $</h4>
+                                                            <h4 className="text-muted">{topmarketerEarned}</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -116,11 +116,11 @@ const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerB
                                         <div className="widget-content p-0 text-center">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content-left">
-                                                    <h4 className="text-muted">Mountly Income</h4>
+                                                    <h4 className="text-muted">Mountly Incom</h4>
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">
-                                                        <h4 className="text-muted">{topmarketerDaily} $</h4>
+                                                        <h4 className="text-muted">{mountlyTop} $</h4>
                                                     </div>
                                                 </div>
                                             </div >
@@ -129,7 +129,7 @@ const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerB
                                             <h5 className="widget-heading">All</h5>
                                             <h5 className="widget-subheading">Receipt totals</h5>
                                             <div className="widget-content-right">
-                                                <h5 className="widget-numbers text-focus">${receiptTop}</h5>
+                                                <h5 className="widget-numbers text-focus">{receiptTop} $</h5>
                                             </div>
                                         </div>
                                     </li>

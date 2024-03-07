@@ -8,9 +8,6 @@ const BOX_40 = () => {
 
     const [mlmpaymentsum, setmlmPaymentum] = useState();
     const [zeroValue, setzeroValue] = useState();
-    const [firstValue, setfirstValue] = useState();
-    const [secoundValue, setsecoundValue] = useState();
-    const [treeValue, settreeValue] = useState();
     const [timer,settimer]=useState()
 
     useEffect(() => {
@@ -31,11 +28,10 @@ const BOX_40 = () => {
                 //GET MLM BLOCKING STATE
                 const mlm = await safebox.methods.getMyMlmBlockingState().call({ "from": accounts[0] });
                 console.log(mlm)
-                setzeroValue(mlm[0])
-                setfirstValue(mlm[1])
-                setsecoundValue(mlm[2])
-                settreeValue(mlm[3])
+                setzeroValue(mlm._blockState)
+                console.log(mlm)
                 settimer(mlm._blockedTime)
+
 
             } catch (error) {
 
@@ -83,10 +79,10 @@ const BOX_40 = () => {
                                             <button type="button" class="close" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            {zeroValue ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> :
-                                                firstValue ? <p className="text-danger fs-6"><h4 className="text-warning"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>WARNING ! </h4>: Earning MLM Commissions Will Be Locked Soon</p> :
-                                                    secoundValue ? <p className="text-danger fs-6"><h4 className="text-danger"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>BLOCKED ! </h4>: Earning MLM Commissions Is Locked !</p> :
-                                                        treeValue ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> : <p><i class="bi bi-exclamation-triangle-fill text-warning"></i></p>}
+                                            {zeroValue === 0 ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> :
+                                                zeroValue === 1 ? <p className="text-danger fs-6"><h4 className="text-warning"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>WARNING ! </h4>: Earning MLM Commissions Will Be Locked Soon</p> :
+                                                    zeroValue === 2 ? <p className="text-danger fs-6"><h4 className="text-danger"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>BLOCKED ! </h4>: Earning MLM Commissions Is Locked !</p> :
+                                                        zeroValue === 3 ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> : <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p>}
                                         </div>
                                     </div>
                                 </li>

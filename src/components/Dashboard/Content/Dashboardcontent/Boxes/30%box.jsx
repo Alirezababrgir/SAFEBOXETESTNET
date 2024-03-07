@@ -37,7 +37,7 @@ const BOX_30 = ({balance,lotprice,lotpamount}) => {
                                         </div>
                                         <div className="widget-content-right">
                                             <div className="font-size-xlg text-muted">
-                                                <h4>{lotpamount} $</h4>
+                                                <h4>{lotpamount}</h4>
                                             </div>
                                         </div>
                                     </div>

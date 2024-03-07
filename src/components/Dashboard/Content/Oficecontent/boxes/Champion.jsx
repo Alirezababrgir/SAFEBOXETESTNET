@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice, ChampionBalance, championDily, lightchampion, allhand, tenlevel }) => {
+const Champion = ({ mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -19,18 +19,18 @@ const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice
                             <div>
                                 <div className="scrollbar-container px-4">
                                     <ul className="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
-                                    <li className="list-group-item">
-                                        <div className="widget-content">
-                                            <div className="widget-content-wrapper">
-                                                <div className="widget-content-left">
-                                                    <h4 className="widget-heading">Total Sales</h4>
-                                                </div>
-                                                <div className="widget-content-right">
-                                                    <h4 className="widget-heading">Lightness</h4>
+                                        <li className="list-group-item">
+                                            <div className="widget-content">
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-left">
+                                                        <h4 className="widget-heading">Total Sales</h4>
+                                                    </div>
+                                                    <div className="widget-content-right">
+                                                        <h4 className="widget-heading">Lightness</h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
                                         <li className="list-group-item">
                                             <div className="widget-content p-0">
                                                 <div className="widget-content-wrapper">
@@ -111,7 +111,7 @@ const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{ChampionAmount} $</h4>
+                                                            <h4 className="text-muted">{ChampionAmount}</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -121,11 +121,11 @@ const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot Sum</h4>
+                                                        <h4 className="text-muted">Lots Earned</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{lotsumchampion} $</h4>
+                                                            <h4 className="text-muted">{championEarned}</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -139,7 +139,7 @@ const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{championDily} $</h4>
+                                                            <h4 className="text-muted">{mountlyCampion} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >

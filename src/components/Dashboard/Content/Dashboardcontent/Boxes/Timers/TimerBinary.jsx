@@ -1,25 +1,34 @@
 import { useState, useEffect } from "react";
 const TimerBinary = () => {
 
-    const [currentTime, setCurrentTime] = useState(new Date().getTime());
+    const [countdown, setCountdown] = useState(0);
 
     useEffect(() => {
+          const timeDifference = Math.floor(new Date().toUTCString());
+        //const timeDifference= Math.floor(new Date.UTC());
+        // console.log(time)
+
+        setCountdown(timeDifference);
+
         const interval = setInterval(() => {
-            setCurrentTime(new Date().getTime());
+            setCountdown((prevCount) => prevCount > 0 ? prevCount - 1 : 0);
         }, 1000);
 
         return () => clearInterval(interval);
     }, []);
 
-    const calculateReverseTime = () => {
-        const currentTimeInSeconds = Math.floor(currentTime / 1000);
-        const reverseSeconds = 60 - (currentTimeInSeconds % 60);
-        const reverseMinutes = 59 - Math.floor((currentTimeInSeconds % 3600) / 60);
-        const reverseHours = 23 - Math.floor(currentTimeInSeconds / 3600);
+    const hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((countdown % (60 * 60)) / 60);
+    const secounds = Math.floor((countdown % 60));
 
-        return { reverseHours, reverseMinutes, reverseSeconds };
+    //FORMAT 00 
+
+    const formatNumber = (number) => {
+        return number < 10 ? '0' + number : number;
     };
-    const { reverseHours, reverseMinutes, reverseSeconds } = calculateReverseTime();
+    const formattedHours = formatNumber(hours);
+    const formattedMinutes = formatNumber(minutes);
+    const formattedSecounds = formatNumber(secounds);
 
     return (
         <main style={{ padding: "0 4rem " }}>
@@ -29,7 +38,7 @@ const TimerBinary = () => {
                         <div class="timer-box">
                             <div id="flip-sheet-day" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="days" class="primary">{reverseHours < 10 ? '0' + reverseHours : reverseHours}</p>
+                            <p id="days" class="primary">{formattedHours}</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">Hours</p>
@@ -39,7 +48,7 @@ const TimerBinary = () => {
                         <div class="timer-box">
                             <div id="flip-sheet-hour" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="hours" class="primary"> {reverseMinutes < 10 ? '0' + reverseMinutes : reverseMinutes}</p>
+                            <p id="hours" class="primary"> {formattedMinutes}</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">MINUTES</p>
@@ -49,7 +58,7 @@ const TimerBinary = () => {
                         <div class="timer-box">
                             <div id="flip-sheet-min" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="minutes" class="primary">{reverseSeconds < 10 ? '0' + reverseSeconds : reverseSeconds}</p>
+                            <p id="minutes" class="primary">{formattedSecounds} </p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">SECOUND</p>

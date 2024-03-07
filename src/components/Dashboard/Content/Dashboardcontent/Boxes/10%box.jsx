@@ -36,7 +36,7 @@ const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => 
                                             </div>
                                             <div className="widget-content-right">
                                                 <div className="font-size-xlg text-muted">
-                                                    <h4>{topmarketerAmount} $</h4>
+                                                    <h4>{topmarketerAmount}</h4>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,6 +1,6 @@
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Divider } from "@mui/material";
-const Binary = ({receiptbinary,sumbinary,balance,lotprice,lotpamount,daily,havy,light}) => {
+const Binary = ({receiptbinary,balance,lotprice,lotpamount,havy,light,Earned,dailyBinary}) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -84,7 +84,7 @@ const Binary = ({receiptbinary,sumbinary,balance,lotprice,lotpamount,daily,havy,
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{lotpamount} $</h4>
+                                                            <h4 className="text-muted">{lotpamount}</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -94,11 +94,11 @@ const Binary = ({receiptbinary,sumbinary,balance,lotprice,lotpamount,daily,havy,
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot Sum</h4>
+                                                        <h4 className="text-muted">Lots Earned</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{sumbinary} $</h4>
+                                                            <h4 className="text-muted">{Earned}</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -112,7 +112,7 @@ const Binary = ({receiptbinary,sumbinary,balance,lotprice,lotpamount,daily,havy,
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">{daily} $</h4>
+                                                            <h4 className="text-muted">{dailyBinary} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >

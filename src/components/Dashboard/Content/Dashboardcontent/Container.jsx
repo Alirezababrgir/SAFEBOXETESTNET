@@ -87,7 +87,7 @@ const Homecontent = () => {
                 //SET DATA BINARY BOX
                 setbalance(String(getMyBinaryState._poolBalance)/100000000)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
-                setlotamount(String(getMyBinaryState._lotsAmount).slice(0, -8))
+                setlotamount(String(getMyBinaryState._lotsAmount))
                 console.log(getMyBinaryState)
 
 
@@ -95,7 +95,7 @@ const Homecontent = () => {
                 const getMyBestState = await safebox.methods.getMyChampionState().call({ "from": accounts[0] });
                 //SET DATA CHAMPION BOX
                 setChampionBalance(String(getMyBestState._poolBalance)/100000000)
-                setChampionAmount(String(getMyBestState._lotsAmount).slice(0, -8))
+                setChampionAmount(String(getMyBestState._lotsAmount))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
                 console.log(getMyBestState)
 
@@ -104,7 +104,7 @@ const Homecontent = () => {
                 console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance)/100000000)
-                settopmarketerAmount(String(getMyTopMarketerState._lotsAmount).slice(0, -8))
+                settopmarketerAmount(String(getMyTopMarketerState._lotsAmount))
                 settopmarketerPrice(String(getMyTopMarketerState._lotPrice).slice(0, -8))
 
 
@@ -112,7 +112,7 @@ const Homecontent = () => {
                 //GET PAYMENT SUM
                 const getpaymentsum = await safebox.methods.getPaymentSum().call({ "from": accounts[0] });
                 console.log(getpaymentsum)
-                setPaymentum(String(getpaymentsum._mlmPaymentSum).slice(0, -8))
+                setPaymentum(String(getpaymentsum).slice(0, -8))
 
 
             } catch (error) {
