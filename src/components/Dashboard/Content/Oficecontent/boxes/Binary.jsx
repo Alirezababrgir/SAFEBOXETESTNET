@@ -1,6 +1,6 @@
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Divider } from "@mui/material";
-const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
+const Binary = ({receiptbinary,sumbinary,balance,lotprice,lotpamount,daily,havy,light}) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -94,11 +94,11 @@ const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot</h4>
+                                                        <h4 className="text-muted">Lot Sum</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">NON $</h4>
+                                                            <h4 className="text-muted">{sumbinary} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -118,10 +118,10 @@ const Binary = ({balance,lotprice,lotpamount,daily,havy,light}) => {
                                                 </div >
                                             </div>
                                             <div className="widget-content-wrapper text-center mt-4">
-                                                <h5 className="widget-heading">Income</h5>
-                                                <h5 className="widget-subheading">Expected totals</h5>
+                                                <h5 className="widget-heading">All</h5>
+                                                <h5 className="widget-subheading">Receipt Totals</h5>
                                                 <div className="widget-content-right">
-                                                    <h5 className="widget-numbers text-focus">$147</h5>
+                                                    <h5 className="widget-numbers text-focus">${receiptbinary}</h5>
                                                 </div>
                                             </div>
                                         </li>

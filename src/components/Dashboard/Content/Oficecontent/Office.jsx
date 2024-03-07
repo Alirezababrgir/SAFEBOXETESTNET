@@ -22,6 +22,8 @@ const Office = () => {
     const [daily, setdaily] = useState('');
     const [havy, sethavy] = useState();
     const [light, setlight] = useState()
+    const [sumbinary,setsumbinary]=useState();
+    const [receiptbinary,setreceiptbinary]=useState();
 
     //champion box
     const [ChampionBalance, setChampionBalance] = useState('');
@@ -31,6 +33,8 @@ const Office = () => {
     const [lightchampion, setlightchampion] = useState();
     const [allhand, setallhand] = useState();
     const [tenlevel, settenlevel] = useState();
+    const [lotsumchampion,setlotsumchampion]=useState();
+    const [receiptchampion,setreceiptchampion]=useState();
 
 
     //TOPMARKETER box
@@ -41,6 +45,8 @@ const Office = () => {
     const [havytopmarketer, sethavytopmarketer] = useState();
     const [lighttopmrketer, setlighttopmarketer] = useState();
     const [gaptopmarketer, setgaptopmarketer] = useState();
+    const [lotsSumTopmarketer,setlotsSumTopmarketer]=useState();
+    const [receiptTop,setreceiptTop]=useState();
 
     //MY CHILDREN SALES
     // const [uid, setuid] = useState();
@@ -59,6 +65,8 @@ const Office = () => {
 
         const show = async () => {
             try {
+
+                //CONNECTION
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const web3 = new Web3(window.ethereum);
 
@@ -74,6 +82,9 @@ const Office = () => {
                 setdaily(String(getMyBinaryState._lotsEarned).slice(0, -8))
                 setlight(String(getMyBinaryState._smallHandBalance).slice(0, -8))
                 sethavy(String(getMyBinaryState._bigHandBalance).slice(0, -8))
+                setsumbinary(String(getMyBinaryState._lotsSum))
+                setreceiptbinary(String(getMyBinaryState._receipt).slice(0, -8))
+                console.log(getMyBinaryState)
 
 
                 //MY CHAMPION STATE
@@ -86,6 +97,8 @@ const Office = () => {
                 setlightchampion(String(getMyBestState._smallHandSales).slice(0, -8))
                 setallhand(String(getMyBestState._allHandSales).slice(0, -8))
                 settenlevel(String(getMyBestState._tenLevelSales).slice(0, -8))
+                setlotsumchampion(String(getMyBestState._lotsSum))
+                setreceiptchampion(String(getMyBestState._receipt).slice(0, -8))
                 console.log(getMyBestState)
 
 
@@ -100,6 +113,8 @@ const Office = () => {
                 sethavytopmarketer(String(getMyTopMarketerState._bigHandBalance).slice(0, -8))
                 setlighttopmarketer(String(getMyTopMarketerState._smallHandBalance).slice(0, -8))
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
+                setlotsSumTopmarketer(String(getMyTopMarketerState._lotsSum))
+                setreceiptTop(String(getMyTopMarketerState._receipt).slice(0, -8))
                 console.log(getMyTopMarketerState)
 
 
@@ -144,9 +159,9 @@ const Office = () => {
                                     <ResponsiveTable />
                                 </div>
                                 <div className="row">
-                                    <Binary balance={balance} lotprice={lotprice} lotpamount={lotpamount} daily={daily} havy={havy} light={light} />
-                                    <Topmarketer gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerDaily={topmarketerDaily} top />
-                                    <Champion tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championDily={championDily} allhand={allhand} />
+                                    <Binary receiptbinary={receiptbinary} sumbinary={sumbinary} balance={balance} lotprice={lotprice} lotpamount={lotpamount} daily={daily} havy={havy} light={light} />
+                                    <Topmarketer receiptTop={receiptTop} lotsSumTopmarketer={lotsSumTopmarketer} gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerDaily={topmarketerDaily} top />
+                                    <Champion receiptchampion={receiptchampion} lotsumchampion={lotsumchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championDily={championDily} allhand={allhand} />
                                 </div>
                                 <div className="row">
                                     <Footer />

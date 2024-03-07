@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Champion = ({ ChampionAmount, ChampionPrice, ChampionBalance, championDily, lightchampion, allhand, tenlevel }) => {
+const Champion = ({receiptchampion ,lotsumchampion,ChampionAmount, ChampionPrice, ChampionBalance, championDily, lightchampion, allhand, tenlevel }) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -121,11 +121,11 @@ const Champion = ({ ChampionAmount, ChampionPrice, ChampionBalance, championDily
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot</h4>
+                                                        <h4 className="text-muted">Lot Sum</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">NON $</h4>
+                                                            <h4 className="text-muted">{lotsumchampion} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -145,10 +145,10 @@ const Champion = ({ ChampionAmount, ChampionPrice, ChampionBalance, championDily
                                                 </div >
                                             </div>
                                             <div className="widget-content-wrapper text-center mt-4">
-                                                <h5 className="widget-heading">Income</h5>
-                                                <h5 className="widget-subheading">Expected totals</h5>
+                                                <h5 className="widget-heading">All</h5>
+                                                <h5 className="widget-subheading">Receipt totals</h5>
                                                 <div className="widget-content-right">
-                                                    <h5 className="widget-numbers text-focus">$147</h5>
+                                                    <h5 className="widget-numbers text-focus">${receiptchampion}</h5>
                                                 </div>
                                             </div>
                                         </li>

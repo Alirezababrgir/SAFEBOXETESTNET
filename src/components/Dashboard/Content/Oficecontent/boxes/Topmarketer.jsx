@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Topmarketer=({topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerDaily,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
+const Topmarketer=({receiptTop,lotsSumTopmarketer,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerDaily,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
     return(
         <div className="col-md-6 col-lg-4">
         <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -102,11 +102,11 @@ const Topmarketer=({topmarketerAmount,topmarketerBalance,topmarketerPrice,topmar
                                             <div className="widget-content p-0 text-center">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="text-muted">Lot</h4>
+                                                        <h4 className="text-muted">Lot Sum</h4>
                                                     </div>
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-right">
-                                                            <h4 className="text-muted">NON $</h4>
+                                                            <h4 className="text-muted">{lotsSumTopmarketer} $</h4>
                                                         </div>
                                                     </div>
                                                 </div >
@@ -126,10 +126,10 @@ const Topmarketer=({topmarketerAmount,topmarketerBalance,topmarketerPrice,topmar
                                             </div >
                                         </div>
                                         <div className="widget-content-wrapper text-center mt-4">
-                                            <h5 className="widget-heading">Income</h5>
-                                            <h5 className="widget-subheading">Expected totals</h5>
+                                            <h5 className="widget-heading">All</h5>
+                                            <h5 className="widget-subheading">Receipt totals</h5>
                                             <div className="widget-content-right">
-                                                <h5 className="widget-numbers text-focus">$147</h5>
+                                                <h5 className="widget-numbers text-focus">${receiptTop}</h5>
                                             </div>
                                         </div>
                                     </li>
