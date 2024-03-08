@@ -101,7 +101,7 @@ const Sidebar = () => {
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#contract"><LiaFileContractSolid /> Contract</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
-              <li><NavLink to={"/roadmap"} onClick={handleDrawerClose} href="#roadmap"><MapOutlined /> RoadMap</NavLink></li>
+              <li><NavLink to={"/roadmap"} onClick={handleDrawerClose} href="#roadmap"><MapOutlined /></NavLink></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />
               <li><a onClick={handleDrawerClose} href="#Fxbook"><Transgender /> My Fxbook</a></li>
               <Divider sx={{ backgroundColor: "gray", marginRight: "30px" }} />

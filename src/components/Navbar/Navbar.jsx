@@ -25,7 +25,7 @@ const Navbar = () => {
             <li><a href="#forex"><TbChartCandle /> Forex</a></li>
             <li><a href="#packages"><FaBoxOpen /> Packages</a></li>
             <li><a href="#contract"><LiaFileContractSolid /> Contract</a></li>
-            <li><NavLink to={"/roadmap"} href="#"><MapOutlined /> Roadmap</NavLink></li>
+            <li><NavLink to={"/roadmap"} href="#"><MapOutlined /></NavLink></li>
             <li><a href="#Fxbook"><TransformRounded /> My Fxbook</a></li>
             <li><a href="#about"><CgDanger /> About</a></li>
           </ul>
