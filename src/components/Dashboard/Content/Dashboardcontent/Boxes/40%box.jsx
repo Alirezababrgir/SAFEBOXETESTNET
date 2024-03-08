@@ -10,7 +10,7 @@ const BOX_40 = () => {
 
     const [mlmpaymentsum, setmlmPaymentum] = useState();
     const [zeroValue, setzeroValue] = useState();
-    const [timer,settimer]=useState()
+    const [timer, settimer] = useState()
 
     useEffect(() => {
         const MlmBlocking = async () => {
@@ -30,9 +30,9 @@ const BOX_40 = () => {
                 //GET MLM BLOCKING STATE
                 const mlm = await safebox.methods.getMyMlmBlockingState().call({ "from": accounts[0] });
                 console.log(mlm)
-                setzeroValue(mlm._blockState)
-                console.log(mlm)
-                settimer(mlm._blockedTime)
+                setzeroValue(Number(mlm._blockState))
+                console.log(mlm._blockState)
+                settimer((mlm._blockedTime))
 
 
             } catch (error) {
@@ -55,7 +55,7 @@ const BOX_40 = () => {
                     <img className="img-fluid" src={icon1} alt="Avatar" />
                 </div>
                 <div className="card-body">
-                    <Timerunilevel timer={timer}/>
+                    <Timerunilevel timer={timer} />
                     <h4 className="fs-6 text-muted">Deatils</h4>
                     <div>
                         <div className="scrollbar-container px-4">
@@ -95,9 +95,9 @@ const BOX_40 = () => {
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             {zeroValue === 0 ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> :
-                                                zeroValue === 1 ? <p className="text-danger fs-6"><h4 className="text-warning"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>WARNING ! </h4>: Earning MLM Commissions Will Be Locked Soon</p> :
-                                                    zeroValue === 2 ? <p className="text-danger fs-6"><h4 className="text-danger"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>BLOCKED ! </h4>: Earning MLM Commissions Is Locked !</p> :
-                                                        zeroValue === 3 ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> : <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p>}
+                                                zeroValue > 0 ? <p className="text-danger fs-6"><h4 className="text-warning"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>WARNING ! </h4>: Earning MLM Commissions Will Be Locked Soon</p> :
+                                                    zeroValue > 1 ? <p className="text-danger fs-6"><h4 className="text-danger"><i class="bi bi-exclamation-triangle-fill text-danger mx-2"></i>BLOCKED ! </h4>: Earning MLM Commissions Is Locked !</p> :
+                                                        zeroValue > 2 ? <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE ! </h4></p> : <p className="text-success fs-6"><h4 className="text-success"><i class="bi bi-broadcast mx-2 text-success"></i>ACTIVE !! </h4></p>}
                                         </div>
                                     </div>
                                 </li>
