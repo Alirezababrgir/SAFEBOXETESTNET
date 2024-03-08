@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Champion = ({ mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
+const Champion = ({ state, mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -49,28 +49,25 @@ const Champion = ({ mountlyCampion, receiptchampion, ChampionAmount, ChampionPri
                                             <div className="widget-content p-0">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content">
-                                                        <h4 className="widget-heading text-success">{allhand}$</h4>
+                                                        {state === 2 ? <h4 className="widget-heading text-success"> {allhand} $</h4> : state === 3 ? <h4 className="widget-heading text-muted">{allhand}$</h4> : <h4 className="widget-heading text-success">{allhand}$</h4>}
                                                     </div>
                                                     <div className="widget-content-right">
                                                         <div className="font-size-xlg">
-                                                            <h4 className="widget-heading text-danger">{lightchampion} $</h4>
+                                                            {state === 2 ? <h4 className="widget-heading text-danger">{lightchampion} $</h4> : state === 3 ? <h4 className="widget-heading text-muted">{lightchampion} $</h4> : <h4 className="widget-heading text-danger">{lightchampion} $</h4>}
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <Divider textAlign="center">Replace</Divider>
+                                        <Divider textAlign="center">State</Divider>
                                         <li className="list-group-item">
                                             <div className="widget-content p-0">
-                                                <div className="widget-content-wrapper">
-                                                    <div className="widget-content">
-                                                        <h4 className="widget-heading text-success">7000$</h4>
-                                                    </div>
-                                                    <div className="widget-content-right">
-                                                        <div className="font-size-xlg">
-                                                            <h4 className="widget-heading text-danger"> $</h4>
-                                                        </div>
-                                                    </div>
+                                                <div style={{ height: "100%" }} class="alert alert-success alert-dismissible  fade show text-center" role="alert">
+                                                    <button type="button" class="close" aria-label="Close">
+                                                        <span className="text-primary" aria-hidden="true"><i class="bi bi-broadcast"></i> </span>
+                                                    </button>
+                                                    {state === 0 ? null : state === 1 ? null : state === 2 ? <p className="text-muted ml-4"><i class="bi bi-check2-all text-success"></i> State Activated !</p> : state === 3 ? <p className="text-muted ml-4"><i class="bi bi-exclamation-triangle-fill text-danger mr-2"></i>State D`activated !</p> : null}
                                                 </div>
                                             </div>
                                         </li>

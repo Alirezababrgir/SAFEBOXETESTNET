@@ -35,6 +35,7 @@ const Office = () => {
     const [tenlevel, settenlevel] = useState();
     const [receiptchampion,setreceiptchampion]=useState();
     const [mountlyCampion,setmountlyCampion]=useState();
+    const [state,setstate]=useState();
 
 
     //TOPMARKETER box
@@ -99,7 +100,8 @@ const Office = () => {
                 settenlevel(String(getMyBestState._tenLevelSales).slice(0, -8))
                 setreceiptchampion(String(getMyBestState._receipt).slice(0, -8))
                 setmountlyCampion(String(getMyBestState._lotsEarned)*String(getMyBestState._lotPrice).slice(0, -8))
-                console.log(getMyBestState)
+                setstate(Number( getMyBestState._state))
+                console.log(getMyBestState._state)
 
 
 
@@ -161,7 +163,7 @@ const Office = () => {
                                 <div className="row">
                                     <Binary dailyBinary={dailyBinary} receiptbinary={receiptbinary}  balance={balance} lotprice={lotprice} lotpamount={lotpamount} Earned={Earned} havy={havy} light={light} />
                                     <Topmarketer mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
-                                    <Champion mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
+                                    <Champion state={state} mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
                                 </div>
                                 <div className="row">
                                     <Footer />
