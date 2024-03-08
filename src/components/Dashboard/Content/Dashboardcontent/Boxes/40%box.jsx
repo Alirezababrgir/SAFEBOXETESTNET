@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Timerunilevel from "./Timers/Timerunilevel";
 import Web3 from "web3";
 import { Contract_abi, Contract_address } from '../../../../../services/abis'
+import icon1 from "../../../../../assets/banners/40.png"
+
 const BOX_40 = () => {
 
     //const [active, setactive] = ('')
@@ -50,7 +52,7 @@ const BOX_40 = () => {
             <div className="card  card-custom bg-white border-white border-0">
                 <div className="card-img-uni" />
                 <div className="card-custom-avatar">
-                    <img className="img-fluid" src="https://img.icons8.com/plasticine/100/40-circle.png" alt="Avatar" />
+                    <img className="img-fluid" src={icon1} alt="Avatar" />
                 </div>
                 <div className="card-body">
                     <Timerunilevel timer={timer}/>

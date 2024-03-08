@@ -8,7 +8,7 @@ const TITTLE3LINKS_OFFICE = ({remindRecipt,tenLvL,allLvL}) => {
                         <div style={{height:"170px"}} class="card packagecards gr-1">
                             <div class="glowing-txt">
                                 <h2>Total Volume  <br />
-                                {allLvL}
+                                {allLvL} $
 
                                 </h2>
                             </div>
@@ -21,7 +21,7 @@ const TITTLE3LINKS_OFFICE = ({remindRecipt,tenLvL,allLvL}) => {
                         <div style={{height:"170px"}} class="card packagecards gr-3">
                             <div class="glowing-txt">
                                 <h2>Total 10 Level<br />
-                                {tenLvL}
+                                {tenLvL} $
                                 </h2>
                             </div>
                             <div class="ico-cards">
@@ -33,7 +33,7 @@ const TITTLE3LINKS_OFFICE = ({remindRecipt,tenLvL,allLvL}) => {
                         <div style={{height:"170px"}} class="card packagecards  gr-2">
                             <div class="glowing-txt">
                                 <h2>Income Limit <br />
-                                {remindRecipt}
+                                {remindRecipt} $
                                 </h2>
                             </div>
                             <div class="ico-cards">

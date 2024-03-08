@@ -1,4 +1,5 @@
 import TimerTEN from "./Timers/Timer10";
+import icon1 from "../../../../../assets/banners/10.png"
 const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => {
     return (
         <div className="col-md-6 col-lg-6 pb-3">
@@ -6,7 +7,7 @@ const BOX_10 = ({ topmarketerAmount, topmarketerBalance, topmarketerPrice }) => 
             <div className="card  card-custom bg-white border-white border-0">
                 <div className="card-img-binary" />
                 <div className="card-custom-avatar">
-                    <img className="img-fluid" src="https://img.icons8.com/plasticine/100/10.png" alt="Avatar" />
+                    <img className="img-fluid" src={icon1} alt="Avatar" />
                 </div>
                 <div className="card-body">
                     <TimerTEN />
