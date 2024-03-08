@@ -74,7 +74,20 @@ const BOX_40 = () => {
                                         </div>
                                     </div>
                                 </li>
-
+                                <li className="list-group-item">
+                                    <div className="widget-content p-0">
+                                        <div className="widget-content-wrapper">
+                                            <div className="widget-content-left">
+                                                <h4 className="widget-heading">Receipt Total</h4>
+                                            </div>
+                                            <div className="widget-content-right">
+                                                <div className="font-size-xlg text-muted">
+                                                    <h4>N $</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                                 <li className="list-group-item">
                                     <div className="widget-content p-0">
                                         <div style={{ height: "100%" }} class="alert alert-primary alert-dismissible fade show" role="alert">
