@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Topmarketer=({mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerEarned,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
+const Topmarketer=({gapTopbig, gapTopsmall,mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerEarned,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
     return(
         <div className="col-md-6 col-lg-4">
         <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -59,12 +59,17 @@ const Topmarketer=({mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,t
                                             </div>
                                         </div>
                                     </li>
-                                    <Divider textAlign="center">Replace</Divider>
+                                    <Divider textAlign="center">Gap To Next Lot</Divider>
                                     <li className="list-group-item">
                                         <div className="widget-content p-0">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content">
-                                                    <h4 className="widget-heading text-success">{gaptopmarketer}$</h4>
+                                                    <h4 className="widget-heading text-success">{gapTopbig}$</h4>
+                                                </div>
+                                                <div className="widget-content-right">
+                                                    <div className="font-size-xlg">
+                                                        <h4 className="widget-heading text-danger">{gapTopsmall}$</h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

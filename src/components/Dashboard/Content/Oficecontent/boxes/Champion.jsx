@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Champion = ({ state, mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
+const Champion = ({state, mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -68,6 +68,19 @@ const Champion = ({ state, mountlyCampion, receiptchampion, ChampionAmount, Cham
                                                         <span className="text-primary" aria-hidden="true"><i class="bi bi-broadcast"></i> </span>
                                                     </button>
                                                     {state === 0 ? null : state === 1 ? null : state === 2 ? <p className="text-muted ml-4"><i class="bi bi-check2-all text-success"></i> State Activated !</p> : state === 3 ? <p className="text-muted ml-4"><i class="bi bi-exclamation-triangle-fill text-danger mr-2"></i>State D`activated !</p> : null}
+                                                </div>
+                                            </div>
+                                        </li>
+                                       <Divider textAlign="center" variant="fullWidth" >Gap To Next Lot</Divider>
+                                        <li className="list-group-item">
+                                            <div className="widget-content p-0">
+                                                <div className="widget-content-wrapper">
+                                                    <div className="widget-content-left">
+                                                        <h4 className="widget-heading">gap</h4>
+                                                    </div>
+                                                    <div className="widget-content-right">
+                                                        <h4 className="widget-heading">Lightness</h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>

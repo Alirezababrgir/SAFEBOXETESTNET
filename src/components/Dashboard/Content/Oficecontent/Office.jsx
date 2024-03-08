@@ -48,6 +48,8 @@ const Office = () => {
     const [gaptopmarketer, setgaptopmarketer] = useState();
     const [receiptTop,setreceiptTop]=useState();
     const [mountlyTop,setmountlyTop]=useState();
+    const [gapTopbig, setgapTopbig]=useState();
+    const [gapTopsmall, setgapTopsmall]=useState();
 
     //MY CHILDREN SALES
     // const [uid, setuid] = useState();
@@ -101,7 +103,7 @@ const Office = () => {
                 setreceiptchampion(String(getMyBestState._receipt).slice(0, -8))
                 setmountlyCampion(String(getMyBestState._lotsEarned)*String(getMyBestState._lotPrice).slice(0, -8))
                 setstate(Number( getMyBestState._state))
-                console.log(getMyBestState._state)
+                console.log(getMyBestState)
 
 
 
@@ -117,6 +119,8 @@ const Office = () => {
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
                 setreceiptTop(String(getMyTopMarketerState._receipt).slice(0, -8))
                 setmountlyTop(String(getMyTopMarketerState._lotsEarned)*String(getMyTopMarketerState._lotPrice).slice(0, -8))
+                setgapTopbig(String(getMyTopMarketerState._bigGapToNextLot).slice(0, -8))
+                setgapTopsmall(String(getMyTopMarketerState._smallGapToNextLot).slice(0, -8))
                 console.log(getMyTopMarketerState)
 
 
@@ -162,7 +166,7 @@ const Office = () => {
                                 </div>
                                 <div className="row">
                                     <Binary dailyBinary={dailyBinary} receiptbinary={receiptbinary}  balance={balance} lotprice={lotprice} lotpamount={lotpamount} Earned={Earned} havy={havy} light={light} />
-                                    <Topmarketer mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
+                                    <Topmarketer gapTopbig={gapTopbig} gapTopsmall={gapTopsmall} mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
                                     <Champion state={state} mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
                                 </div>
                                 <div className="row">
