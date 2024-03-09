@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Topmarketer=({gapTopbig, gapTopsmall,mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerEarned,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
+const Topmarketer=({ gapTopsmall,mountlyTop,receiptTop,topmarketerAmount,topmarketerBalance,topmarketerPrice,topmarketerEarned,lighttopmrketer,havytopmarketer,gaptopmarketer})=>{
     return(
         <div className="col-md-6 col-lg-4">
         <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -63,8 +63,8 @@ const Topmarketer=({gapTopbig, gapTopsmall,mountlyTop,receiptTop,topmarketerAmou
                                     <li className="list-group-item">
                                         <div className="widget-content p-0">
                                             <div className="widget-content-wrapper">
-                                                <div className="widget-content">
-                                                    <h4 className="widget-heading text-success">{gapTopbig}$</h4>
+                                            <div className="widget-content-left p-2">
+                                                    <h4 className="widget-heading fs-4">Lightness</h4>
                                                 </div>
                                                 <div className="widget-content-right">
                                                     <div className="font-size-xlg">
@@ -121,7 +121,7 @@ const Topmarketer=({gapTopbig, gapTopsmall,mountlyTop,receiptTop,topmarketerAmou
                                         <div className="widget-content p-0 text-center">
                                             <div className="widget-content-wrapper">
                                                 <div className="widget-content-left">
-                                                    <h4 className="text-muted">Mountly Incom</h4>
+                                                    <h4 className="text-muted">Mountly Income</h4>
                                                 </div>
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-right">

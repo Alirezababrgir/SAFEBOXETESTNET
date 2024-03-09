@@ -1,6 +1,6 @@
 import { Divider } from "@mui/material";
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
-const Champion = ({state, mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
+const Champion = ({gaptoNextLot,remind3k,state, mountlyCampion, receiptchampion, ChampionAmount, ChampionPrice, ChampionBalance, championEarned, lightchampion, allhand, tenlevel }) => {
     return (
         <div className="col-md-6 col-lg-4">
             <div style={{ borderRadius: "1rem" }} className="mb-3 card ">
@@ -23,7 +23,7 @@ const Champion = ({state, mountlyCampion, receiptchampion, ChampionAmount, Champ
                                             <div className="widget-content">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content-left">
-                                                        <h4 className="widget-heading">Balance</h4>
+                                                        <h4 className="widget-heading">Total</h4>
                                                     </div>
                                                     <div className="widget-content-right">
                                                         <h4 className="widget-heading">Lightness</h4>
@@ -49,12 +49,11 @@ const Champion = ({state, mountlyCampion, receiptchampion, ChampionAmount, Champ
                                             <div className="widget-content p-0">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content">
-                                                        {state === 2 ? <h4 className="widget-heading text-success"> {allhand} $</h4> : state === 3 ? <h4 className="widget-heading text-muted">{allhand}$</h4> : <h4 className="widget-heading text-success">{allhand}$</h4>}
+                                                        {state === 2 ? <h4 className="widget-heading text-success"> {allhand} $</h4> : state === 3 ? <h4 className="widget-heading text-muted">{allhand} $</h4> : <h4 className="widget-heading text-success">{allhand} $</h4>}
                                                     </div>
                                                     <div className="widget-content-right">
                                                         <div className="font-size-xlg">
                                                             {state === 2 ? <h4 className="widget-heading text-danger">{lightchampion} $</h4> : state === 3 ? <h4 className="widget-heading text-muted">{lightchampion} $</h4> : <h4 className="widget-heading text-danger">{lightchampion} $</h4>}
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -74,12 +73,20 @@ const Champion = ({state, mountlyCampion, receiptchampion, ChampionAmount, Champ
                                        <Divider textAlign="center" variant="fullWidth" >Gap To Next Lot</Divider>
                                         <li className="list-group-item">
                                             <div className="widget-content p-0">
-                                                <div className="widget-content-wrapper">
+                                                <div className="widget-content-wrapper p-2">
                                                     <div className="widget-content-left">
-                                                        <h4 className="widget-heading">gap</h4>
+                                                        <h4 className="widget-heading fs-4">Lightness</h4>
                                                     </div>
                                                     <div className="widget-content-right">
-                                                        <h4 className="widget-heading">Lightness</h4>
+                                                        <h4 className="widget-heading text-muted">{remind3k} $</h4>
+                                                    </div>
+                                                </div>
+                                                <div className="widget-content-wrapper p-2">
+                                                    <div className="widget-content-left">
+                                                        <h4 className="widget-heading fs-4">Gap 10 lvl</h4>
+                                                    </div>
+                                                    <div className="widget-content-right">
+                                                        <h4 className="widget-heading text-muted">{gaptoNextLot} $</h4>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,35 +1,43 @@
 import { useEffect, useState } from "react";
 const Timerunilevel = ({ timer }) => {
     // - Date.now()) 
-    const [countdown, setCountdown] = useState(0);
+  const targetDate = new Date(Number(timer)* 1000);
+ 
 
-    useEffect(() => {
-        const timeDifference = Math.floor((Number(timer) / 1000));
+      const currentDate = new Date();
+      const difference = targetDate - currentDate;
 
+      const [countdown, setCountdown] = useState(0);
 
-        setCountdown(timeDifference);
+      useEffect(() => {  
+  
+          setCountdown(difference);
+  
+          const interval = setInterval(() => {
+              setCountdown((prevCount) => prevCount > 0 ? prevCount - 1 : 0);
+          }, 1000);
+  
+          return () => clearInterval(interval);
+      }, [timer]);
+  
+      const days = Math.floor(countdown / (24 * 60 * 60));
+      const hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
+      const minutes = Math.floor((countdown % (60 * 60)) / 60);
+  
+      //FORMAT 00 
+  
+      const formatNumber = (number) => {
+          return number < 10 ? '0' + number : number;
+      };
+      const formattedDays = formatNumber(days);
+      const formattedHours = formatNumber(hours);
+      const formattedMinutes = formatNumber(minutes);
 
-        const interval = setInterval(() => {
-            setCountdown((prevCount) => prevCount > 0 ? prevCount - 1 : 0);
-        }, 1000);
+      console.log(formattedDays)
+  
+      
+  
 
-        return () => clearInterval(interval);
-    }, [timer]);
-
-    const days = Math.floor(countdown / (24 * 60 * 60));
-    const hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((countdown % (60 * 60)) / 60);
-
-    //FORMAT 00 
-
-    const formatNumber = (number) => {
-        return number < 10 ? '0' + number : number;
-    };
-    const formattedDays = formatNumber(days);
-    const formattedHours = formatNumber(hours);
-    const formattedMinutes = formatNumber(minutes);
-
-    
 
     return (
         <main style={{ padding: "0 4rem " }}>

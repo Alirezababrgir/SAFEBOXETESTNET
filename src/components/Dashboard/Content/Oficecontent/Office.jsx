@@ -36,6 +36,8 @@ const Office = () => {
     const [receiptchampion,setreceiptchampion]=useState();
     const [mountlyCampion,setmountlyCampion]=useState();
     const [state,setstate]=useState();
+    const [gaptoNextLot,setgaptoNextLot]=useState();
+    const [remind3k,setremind3k]=useState();
 
 
     //TOPMARKETER box
@@ -48,7 +50,6 @@ const Office = () => {
     const [gaptopmarketer, setgaptopmarketer] = useState();
     const [receiptTop,setreceiptTop]=useState();
     const [mountlyTop,setmountlyTop]=useState();
-    const [gapTopbig, setgapTopbig]=useState();
     const [gapTopsmall, setgapTopsmall]=useState();
 
     //MY CHILDREN SALES
@@ -103,9 +104,9 @@ const Office = () => {
                 setreceiptchampion(String(getMyBestState._receipt).slice(0, -8))
                 setmountlyCampion(String(getMyBestState._lotsEarned)*String(getMyBestState._lotPrice).slice(0, -8))
                 setstate(Number( getMyBestState._state))
+                setgaptoNextLot(String( getMyBestState._gapToNextLot).slice(0, -8))
+                setremind3k(String(getMyBestState._remainedSmallHandSalesTo3K).slice(0, -8))
                 console.log(getMyBestState)
-
-
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
@@ -119,7 +120,6 @@ const Office = () => {
                 setgaptopmarketer(String(getMyTopMarketerState._gapToNextLot).slice(0, -8))
                 setreceiptTop(String(getMyTopMarketerState._receipt).slice(0, -8))
                 setmountlyTop(String(getMyTopMarketerState._lotsEarned)*String(getMyTopMarketerState._lotPrice).slice(0, -8))
-                setgapTopbig(String(getMyTopMarketerState._bigGapToNextLot).slice(0, -8))
                 setgapTopsmall(String(getMyTopMarketerState._smallGapToNextLot).slice(0, -8))
                 console.log(getMyTopMarketerState)
 
@@ -166,8 +166,8 @@ const Office = () => {
                                 </div>
                                 <div className="row">
                                     <Binary dailyBinary={dailyBinary} receiptbinary={receiptbinary}  balance={balance} lotprice={lotprice} lotpamount={lotpamount} Earned={Earned} havy={havy} light={light} />
-                                    <Topmarketer gapTopbig={gapTopbig} gapTopsmall={gapTopsmall} mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
-                                    <Champion state={state} mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
+                                    <Topmarketer  gapTopsmall={gapTopsmall} mountlyTop={mountlyTop} receiptTop={receiptTop}  gaptopmarketer={gaptopmarketer} lighttopmrketer={lighttopmrketer} havytopmarketer={havytopmarketer} topmarketerAmount={topmarketerAmount} topmarketerBalance={topmarketerBalance} topmarketerPrice={topmarketerPrice} topmarketerEarned={topmarketerEarned} top />
+                                    <Champion remind3k={remind3k} gaptoNextLot={gaptoNextLot} state={state} mountlyCampion={mountlyCampion} receiptchampion={receiptchampion} tenlevel={tenlevel} lightchampion={lightchampion} ChampionAmount={ChampionAmount} ChampionPrice={ChampionPrice} ChampionBalance={ChampionBalance} championEarned={championEarned} allhand={allhand} />
                                 </div>
                                 <div className="row">
                                     <Footer />

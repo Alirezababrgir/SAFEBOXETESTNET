@@ -1,6 +1,5 @@
 import { FaRegArrowAltCircleDown } from "react-icons/fa";
 import { Divider } from "@mui/material";
-import binarypng from "../../../../../assets/banners/binary.png"
 const Binary = ({receiptbinary,balance,lotprice,lotpamount,havy,light,Earned,dailyBinary}) => {
     return (
         <div className="col-md-6 col-lg-4">
@@ -51,12 +50,12 @@ const Binary = ({receiptbinary,balance,lotprice,lotpamount,havy,light,Earned,dai
                                             <div className="widget-content p-0">
                                                 <div className="widget-content-wrapper">
                                                     <div className="widget-content">
-                                                        <h4 className="widget-heading text-success">{havy}$</h4>
+                                                        <h4 className="widget-heading text-success">{havy} $</h4>
                                                     </div>
 
                                                     <div className="widget-content-right">
                                                         <div className="font-size-xlg">
-                                                            <h4 className="widget-heading text-danger">{light}$</h4>
+                                                            <h4 className="widget-heading text-danger">{light} $</h4>
                                                         </div>
                                                     </div>
                                                 </div>
