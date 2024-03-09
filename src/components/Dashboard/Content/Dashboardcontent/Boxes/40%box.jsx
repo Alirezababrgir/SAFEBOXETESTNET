@@ -29,9 +29,9 @@ const BOX_40 = () => {
 
                 //GET MLM BLOCKING STATE
                 const mlm = await safebox.methods.getMyMlmBlockingState().call({ "from": accounts[0] });
-                console.log(mlm)
+                //console.log(mlm)
                 setzeroValue(Number(mlm._blockState))
-                console.log(mlm._blockState)
+                //console.log(mlm._blockState)
                 settimer((mlm._blockedTime))
 
 

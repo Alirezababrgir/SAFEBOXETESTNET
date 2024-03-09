@@ -88,7 +88,7 @@ const Office = () => {
                 sethavy(String(getMyBinaryState._bigHandBalance).slice(0, -8))
                 setreceiptbinary(String(getMyBinaryState._receipt).slice(0, -8))
                 setdailyBinary(String( getMyBinaryState._lotsEarned)*String(getMyBinaryState._lotPrice).slice(0, -8))
-                console.log(getMyBinaryState)
+                //console.log(getMyBinaryState)
 
 
                 //MY CHAMPION STATE
@@ -106,7 +106,7 @@ const Office = () => {
                 setstate(Number( getMyBestState._state))
                 setgaptoNextLot(String( getMyBestState._gapToNextLot).slice(0, -8))
                 setremind3k(String(getMyBestState._remainedSmallHandSalesTo3K).slice(0, -8))
-                console.log(getMyBestState)
+                //console.log(getMyBestState)
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
@@ -121,7 +121,7 @@ const Office = () => {
                 setreceiptTop(String(getMyTopMarketerState._receipt).slice(0, -8))
                 setmountlyTop(String(getMyTopMarketerState._lotsEarned)*String(getMyTopMarketerState._lotPrice).slice(0, -8))
                 setgapTopsmall(String(getMyTopMarketerState._smallGapToNextLot).slice(0, -8))
-                console.log(getMyTopMarketerState)
+                //console.log(getMyTopMarketerState)
 
 
                 //GET MY BENEFIT

@@ -78,7 +78,7 @@ const Homecontent = () => {
 
                 //GET USECOUNT
                 const getusecount = await safebox.methods.getUsersCount().call({ "from": accounts[0] });
-                console.log(getusecount)
+                //console.log(getusecount)
                 setallusers(String(getusecount))
 
 
@@ -88,7 +88,7 @@ const Homecontent = () => {
                 setbalance(String(getMyBinaryState._poolBalance)/100000000)
                 setlotprice(String(getMyBinaryState._lotPrice).slice(0, -8))
                 setlotamount(String(getMyBinaryState._lotsAmount))
-                console.log(getMyBinaryState)
+                //console.log(getMyBinaryState)
 
 
                 //MY CHAMPION STATE
@@ -97,11 +97,11 @@ const Homecontent = () => {
                 setChampionBalance(String(getMyBestState._poolBalance)/100000000)
                 setChampionAmount(String(getMyBestState._lotsAmount))
                 setChampionPrice(String(getMyBestState._lotPrice).slice(0, -8))
-                console.log(getMyBestState)
+                //console.log(getMyBestState)
 
                 //MY TOPMARKETER STATE
                 const getMyTopMarketerState = await safebox.methods.getMyTopMarketerState().call({ "from": accounts[0] });
-                console.log(getMyTopMarketerState)
+                // console.log(getMyTopMarketerState)
                 //SET DATA TOPMARKETER BOX
                 settopmarketerBalance(String(getMyTopMarketerState._poolBalance)/100000000)
                 settopmarketerAmount(String(getMyTopMarketerState._lotsAmount))
@@ -111,7 +111,7 @@ const Homecontent = () => {
 
                 //GET PAYMENT SUM
                 const getpaymentsum = await safebox.methods.getPaymentSum().call({ "from": accounts[0] });
-                console.log(getpaymentsum)
+                //console.log(getpaymentsum)
                 setPaymentum(String(getpaymentsum).slice(0, -8))
 
 

@@ -47,7 +47,7 @@ const Timerunilevel = ({ timer }) => {
                         <div class="timer-box">
                             <div id="flip-sheet-day" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="days" class="primary">{formattedDays}</p>
+                            <p id="days" class="primary">00</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">DAYS</p>
@@ -57,7 +57,7 @@ const Timerunilevel = ({ timer }) => {
                         <div class="timer-box">
                             <div id="flip-sheet-hour" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="hours" class="primary">{formattedHours}</p>
+                            <p id="hours" class="primary">00</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">HOURS</p>
@@ -67,7 +67,7 @@ const Timerunilevel = ({ timer }) => {
                         <div class="timer-box">
                             <div id="flip-sheet-min" class="sheet"></div>
                             <div class="circle-left"></div>
-                            <p id="minutes" class="primary">{formattedMinutes}</p>
+                            <p id="minutes" class="primary">00</p>
                             <div class="circle-right"></div>
                         </div>
                         <p class="sub-heading">MINUTES</p>
